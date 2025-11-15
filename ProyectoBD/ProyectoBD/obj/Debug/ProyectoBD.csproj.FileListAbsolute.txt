@@ -1,0 +1,10 @@
+C:\Users\infor\OneDrive\Desktop\ProyectoBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.csproj.AssemblyReference.cache
+C:\Users\infor\OneDrive\Desktop\ProyectoBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.PantallaPrincipal.resources
+C:\Users\infor\OneDrive\Desktop\ProyectoBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.Properties.Resources.resources
+C:\Users\infor\OneDrive\Desktop\ProyectoBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.csproj.GenerateResource.cache
+C:\Users\infor\OneDrive\Desktop\ProyectoBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.csproj.CoreCompileInputs.cache
+C:\Users\infor\OneDrive\Desktop\ProyectoBD\ProyectoBD\ProyectoBD\bin\Debug\ProyectoBD.exe.config
+C:\Users\infor\OneDrive\Desktop\ProyectoBD\ProyectoBD\ProyectoBD\bin\Debug\ProyectoBD.exe
+C:\Users\infor\OneDrive\Desktop\ProyectoBD\ProyectoBD\ProyectoBD\bin\Debug\ProyectoBD.pdb
+C:\Users\infor\OneDrive\Desktop\ProyectoBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.exe
+C:\Users\infor\OneDrive\Desktop\ProyectoBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.pdb
