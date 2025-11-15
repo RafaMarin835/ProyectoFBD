@@ -30,13 +30,13 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtIdentificacion = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
@@ -55,6 +55,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnAgregarModificar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -76,16 +77,16 @@
             this.label2.Text = "Nombre completo :";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(137, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtNombre.Location = new System.Drawing.Point(137, 66);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(129, 20);
+            this.txtNombre.TabIndex = 2;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(93, 96);
+            this.textBox2.Location = new System.Drawing.Point(93, 379);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(129, 20);
             this.textBox2.TabIndex = 3;
@@ -118,12 +119,12 @@
             this.textBox7.Size = new System.Drawing.Size(129, 20);
             this.textBox7.TabIndex = 8;
             // 
-            // textBox8
+            // txtIdentificacion
             // 
-            this.textBox8.Location = new System.Drawing.Point(114, 376);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(129, 20);
-            this.textBox8.TabIndex = 9;
+            this.txtIdentificacion.Location = new System.Drawing.Point(117, 104);
+            this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Size = new System.Drawing.Size(129, 20);
+            this.txtIdentificacion.TabIndex = 9;
             // 
             // textBox9
             // 
@@ -163,7 +164,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 103);
+            this.label3.Location = new System.Drawing.Point(35, 386);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 16;
@@ -208,7 +209,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(35, 379);
+            this.label9.Location = new System.Drawing.Point(38, 107);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 13);
             this.label9.TabIndex = 22;
@@ -278,11 +279,22 @@
             this.label6.Text = "Fecha de nacimiento (YYYY/MM/DD)";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // btnAgregarModificar
+            // 
+            this.btnAgregarModificar.Location = new System.Drawing.Point(375, 551);
+            this.btnAgregarModificar.Name = "btnAgregarModificar";
+            this.btnAgregarModificar.Size = new System.Drawing.Size(124, 46);
+            this.btnAgregarModificar.TabIndex = 31;
+            this.btnAgregarModificar.Text = "Agregar/Modificar Cliente";
+            this.btnAgregarModificar.UseVisualStyleBackColor = true;
+            this.btnAgregarModificar.Click += new System.EventHandler(this.btnAgregarModificar_Click);
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 761);
+            this.Controls.Add(this.btnAgregarModificar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label14);
@@ -301,13 +313,13 @@
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.txtIdentificacion);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Clientes";
@@ -321,13 +333,13 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtIdentificacion;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
@@ -346,5 +358,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnAgregarModificar;
     }
 }

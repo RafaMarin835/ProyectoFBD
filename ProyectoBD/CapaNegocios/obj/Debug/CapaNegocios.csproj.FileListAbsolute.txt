@@ -1,0 +1,11 @@
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\CapaNegocios\obj\Debug\CapaNegocios.csproj.AssemblyReference.cache
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\CapaNegocios\obj\Debug\CapaNegocios.csproj.CoreCompileInputs.cache
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\CapaNegocios\bin\Debug\CapaNegocios.dll
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\CapaNegocios\bin\Debug\CapaNegocios.pdb
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\CapaNegocios\bin\Debug\CapaDatos.dll
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\CapaNegocios\bin\Debug\Entidades.dll
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\CapaNegocios\bin\Debug\CapaDatos.pdb
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\CapaNegocios\bin\Debug\Entidades.pdb
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\CapaNegocios\obj\Debug\CapaNego.1D246B3C.Up2Date
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\CapaNegocios\obj\Debug\CapaNegocios.dll
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\CapaNegocios\obj\Debug\CapaNegocios.pdb

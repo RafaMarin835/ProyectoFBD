@@ -47,17 +47,31 @@ INSERT INTO Proveedores (Nombre_Proveedor, Correo, Telefono, Direccion, Activo) 
 Go
 
 --Productos
-INSERT INTO Productos (ID_Proveedor, NombreProducto, Descripcion, Precio, Stock, Activo) VALUES
-(1, 'Galletas Choco', 'Galletas de chocolate', 800, 50, 1),
-(1, 'Refresco Cola', 'Bebida gaseosa 600ml', 900, 100, 1),
-(2, 'Arroz 1kg', 'Arroz blanco', 1200, 200, 1),
-(2, 'Frijoles Negros', 'Frijoles en bolsa 900g', 1000, 150, 1),
-(3, 'Jugo Natural', 'Jugo de naranja 1L', 1300, 80, 1),
-(3, 'Agua embotellada', 'Botella 600ml', 600, 300, 1),
-(4, 'Leche Entera', 'Leche 1L', 950, 120, 1),
-(4, 'Queso Turrialba', 'Queso fresco 500g', 1800, 60, 1),
-(5, 'Zanahoria', 'Zanahoria fresca 1kg', 700, 90, 1),
-(5, 'Tomate', 'Tomate rojo 1kg', 850, 100, 1);
+INSERT INTO Productos (NombreProducto, Descripcion, Precio, Stock, Activo) VALUES
+('Galletas Choco', 'Galletas de chocolate', 800, 50, 1),
+('Refresco Cola', 'Bebida gaseosa 600ml', 900, 100, 1),
+('Arroz 1kg', 'Arroz blanco', 1200, 200, 1),
+('Frijoles Negros', 'Frijoles en bolsa 900g', 1000, 150, 1),
+('Jugo Natural', 'Jugo de naranja 1L', 1300, 80, 1),
+('Agua embotellada', 'Botella 600ml', 600, 300, 1),
+('Leche Entera', 'Leche 1L', 950, 120, 1),
+('Queso Turrialba', 'Queso fresco 500g', 1800, 60, 1),
+('Zanahoria', 'Zanahoria fresca 1kg', 700, 90, 1),
+('Tomate', 'Tomate rojo 1kg', 850, 100, 1);
+Go
+
+--Compra proveedores
+INSERT INTO CompraProveedores (ID_Proveedor, ID_Producto, Descripcion, Cant_Comprada, Total, Fecha_Compra, Activo) VALUES
+(1, 1, 'Compra mensual de galletas', 100, 80000, '2025-10-01', 1),
+(1, 2, 'Refrescos para fin de semana', 150, 135000, '2025-10-05', 1),
+(2, 3, 'Arroz y frijoles', 200, 220000, '2025-10-03', 1),
+(3, 5, 'Jugo y agua', 180, 180000, '2025-10-04', 1),
+(4, 7, 'Lácteos variados', 120, 150000, '2025-10-06', 1),
+(5, 9, 'Verduras frescas', 90, 72000, '2025-10-07', 1),
+(2, 3, 'Reabastecimiento arroz', 100, 120000, '2025-10-10', 1),
+(3, 5, 'Jugo adicional', 50, 65000, '2025-10-12', 1),
+(4, 8, 'Queso fresco', 60, 108000, '2025-10-15', 1),
+(5, 10, 'zanahorias', 120, 96000, '2025-10-18', 1);
 Go
 
 --Ventas
@@ -94,20 +108,6 @@ INSERT INTO Detalle_Venta (ID_Venta, ID_Producto, Cantidad) VALUES
 (8, 10, 1),
 (9, 1, 3),
 (10, 2, 2);
-Go
-
---Compra proveedores
-INSERT INTO CompraProveedores (ID_Proveedor, Descripcion, Cant_Comprada, Total, Fecha_Compra, Activo) VALUES
-(1, 'Compra mensual de galletas', 100, 80000, '2025-10-01', 1),
-(1, 'Refrescos para fin de semana', 150, 135000, '2025-10-05', 1),
-(2, 'Arroz y frijoles', 200, 220000, '2025-10-03', 1),
-(3, 'Jugo y agua', 180, 180000, '2025-10-04', 1),
-(4, 'Lácteos variados', 120, 150000, '2025-10-06', 1),
-(5, 'Verduras frescas', 90, 72000, '2025-10-07', 1),
-(2, 'Reabastecimiento arroz', 100, 120000, '2025-10-10', 1),
-(3, 'Jugo adicional', 50, 65000, '2025-10-12', 1),
-(4, 'Queso fresco', 60, 108000, '2025-10-15', 1),
-(5, 'Tomates y zanahorias', 120, 96000, '2025-10-18', 1);
 Go
 
 --Tipo membresias

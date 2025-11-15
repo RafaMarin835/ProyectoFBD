@@ -36,7 +36,7 @@ CREATE TABLE Clientes (
   Correo VARCHAR(100) NOT NULL,
   Genero VARCHAR(100) NOT NULL,
   Fecha_Registro DATETIME NOT NULL,
-  Identificacion VARCHAR(100) NOT NULL,
+  Identificacion VARCHAR(100) UNIQUE NOT NULL,
   ID_Provincia INT NOT NULL,
   ID_Canton INT NOT NULL,
   ID_Distrito INT NOT NULL,
@@ -67,13 +67,25 @@ Go
 
 CREATE TABLE Productos (
   ID_Producto INT PRIMARY KEY IDENTITY(1,1),
-  ID_Proveedor int not null,
   NombreProducto varchar(100) not null,
   Descripcion varchar(100) not null,
   Precio decimal not null,
   Stock int not null,
+  Activo bit not null
+);
+Go
+
+CREATE TABLE CompraProveedores (
+  ID_C_Proveedor INT PRIMARY KEY IDENTITY(1,1),
+  ID_Proveedor int not null,
+  ID_Producto int not null,
+  Descripcion varchar(200),
+  Cant_Comprada int not null,
+  Total decimal not null,
+  Fecha_Compra date not null,
   Activo bit not null,
-  FOREIGN KEY (ID_Proveedor) REFERENCES Proveedores(ID_Proveedor)
+  FOREIGN KEY (ID_Proveedor) REFERENCES Proveedores(ID_Proveedor),
+  FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto)
 );
 Go
 
@@ -97,25 +109,12 @@ CREATE TABLE Detalle_Venta (
 );
 Go
 
-
-CREATE TABLE CompraProveedores (
-  ID_C_Proveedor INT PRIMARY KEY IDENTITY(1,1),
-  ID_Proveedor int not null,
-  Descripcion varchar(200),
-  Cant_Comprada int not null,
-  Total decimal not null,
-  Fecha_Compra date not null,
-  Activo bit not null,
-  FOREIGN KEY (ID_Proveedor) REFERENCES Proveedores(ID_Proveedor)
-);
-Go
-
 CREATE TABLE Tipo_Membresias (
   ID_T_Membresia INT PRIMARY KEY IDENTITY(1,1),
   Descripcion varchar(100) not null,
   Costo_Mensual decimal not null,
-  CompraxPunto decimal not null,
-  Valor_Puntos decimal not null,
+  CompraxPunto decimal not null, --cuanto debo gastar para obtener un punto
+  Valor_Puntos decimal not null, --Cuanto vale cada punto al cambiarlo por valor real
   Activo bit not null
 );
 Go

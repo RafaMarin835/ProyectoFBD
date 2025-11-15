@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="ProyectoBD/ProyectoBD.csproj" />
+  <Project Path="CapaDatos/CapaDatos.csproj" Id="7c0702b0-f182-46a7-90b1-5528e716f861" />
+  <Project Path="CapaNegocios/CapaNegocios.csproj" Id="b0e5a6c3-be04-4b16-8aad-0c1aed44137b" />
+  <Project Path="Entidades/Entidades.csproj" Id="1d9bd5dc-15bd-4d87-89a7-9fce79e62823" />
+  <Project Path="ProyectoBD/ProyectoBD.csproj" Id="8267b386-4cb6-4dab-9b3e-2023097f86d9" />
 </Solution>
