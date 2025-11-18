@@ -1,0 +1,1 @@
+//Funciones y métodos generales para las demás clases 
