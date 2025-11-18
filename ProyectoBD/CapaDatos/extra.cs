@@ -26,3 +26,34 @@ public void GuardarProveedor(ClaseProveedor proveedor)
         new SqlParameter("@Activo", proveedor.Activo)
     );
 }
+
+
+
+public void GuardarProducto(ClaseProducto producto)
+{
+    string ComandoSQL = @"
+    IF EXISTS (SELECT 1 FROM Productos WHERE ID_Producto = @ID_Producto)
+    BEGIN
+        UPDATE Productos
+        SET NombreProducto = @NombreProducto,
+            Descripcion = @Descripcion,
+            Precio = @Precio,
+            Stock = @Stock,
+            Activo = @Activo
+        WHERE ID_Producto = @ID_Producto
+    END
+    ELSE
+    BEGIN
+        INSERT INTO Productos (NombreProducto, Descripcion, Precio, Stock, Activo)
+        VALUES (@NombreProducto, @Descripcion, @Precio, @Stock, @Activo)
+    END";
+
+    ActualizarDB(ComandoSQL,
+        new SqlParameter("@ID_Producto", producto.ID_Producto),
+        new SqlParameter("@NombreProducto", producto.NombreProducto),
+        new SqlParameter("@Descripcion", producto.Descripcion),
+        new SqlParameter("@Precio", producto.Precio),
+        new SqlParameter("@Stock", producto.Stock),
+        new SqlParameter("@Activo", producto.Activo)
+    );
+}
