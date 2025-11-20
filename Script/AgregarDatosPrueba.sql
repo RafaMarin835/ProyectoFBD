@@ -1,11 +1,5 @@
 Use ElQuiosco
 
-select * from PROVINCIAS
-select * from CANTON
-where ID_PROVINCIA = 2
-select * from DISTRITO
-where ID_CANTON = 27
-
 -- CLIENTES
 
 INSERT INTO Clientes (Nombre, Direccion, Estado_Civil, Telefono, Fecha_Nacimiento, Correo, Genero, Fecha_Registro, Identificacion, ID_Provincia, ID_Canton, ID_Distrito, Activo) VALUES
@@ -32,32 +26,32 @@ INSERT INTO Clientes (Nombre, Direccion, Estado_Civil, Telefono, Fecha_Nacimient
 ('Diego Méndez', 'Guápiles', 'Casado', '8888-0020', '1981-12-12', 'diego@example.com', 'Masculino', GETDATE(), '20-1010-2233', 7, 16, 20, 1);
 Go
 
---Roles
-INSERT INTO Roles (ID_Cliente, Descripcion) VALUES
-(1, 'Administrador');
-Go
+--Empleados
+exec sp_Empleado '1-1795-0957', 'Rafael Marin', '11111111', 'rm@example.com', 200000, 'Cartago oreamuno', 'Soltero',  '2000-01-01', 'Maculino', '2025-11-20', 133, 1
+exec sp_Empleado '1-1111-1111', 'Pepe', '22222222', 'ty@example.com', 500000, 'asd', 'Soltero',  '1991-03-10', 'Maculino', '2025-11-20', 57, 1
+
 
 --Proveedores
-INSERT INTO Proveedores (Nombre_Proveedor, Correo, Telefono, Direccion, Activo) VALUES
-('Distribuidora El Sol', 'sol@proveedores.com', '2222-1111', 'San José', 1),
-('Alimentos Tico', 'tico@proveedores.com', '2222-2222', 'Cartago', 1),
-('Bebidas del Valle', 'valle@proveedores.com', '2222-3333', 'Heredia', 1),
-('Lácteos del Norte', 'norte@proveedores.com', '2222-4444', 'Alajuela', 1),
-('Verduras Frescas', 'verduras@proveedores.com', '2222-5555', 'Limón', 1); 
+INSERT INTO Proveedores (Cedula_Proveedor, Nombre_Proveedor, Correo, Telefono, Direccion, Fecha_Registro, Activo) VALUES
+('1-1111-1111', 'Distribuidora El Sol', 'sol@proveedores.com', '2222-1111', 'San José', GETDATE(), 1),
+('1-1111-1112', 'Alimentos Tico', 'tico@proveedores.com', '2222-2222', 'Cartago', GETDATE(), 1),
+('1-1111-1113', 'Bebidas del Valle', 'valle@proveedores.com', '2222-3333', 'Heredia', GETDATE(), 1),
+('1-1111-1114', 'Lácteos del Norte', 'norte@proveedores.com', '2222-4444', 'Alajuela', GETDATE(), 1),
+('1-1111-1115', 'Verduras Frescas', 'verduras@proveedores.com', '2222-5555', 'Limón', GETDATE(), 1); 
 Go
 
 --Productos
-INSERT INTO Productos (NombreProducto, Descripcion, Precio, Stock, Activo) VALUES
-('Galletas Choco', 'Galletas de chocolate', 800, 50, 1),
-('Refresco Cola', 'Bebida gaseosa 600ml', 900, 100, 1),
-('Arroz 1kg', 'Arroz blanco', 1200, 200, 1),
-('Frijoles Negros', 'Frijoles en bolsa 900g', 1000, 150, 1),
-('Jugo Natural', 'Jugo de naranja 1L', 1300, 80, 1),
-('Agua embotellada', 'Botella 600ml', 600, 300, 1),
-('Leche Entera', 'Leche 1L', 950, 120, 1),
-('Queso Turrialba', 'Queso fresco 500g', 1800, 60, 1),
-('Zanahoria', 'Zanahoria fresca 1kg', 700, 90, 1),
-('Tomate', 'Tomate rojo 1kg', 850, 100, 1);
+INSERT INTO Productos (Codigo_Producto, NombreProducto, Categoria, Precio, PrecioProveedor, Stock, Fecha_Registro, Activo) VALUES
+('0001', 'Galletas Choco', 'Galletas', 800, 750, 50, GETDATE(), 1),
+('0002', 'Refresco Cola', 'Bebida', 900, 800, 100, GETDATE(), 1),
+('0003', 'Arroz 1kg', 'Arroz', 1200, 200, 180, GETDATE(), 1),
+('0004', 'Frijoles Negros', 'Frijoles', 1000, 750, 150, GETDATE(), 1),
+('0005', 'Jugo Natural', 'Bebida', 1300, 1225, 80, GETDATE(), 1),
+('0006', 'Agua embotellada', 'Bebida', 600, 550, 300, GETDATE(), 1),
+('0007', 'Leche Entera', 'Lacteo', 950, 900, 120, GETDATE(), 1),
+('0008', 'Queso Turrialba', 'Lacteo', 1800, 1600, 60, GETDATE(), 1),
+('0009', 'Zanahoria', 'Verduras', 700, 689, 90, GETDATE(), 1),
+('0010', 'Tomate', 'Fruta', 850, 750, 100, GETDATE(), 1);
 Go
 
 --Compra proveedores
@@ -117,28 +111,28 @@ INSERT INTO Tipo_Membresias (Descripcion, Costo_Mensual, CompraxPunto, Valor_Pun
 ('VIP', 7500, 50, 20, 1);
 
 --Membresias
-INSERT INTO Membresias (ID_Cliente, ID_T_Membresia, Total_Puntos, Activo) VALUES
-(1, 2, 150, 1),
-(2, 1, 80, 1),
-(3, 3, 300, 1),
-(4, 2, 120, 1),
-(5, 1, 60, 1),
-(6, 2, 100, 1),
-(7, 3, 250, 1),
-(8, 1, 40, 1),
-(9, 2, 90, 1),
-(10, 3, 200, 1);
+INSERT INTO Membresias (ID_Cliente, ID_T_Membresia, Total_Puntos, Fecha_Contrato, Activo) VALUES
+(1, 1, 150, GETDATE(), 1),
+(2, 2, 80, GETDATE(), 1),
+(3, 3, 300, GETDATE(), 1),
+(4, 1, 120, GETDATE(), 1),
+(5, 2, 60, GETDATE(), 1),
+(6, 3, 100, GETDATE(), 1),
+(7, 1, 250, GETDATE(), 1),
+(8, 2, 40, GETDATE(), 1),
+(9, 3, 90, GETDATE(), 1),
+(10, 1, 200, GETDATE(), 1);
 Go
 
---Estado membresias
-INSERT INTO Estado_Membresias (ID_Membresia, Fecha_Contrato, Descripcion, Fecha_Proximo_Pago, Fecha_Ultimo_Pago, Activo) VALUES
-(1, '2025-10-01', 'Pagado', '2025-11-01', '2025-10-01', 1),
-(2, '2025-10-05', 'Pendiente', '2025-11-05', '2025-10-05', 1),
-(3, '2025-09-15', 'Pagado', '2025-10-15', '2025-09-15', 1),
-(4, '2025-10-10', 'Pagado', '2025-11-10', '2025-10-10', 1),
-(5, '2025-10-20', 'Retrasado', '2025-11-20', '2025-10-20', 1),
-(6, '2025-11-01', 'Pagado', '2025-12-01', '2025-11-01', 1),
-(7, '2025-11-05', 'Pagado', '2025-12-05', '2025-11-05', 1),
-(8, '2025-11-07', 'Pendiente', '2025-12-07', '2025-11-07', 1),
-(9, '2025-11-10', 'Pagado', '2025-12-10', '2025-11-10', 1),
-(10, '2025-11-12', 'Pagado', '2025-12-12', '2025-11-12', 1);
+--Pagoy estado membresias
+
+exec sp_PagoMembresia 1, 2500, 'Retrasado', 15, '2025-10-01', 1
+exec sp_PagoMembresia 2, 5000, 'Pendiente', 30, '2025-10-22', 1
+exec sp_PagoMembresia 3, 7500, 'Pagado', 30,'2025-11-15', 1
+exec sp_PagoMembresia 4, 2500, 'Pagado', 30, '2025-11-10', 1
+exec sp_PagoMembresia 5, 5000, 'Retrasado', 30, '2025-10-20', 1
+exec sp_PagoMembresia 6, 7500, 'Pagado', 25, '2025-11-01', 1
+exec sp_PagoMembresia 7, 2500, 'Pagado', 25, '2025-11-05', 1
+exec sp_PagoMembresia 8, 5000, 'Pendiente', 30, '2025-11-07', 1
+exec sp_PagoMembresia 9, 7500, 'Pagado', 10, '2025-11-10', 1
+exec sp_PagoMembresia 10, 2500, 'Pagado', 15, '2025-11-12', 1

@@ -98,7 +98,7 @@ namespace CapaDatos // De momento se ingnora
             }
         }
 
-        public void GuardarCliente(ClaseCliente cliente ) // Método para guardar o actualizar un usuario
+        public void GuardarClienteEEE(ClaseCliente cliente) // Método para guardar o actualizar un usuario
         {
             string ComandoSQL = @"
         IF EXISTS (SELECT 1 FROM Usuarios WHERE Identificacion = @Identificacion)
@@ -140,11 +140,32 @@ namespace CapaDatos // De momento se ingnora
                 );
         }
 
+        public void GuardarCliente(ClaseCliente cliente) // Método para guardar o actualizar un usuario
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_Cliente", _conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Identificacion", cliente.Identificacion);
+                cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
+                cmd.Parameters.AddWithValue("@Direccion", cliente.Direccion);
+                cmd.Parameters.AddWithValue("@Estado_Civil", cliente.EstadoCivil);
+                cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
+                cmd.Parameters.AddWithValue("@Fecha_Nacimiento", cliente.Fecha_Nacimiento);
+                cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
+                cmd.Parameters.AddWithValue("@Genero", cliente.Genero);
+                cmd.Parameters.AddWithValue("@Fecha_Registro", cliente.FechaRegistro);
+                cmd.Parameters.AddWithValue("@ID_Distrito", cliente.ID_Distrito);
 
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al guardar el cliente: " + ex.Message);
+            }
 
+            #endregion
 
-
-        #endregion
-
+        }
     }
 }
