@@ -8,18 +8,23 @@ namespace Entidades
 {
     internal class ClaseProveedor
     {
+        string _cedula_proveedor;
         string _nombreProveedor;
         string _correo;
         string _telefono;
         string _direccion;
+        DateTime _fechaRegistro;
+        int _activo;
 
 
         public string NombreProveedor { get => _nombreProveedor; set => _nombreProveedor = value; }
         public string Correo { get => _correo; set => _correo = value; }
         public string Telefono { get => _telefono; set => _telefono = value; }
         public string Direccion { get => _direccion; set => _direccion = value; }
+        public DateTime FechaRegistro { get => _fechaRegistro; set => _fechaRegistro = value; }
+        public string Cedula_proveedor { get => _cedula_proveedor; set => _cedula_proveedor = value; }
 
-        public void ValidarProveedor()
+        public void esValido()
         {
             if (string.IsNullOrEmpty(_nombreProveedor))
             {
@@ -36,6 +41,14 @@ namespace Entidades
             if (string.IsNullOrEmpty(_direccion))
             {
                 throw new Exception("La dirección del proveedor no puede estar vacía.");
+            }
+            if (_fechaRegistro > DateTime.Now)
+            {
+                throw new Exception("La fecha de registro no puede ser en el futuro.");
+            }
+            if (string.IsNullOrEmpty(_cedula_proveedor))
+            {
+                throw new Exception("La cédula del proveedor no puede estar vacía.");
             }
         }
 

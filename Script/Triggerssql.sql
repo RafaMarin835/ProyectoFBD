@@ -1,3 +1,6 @@
+use ElQuiosco
+go
+
 CREATE TRIGGER trg_PrevenirDeleteProductoConStock --Para evitar que se eliminen productos que tengan stock
 ON Productos
 AFTER DELETE
@@ -42,6 +45,21 @@ BEGIN
 END;
 GO
 
+---********************************Agregar membresia de miembro a un cliente nuevo
+CREATE TRIGGER trg_CrearMembresiaInicial
+ON Clientes
+AFTER INSERT
+AS
+BEGIN
+    DECLARE @ID_Cliente int, @t_membresia INT, @fecha_registro date; --cliente cnuevo y tipo de membresia por defecto
+
+    select @t_membresia = ID_T_Membresia from Tipo_Membresias where Descripcion = 'Miembro';
+    SELECT @ID_Cliente = i.ID_Cliente, @fecha_registro = i.Fecha_Registro FROM inserted i;
+
+    exec sp_Membresia @ID_Cliente, @t_membresia, 30, @Fecha_Registro
+END;
+GO
+
 ---********************************Eliminar una mebresia, pero solo si el ultimo pago no es mayor a 10 dias
 CREATE TRIGGER trg_EliminarMembresia
 ON Membresias
@@ -50,7 +68,7 @@ AS
 BEGIN
     -- Verificamos cada membresía que se intenta eliminar
     IF EXISTS ( SELECT 1 FROM deleted d 
-                INNER JOIN Estado_Membresias e ON d.ID_Membresia = e.ID_Membresia
+                INNER JOIN Pago_Membresias e ON d.ID_Membresia = e.ID_Membresia
                 WHERE DATEDIFF(DAY, e.Fecha_Ultimo_Pago, GETDATE()) > 10)
     BEGIN
         RAISERROR('No se puede eliminar la membresía: han pasado más de 10 días desde el último pago.', 16, 1);
@@ -60,6 +78,18 @@ BEGIN
     -- Si cumple la condición (< 10 días) entonces lo elimino
     DELETE FROM Membresias
     WHERE ID_Membresia IN (SELECT ID_Membresia FROM deleted);
+END;
+GO
+
+---********************************Reactivar membresia al realizar pago
+CREATE TRIGGER trg_ActivarMembresiaConPago
+ON Pago_Membresias
+AFTER INSERT
+AS
+BEGIN
+  UPDATE Membresias
+  SET Activo = 1
+  WHERE ID_Membresia IN (SELECT ID_Membresia FROM inserted);
 END;
 GO
 
@@ -77,18 +107,6 @@ BEGIN
     RAISERROR('Stock insuficiente para realizar la venta.', 16, 1);
     ROLLBACK TRANSACTION;
   END
-END;
-GO
-
----********************************Reactivar membresia al realizar pago
-CREATE TRIGGER trg_ActivarMembresiaConPago
-ON Pago_Membresias
-AFTER INSERT
-AS
-BEGIN
-  UPDATE Membresias
-  SET Activo = 1
-  WHERE ID_Membresia IN (SELECT ID_Membresia FROM inserted);
 END;
 GO
 

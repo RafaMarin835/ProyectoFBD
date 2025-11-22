@@ -6,22 +6,24 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class ClaseCliente
+    public class ClaseEmpleado
     {
         //Cliente
         string _identificacion;
         string _nombre;
+        string _telefono;
+        string _correo;
+        float _salario;
         string _direccion;
         string _estadoCivil;
-        string _telefono;
         DateTime _fecha_Nacimiento;
-        string _correo;
         string _genero;
         DateTime _fechaRegistro;
         string _id_Distrito;
         int _activo;
 
         public string Nombre { get => _nombre; set => _nombre = value; }
+        public float Salario { get => _salario; set => _salario = value; }
         public string Direccion { get => _direccion; set => _direccion = value; }
         public string EstadoCivil { get => _estadoCivil; set => _estadoCivil = value; }
         public string Telefono { get => _telefono; set => _telefono = value; }
@@ -58,6 +60,8 @@ namespace Entidades
                 throw new Exception("El distrito no puede estar vacío.");
             if (Activo != 1 && Activo != 0)
                 throw new Exception("El estado de activo debe ser verdadero (1) o falso (0).");
+            if (Salario < 0)
+                throw new Exception("El salario no puede ser negativo.");
         } //fin validaciones
 
 

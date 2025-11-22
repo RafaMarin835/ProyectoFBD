@@ -153,9 +153,10 @@ Go
 
 CREATE TABLE Membresias (
   ID_Membresia INT PRIMARY KEY IDENTITY(1,1),
-  ID_Cliente int not null,
+  ID_Cliente int unique not null,
   ID_T_Membresia int not null,
   Fecha_Contrato date not null,
+  Frecuencia_Pago int not null, --en dias cada cuanto se paga
   Total_Puntos int not null,
   Activo bit not null,
   FOREIGN KEY (ID_T_Membresia) REFERENCES Tipo_Membresias(ID_T_Membresia),
@@ -167,18 +168,11 @@ CREATE TABLE Pago_Membresias (
   ID_Pago_M INT PRIMARY KEY IDENTITY(1,1),
   ID_Membresia int not null,
   Monto decimal not null,
-  FOREIGN KEY (ID_Membresia) REFERENCES Membresias(ID_Membresia)
-);
-go
-
-CREATE TABLE Estado_Membresias (
-  ID_E_Membresia INT PRIMARY KEY IDENTITY(1,1),
-  ID_Membresia int not null,
   Descripcion varchar(200),
-  Frecuencia_Pago int not null, --en dias cada cuanto se paga
   Fecha_Ultimo_Pago date not null,
   FOREIGN KEY (ID_Membresia) REFERENCES Membresias(ID_Membresia)
 );
+go
 
 
 --Tabla de auditoria, saber quien hizo alteraciones
@@ -191,3 +185,4 @@ CREATE TABLE AuditoriaGeneral (
   Fecha date not null,
   FOREIGN KEY (ID_Empleado) REFERENCES Empleados(ID_Empleado)
 );
+go

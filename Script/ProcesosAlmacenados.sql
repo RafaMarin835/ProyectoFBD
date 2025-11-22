@@ -1,4 +1,18 @@
 use ElQuiosco
+go
+
+  --***************************************Para registrar mebresias (se crean "solas" al agregar usuarios)*********************
+CREATE PROCEDURE sp_Membresia
+  @ID_Cliente int,
+  @ID_T_Membresia int ,
+  @Frecuencia_Pago int, --en dias cada cuanto paga
+  @Fecha_Contrato Date
+AS
+BEGIN
+  INSERT INTO Membresias (ID_Cliente, ID_T_Membresia, Fecha_Contrato, Total_Puntos, Frecuencia_Pago, Activo)
+  VALUES (@ID_Cliente, @ID_T_Membresia, @Fecha_Contrato, 0, @Frecuencia_Pago,  1);
+END;
+GO
 
 --***************************************Para agregar y modificar clientes*********************
 CREATE PROCEDURE sp_Cliente
@@ -15,15 +29,14 @@ CREATE PROCEDURE sp_Cliente
     @Activo bit
 AS
 BEGIN
-    Declare @ID_Canton AS Varchar(100) --para declarar variable Global
+    Declare @ID_Canton AS Varchar(100), @ID_Provincia AS Varchar(100), @ultimoID as int, @t_membresia as int --para declarar variable Global
+
     set @ID_Canton = (select C.ID_Canton from CANTON C
                         join DISTRITO D on D.ID_CANTON = C.ID_Canton
                         where D.ID_Distrito = @ID_Distrito)
-    Declare @ID_Provincia AS Varchar(100) --para declarar variable Global
     set @ID_Provincia = (select P.ID_Provincia from PROVINCIAS P
                         join CANTON C on P.ID_Provincia = C.ID_PROVINCIA
                         where C.ID_Canton = @ID_Canton)
-
 
     IF EXISTS (SELECT 1 FROM Clientes WHERE Identificacion = @Identificacion)
     BEGIN
@@ -40,8 +53,57 @@ BEGIN
                                   Genero, Fecha_Registro, ID_Provincia, ID_Canton, ID_Distrito, Activo)
         VALUES (@Identificacion, @Nombre, @Direccion, @Estado_Civil, @Telefono, @Fecha_Nacimiento, @Correo,
                     @Genero, @Fecha_Registro, @ID_Provincia, @ID_Canton, @ID_Distrito, @Activo)
+        
+        --IMPORTANTE
+            --Cada vez que se agrega un cliente se le crea automaticamente una membresia con el trigger trg_CrearMembresiaInicial
     END
 END
+GO
+
+  --***************************************Para actualizar membresia de un cliente*********************
+CREATE PROCEDURE sp_ActualizarMembresia
+  @ID_Membresia INT,
+  @ID_T_Membresia int, --el nuevo tipo de membresia
+  @Frecuencia_Pago int, --en dias cada cuanto paga
+  @Fecha_Contrato date
+AS
+BEGIN
+    IF EXISTS ( SELECT 1 FROM Membresias M 
+                INNER JOIN Pago_Membresias PM ON M.ID_Membresia = PM.ID_Membresia
+                WHERE M.Activo = 0)
+    BEGIN
+        RAISERROR('No se puede actualizar la membresía si no esta activa', 16, 1);
+        RETURN;
+    END
+    update Membresias
+    set ID_T_Membresia = @ID_T_Membresia, Frecuencia_Pago = @Frecuencia_Pago, Fecha_Contrato = @Fecha_Contrato
+    where ID_Membresia = @ID_Membresia
+END;
+GO
+
+  --***************************************Para actualizar pagos de membresias*********************
+Create PROCEDURE sp_PagoMembresia
+  @Identificacion varchar(100),
+  @Monto DECIMAL,
+  @Descripcion varchar(200),
+  @Fecha_Ultimo_Pago date
+AS
+BEGIN
+    declare @ID_membresia as int
+
+    IF NOT EXISTS (SELECT 1 FROM Clientes WHERE Identificacion = @Identificacion)
+    Begin
+        RAISERROR('No se encontro ninguna membresia para esa identificacion', 16, 1);
+        return;
+    EnD
+
+    set @ID_membresia = (select M.ID_Membresia from Clientes C 
+                        join Membresias M  on M.ID_Cliente = C.ID_Cliente 
+                        where C.Identificacion = @Identificacion)
+    update Pago_Membresias
+    set Monto = @Monto, Descripcion = @Descripcion, Fecha_Ultimo_Pago = @Fecha_Ultimo_Pago
+    Where @ID_membresia = ID_Membresia
+END;
 GO
 
 --***************************************Para agregar y modificar Empleados*********************
@@ -93,8 +155,8 @@ GO
 CREATE PROCEDURE sp_Proveedor
     @Cedula_Proveedor VARCHAR(100),
     @Nombre_Proveedor VARCHAR(100),
-    @Telefono VARCHAR(20),
     @Correo VARCHAR(100),
+    @Telefono VARCHAR(20),
     @Direccion VARCHAR(200),
     @Fecha_Registro DATE,
     @Activo bit
@@ -156,7 +218,7 @@ CREATE PROCEDURE sp_CompraProveedor
 AS
 BEGIN
     --Insertar compra
-    INSERT INTO CompraProveedores(ID_C_Proveedor , ID_Producto, Descripcion, Cant_Comprada, Total, Fecha_Compra, Activo)
+    INSERT INTO CompraProveedores(ID_Proveedor , ID_Producto, Descripcion, Cant_Comprada, Total, Fecha_Compra, Activo)
     VALUES (@ID_Proveedor, @ID_Producto, @Descripcion, @Cant_Comprada, @Total, @Fecha_Compra, @Activo)
     
     --Actualizar stock
@@ -168,19 +230,29 @@ GO
 
   --***************************************Para registrar una venta*********************
 CREATE PROCEDURE sp_Venta
-  @ID_Cliente INT,
+  @Identificacion varchar(100),
   @Cantidad INT,
   @Puntos_Usados int,
   @Fecha_Venta DATE,
   @ID_Producto INT
 AS
 BEGIN
-    DECLARE @Precio DECIMAL, @StockActual INT, @Total DECIMAL, @ID_Venta INT, @Valor_Puntos decimal, @CompraxPunto decimal;
+    DECLARE @Precio DECIMAL, @StockActual INT, @Total DECIMAL, @ID_Venta INT, @Valor_Puntos decimal, @CompraxPunto decimal, @ID_Cliente int;
 
     --Para recuperar info extra
+    select @ID_Cliente = ID_Cliente from Clientes
+    where Identificacion = @Identificacion and Activo = 1
+    
     SELECT @Valor_Puntos = Valor_Puntos, @CompraxPunto = CompraxPunto from Tipo_Membresias TM
     join Membresias M on M.ID_T_Membresia = TM.ID_T_Membresia
     where @ID_Cliente = M.ID_Cliente
+
+    --Validar que cliente exista
+    if @ID_Cliente is null
+    begin
+        RAISERROR('El cliente no existe en DB', 16, 1);
+        RETURN;
+    end
 
     -- Validar stock y totales
     SELECT @Precio = Precio, @StockActual = Stock
@@ -194,7 +266,7 @@ BEGIN
     END
 
     --Calcular total si se usa puntos se descuentan
-    SET @Total = (@Precio * @Cantidad) - (@Puntos_Usados * @Valor_Puntos);
+    SET @Total = ((@Precio * @Cantidad) - (@Puntos_Usados * @Valor_Puntos));
     IF @Total < 0
     BEGIN
         RAIserror('No puedes gastar mas puntos que el monto total', 16, 1);
@@ -223,35 +295,6 @@ BEGIN
 END
 GO
 
-  --***************************************Para registrar mebresias*********************
-CREATE PROCEDURE sp_Membresia
-  @ID_Cliente int,
-  @ID_T_Membresia int ,
-  @Fecha_Contrato Date
-AS
-BEGIN
-  INSERT INTO Membresias (ID_Cliente, ID_T_Membresia, Fecha_Contrato, Total_Puntos, Activo)
-  VALUES (@ID_Cliente, @ID_T_Membresia, @Fecha_Contrato, 0, 1);
-END;
-GO
-
-  --***************************************Para registrar pagos de membresias*********************
-CREATE PROCEDURE sp_PagoMembresia
-  @ID_Membresia INT,
-  @Monto DECIMAL,
-  @Descripcion varchar(200),
-  @Frecuencia_Pago int,
-  @Fecha_Ultimo_Pago date
-AS
-BEGIN
-  INSERT INTO Pago_Membresias (ID_Membresia, Monto)
-  VALUES (@ID_Membresia, @Monto);
-
-  insert into Estado_Membresias (ID_Membresia, Descripcion, Frecuencia_Pago, Fecha_Ultimo_Pago)
-  values (@ID_Membresia, @Descripcion, @Frecuencia_Pago, @Fecha_Ultimo_Pago)
-END;
-GO
-
   --***************************************Para registrar auditorias (historial)*********************
 CREATE PROCEDURE sp_RegistrarAuditoria
   @Tabla VARCHAR(100),
@@ -268,7 +311,7 @@ GO
 
   --***************************************Procedimientos extras************//////////////////////////////*********
 --***************************************Actualizar contraseña de usuarios*********************
-CREATE PROCEDURE sp_UsuarioContrasena
+CREATE PROCEDURE sp_ActualizarUsuarioContrasena
   @ID_Usuario INT,
   @NuevaContraseña VARCHAR(100)
 AS

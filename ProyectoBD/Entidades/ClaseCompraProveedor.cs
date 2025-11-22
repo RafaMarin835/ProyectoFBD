@@ -14,6 +14,7 @@ namespace Entidades
         int _cantidadComprada;
         float _total;
         DateTime _fechaCompra;
+        int _activo;
 
         public int Id_Proveedor { get => _id_Proveedor; set => _id_Proveedor = value; }
         public int Id_Producto { get => _id_Producto; set => _id_Producto = value; }
@@ -21,8 +22,9 @@ namespace Entidades
         public int CantidadComprada { get => _cantidadComprada; set => _cantidadComprada = value; }
         public float Total { get => _total; set => _total = value; }
         public DateTime FechaCompra { get => _fechaCompra; set => _fechaCompra = value; }
+        public int Activo { get => _activo; set => _activo = value; }
 
-        public void ValidarCompra()
+        public void esValido()
         {
             if (_id_Proveedor <= 0)
             {
@@ -47,6 +49,10 @@ namespace Entidades
             if (_fechaCompra > DateTime.Now)
             {
                 throw new Exception("La fecha de compra no puede ser en el futuro.");
+            }
+            if (_activo != 1 && _activo != 0)
+            {
+                throw new Exception("El estado de activo debe ser verdadero (1) o falso (0).");
             }
         }
     }
