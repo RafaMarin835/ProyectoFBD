@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class ClasePagoMembresia
+    public class ClasePagoMembresia
     {
-        int _id_Membresia;
-        float _monto;
+        string _identificacion;
         string _descripcion;
+        DateTime _fecha_ultmo_Pago;
 
-        public int Id_Membresia { get => _id_Membresia; set => _id_Membresia = value; }
-        public float Monto { get => _monto; set => _monto = value; }
+        public string Identificacion { get => _identificacion; set => _identificacion = value; }
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
+        public DateTime Fecha_ultmo_Pago { get => _fecha_ultmo_Pago; set => _fecha_ultmo_Pago = value; }
 
         public void esValido()
         {
-            if (_id_Membresia <= 0)
-                throw new Exception("El ID de la membresía no puede ser menor o igual a cero.");
-            if (_monto <= 0)
-                throw new Exception("El monto debe ser mayor que cero.");
+            if (string.IsNullOrWhiteSpace(_identificacion))
+                throw new Exception("La identificación no puede estar vacía.");
             if (string.IsNullOrWhiteSpace(_descripcion))
                 throw new Exception("La descripción no puede estar vacía.");
+            if (_fecha_ultmo_Pago > DateTime.Now)
+                throw new Exception("La fecha del último pago no puede ser futura.");
         }
 
     }

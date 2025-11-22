@@ -1,6 +1,51 @@
 use ElQuiosco
 go
 
+--***************************************Para agregar y modificar Empleados*********************
+CREATE PROCEDURE sp_Empleado
+  @Identificacion VARCHAR(100),
+  @Nombre VARCHAR(50),
+  @Telefono VARCHAR(100),
+  @Correo VARCHAR(100),
+  @Salario DECIMAL(10,2),
+  @Direccion VARCHAR(100),
+  @Estado_Civil VARCHAR(100),
+  @Fecha_Nacimiento DATE,
+  @Genero VARCHAR(100),
+  @Fecha_Registro DATE,
+  @ID_Distrito INT, 
+  @Activo bit
+AS
+BEGIN
+    Declare @ID_Canton AS Varchar(100) --para declarar variable Global
+    set @ID_Canton = (select C.ID_Canton from CANTON C
+                        join DISTRITO D on D.ID_CANTON = C.ID_Canton
+                        where D.ID_Distrito = @ID_Distrito)
+    Declare @ID_Provincia AS Varchar(100) --para declarar variable Global
+    set @ID_Provincia = (select P.ID_Provincia from PROVINCIAS P
+                        join CANTON C on P.ID_Provincia = C.ID_PROVINCIA
+                        where C.ID_Canton = @ID_Canton)
+
+
+    IF EXISTS (SELECT 1 FROM Empleados WHERE Identificacion = @Identificacion)
+    BEGIN
+        UPDATE Empleados
+        SET Nombre = @Nombre, Telefono = @Telefono, Correo = @Correo, Salario = @Salario, Direccion = @Direccion, Estado_Civil = @Estado_Civil,
+             Fecha_Nacimiento = @Fecha_Nacimiento, 
+            Genero = @Genero, Fecha_Registro = @Fecha_Registro,
+            ID_Provincia = @ID_Provincia, ID_Canton = @ID_Canton, ID_Distrito = @ID_Distrito, Activo = @Activo
+        WHERE Identificacion = @Identificacion
+    END
+    ELSE
+    BEGIN
+        INSERT INTO Empleados (Identificacion, Nombre, Telefono, Correo, Salario, Direccion, Estado_Civil, 
+                                Fecha_Nacimiento, Genero, Fecha_Registro, ID_Provincia, ID_Canton, ID_Distrito, Activo)
+        VALUES (@Identificacion, @Nombre, @Telefono, @Correo, @Salario, @Direccion, @Estado_Civil, @Fecha_Nacimiento, 
+            @Genero, @Fecha_Registro, @ID_Provincia, @ID_Canton, @ID_Distrito, 1);
+    END
+END
+GO
+
   --***************************************Para registrar mebresias (se crean "solas" al agregar usuarios)*********************
 CREATE PROCEDURE sp_Membresia
   @ID_Cliente int,
@@ -62,19 +107,24 @@ GO
 
   --***************************************Para actualizar membresia de un cliente*********************
 CREATE PROCEDURE sp_ActualizarMembresia
-  @ID_Membresia INT,
+  @Identificacion varchar(100),
   @ID_T_Membresia int, --el nuevo tipo de membresia
   @Frecuencia_Pago int, --en dias cada cuanto paga
   @Fecha_Contrato date
 AS
 BEGIN
-    IF EXISTS ( SELECT 1 FROM Membresias M 
-                INNER JOIN Pago_Membresias PM ON M.ID_Membresia = PM.ID_Membresia
-                WHERE M.Activo = 0)
+    Declare @ID_Membresia int
+
+    SELECT @ID_Membresia = M.ID_Membresia FROM Membresias M 
+                INNER JOIN Clientes C ON M.ID_Cliente = C.ID_Cliente
+                WHERE C.Identificacion = @Identificacion
+
+    IF EXISTS ( SELECT 1 FROM Membresias WHERE Activo = 0 and @ID_Membresia = ID_Membresia)
     BEGIN
         RAISERROR('No se puede actualizar la membresía si no esta activa', 16, 1);
         RETURN;
     END
+    
     update Membresias
     set ID_T_Membresia = @ID_T_Membresia, Frecuencia_Pago = @Frecuencia_Pago, Fecha_Contrato = @Fecha_Contrato
     where ID_Membresia = @ID_Membresia
@@ -84,7 +134,6 @@ GO
   --***************************************Para actualizar pagos de membresias*********************
 Create PROCEDURE sp_PagoMembresia
   @Identificacion varchar(100),
-  @Monto DECIMAL,
   @Descripcion varchar(200),
   @Fecha_Ultimo_Pago date
 AS
@@ -100,55 +149,17 @@ BEGIN
     set @ID_membresia = (select M.ID_Membresia from Clientes C 
                         join Membresias M  on M.ID_Cliente = C.ID_Cliente 
                         where C.Identificacion = @Identificacion)
-    update Pago_Membresias
-    set Monto = @Monto, Descripcion = @Descripcion, Fecha_Ultimo_Pago = @Fecha_Ultimo_Pago
-    Where @ID_membresia = ID_Membresia
+    if Exists (select 1 from Pago_Membresias where @ID_membresia = ID_Membresia)
+    begin
+        update Pago_Membresias
+        set Descripcion = @Descripcion, Fecha_Ultimo_Pago = @Fecha_Ultimo_Pago
+        Where @ID_membresia = ID_Membresia
+    end
+    else
+    begin
+        insert into Pago_Membresias values (@ID_membresia, @Descripcion, @Fecha_Ultimo_Pago)
+    end
 END;
-GO
-
---***************************************Para agregar y modificar Empleados*********************
-CREATE PROCEDURE sp_Empleado
-  @Identificacion VARCHAR(100),
-  @Nombre VARCHAR(50),
-  @Telefono VARCHAR(100),
-  @Correo VARCHAR(100),
-  @Salario DECIMAL(10,2),
-  @Direccion VARCHAR(100),
-  @Estado_Civil VARCHAR(100),
-  @Fecha_Nacimiento DATE,
-  @Genero VARCHAR(100),
-  @Fecha_Registro DATE,
-  @ID_Distrito INT, 
-  @Activo bit
-AS
-BEGIN
-    Declare @ID_Canton AS Varchar(100) --para declarar variable Global
-    set @ID_Canton = (select C.ID_Canton from CANTON C
-                        join DISTRITO D on D.ID_CANTON = C.ID_Canton
-                        where D.ID_Distrito = @ID_Distrito)
-    Declare @ID_Provincia AS Varchar(100) --para declarar variable Global
-    set @ID_Provincia = (select P.ID_Provincia from PROVINCIAS P
-                        join CANTON C on P.ID_Provincia = C.ID_PROVINCIA
-                        where C.ID_Canton = @ID_Canton)
-
-
-    IF EXISTS (SELECT 1 FROM Empleados WHERE Identificacion = @Identificacion)
-    BEGIN
-        UPDATE Empleados
-        SET Nombre = @Nombre, Telefono = @Telefono, Correo = @Correo, Salario = @Salario, Direccion = @Direccion, Estado_Civil = @Estado_Civil,
-             Fecha_Nacimiento = @Fecha_Nacimiento, 
-            Genero = @Genero, Fecha_Registro = @Fecha_Registro,
-            ID_Provincia = @ID_Provincia, ID_Canton = @ID_Canton, ID_Distrito = @ID_Distrito, Activo = @Activo
-        WHERE Identificacion = @Identificacion
-    END
-    ELSE
-    BEGIN
-        INSERT INTO Empleados (Identificacion, Nombre, Telefono, Correo, Salario, Direccion, Estado_Civil, 
-                                Fecha_Nacimiento, Genero, Fecha_Registro, ID_Provincia, ID_Canton, ID_Distrito, Activo)
-        VALUES (@Identificacion, @Nombre, @Telefono, @Correo, @Salario, @Direccion, @Estado_Civil, @Fecha_Nacimiento, 
-            @Genero, @Fecha_Registro, @ID_Provincia, @ID_Canton, @ID_Distrito, 1);
-    END
-END
 GO
 
   --***************************************Para agregar y modificar Proveedores*********************
@@ -208,8 +219,8 @@ GO
 
   --***************************************Para registrar una compra a proveedor*********************
 CREATE PROCEDURE sp_CompraProveedor
-  @ID_Proveedor int,
-  @ID_Producto int,
+  @Cedula_Proveedor varchar(100),
+  @Codigo_Producto varchar(100),
   @Descripcion varchar(200) null,
   @Cant_Comprada int,
   @Total decimal,
@@ -217,6 +228,23 @@ CREATE PROCEDURE sp_CompraProveedor
   @Activo bit
 AS
 BEGIN
+    Declare @ID_Proveedor int, @ID_Producto int
+
+    select @ID_Proveedor = ID_Proveedor from Proveedores where @Cedula_Proveedor = Cedula_Proveedor
+    select @ID_Producto = ID_Producto from Productos where @Codigo_Producto = Codigo_Producto
+
+    if @ID_Proveedor is null
+    begin
+        RAISERROR('El proveedor no existe en DB', 16, 1);
+        RETURN;
+    end
+    
+    if @ID_Producto is null
+    begin
+        RAISERROR('El producto no existe en DB', 16, 1);
+        RETURN;
+    end
+
     --Insertar compra
     INSERT INTO CompraProveedores(ID_Proveedor , ID_Producto, Descripcion, Cant_Comprada, Total, Fecha_Compra, Activo)
     VALUES (@ID_Proveedor, @ID_Producto, @Descripcion, @Cant_Comprada, @Total, @Fecha_Compra, @Activo)

@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class ClaseCompraProveedor
+    public class ClaseCompraProveedor
     {
-        int _id_Proveedor;
-        int _id_Producto;
+        int _cedula_Proveedor;
+        int _codigo_Producto;
         string _descripcion;
         int _cantidadComprada;
         float _total;
         DateTime _fechaCompra;
         int _activo;
 
-        public int Id_Proveedor { get => _id_Proveedor; set => _id_Proveedor = value; }
-        public int Id_Producto { get => _id_Producto; set => _id_Producto = value; }
+        public int CedulaProveedor { get => _cedula_Proveedor; set => _cedula_Proveedor = value; }
+        public int CodigoProducto { get => _codigo_Producto; set => _codigo_Producto = value; }
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
         public int CantidadComprada { get => _cantidadComprada; set => _cantidadComprada = value; }
         public float Total { get => _total; set => _total = value; }
@@ -26,14 +26,10 @@ namespace Entidades
 
         public void esValido()
         {
-            if (_id_Proveedor <= 0)
-            {
-                throw new Exception("El ID del proveedor no es válido.");
-            }
-            if (_id_Producto <= 0)
-            {
-                throw new Exception("El ID del producto no es válido.");
-            }
+            if (_cedula_Proveedor <= 0)
+                throw new Exception("La cédula del proveedor debe ser un número positivo.");
+            if (_codigo_Producto <= 0)
+                throw new Exception("El código del producto debe ser un número positivo.");
             if (string.IsNullOrEmpty(_descripcion))
             {
                 throw new Exception("La descripción no puede estar vacía.");

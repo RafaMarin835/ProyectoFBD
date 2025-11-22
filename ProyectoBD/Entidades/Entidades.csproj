@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClaseActualizarMembresia.cs" />
     <Compile Include="ClaseEmpleado.cs" />
     <Compile Include="ClaseCliente.cs" />
     <Compile Include="ClaseCompraProveedor.cs" />
     <Compile Include="ClasePagoMembresia.cs" />
-    <Compile Include="ClaseRegistrarMembresia.cs" />
     <Compile Include="ClaseRegistrarVenta.cs" />
     <Compile Include="ClaseProducto.cs" />
     <Compile Include="ClaseProveedor.cs" />

@@ -38,11 +38,11 @@ exec sp_ActualizarMembresia 3, 4, 15, '2025-11-20'
 exec sp_ActualizarMembresia 4, 3, 15, '2025-11-20'
 
 --Pago membresias
-exec sp_PagoMembresia '111111111', 0, 'Pagado', '2025-10-01'
-exec sp_PagoMembresia '112345678', 10000, 'Pendiente', '2025-10-22'
-exec sp_PagoMembresia '223456789', 15000, 'Pagado','2025-11-15'
-exec sp_PagoMembresia '334567890', 10000, 'Pagado', '2025-11-10'
-exec sp_PagoMembresia '445678901', 5000, 'Retrasado', '2025-10-20'
+exec sp_PagoMembresia '111111111', 'Pagado', '2025-10-01'
+exec sp_PagoMembresia '112345678', 'Pendiente', '2025-10-22'
+exec sp_PagoMembresia '223456789', 'Pagado','2025-11-15'
+exec sp_PagoMembresia '334567890', 'Pagado', '2025-11-10'
+exec sp_PagoMembresia '445678901', 'Retrasado', '2025-10-20'
 
 --Empleados
 exec sp_Empleado '117950957', 'Rafael Marin', '11111111', 'rm@example.com', 200000, 'Cartago oreamuno', 'Soltero',  '2000-01-01', 'Maculino', '2025-11-20', 133, 1

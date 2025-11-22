@@ -15,7 +15,7 @@ namespace ProyectoBD
     public partial class Clientes : Form
     {
         ClaseCliente obj_EntidadClientes = new ClaseCliente();
-        C_Clientes obj_Clientes = new C_Clientes();
+        ClaseEnviarDatos obj_Clientes = new ClaseEnviarDatos();
 
         public Clientes()
         {

@@ -80,92 +80,206 @@ namespace CapaDatos // De momento se ingnora
             }
         } //fin obtener por comando
 
-        private void ActualizarDB(string sqlInsert, params SqlParameter[] parametros) // Método genérico para insertar, actualizar o eliminar datos en la base de datos
+        public void ModificarEmpleado(ClaseEmpleado obj) // para modificar un empleado
         {
             try
             {
-                EstablecerConexion();
-                using (var sqlinstruccion = new SqlCommand(sqlInsert, _conexion))
-                {
-                    sqlinstruccion.Parameters.AddRange(parametros);
-                    sqlinstruccion.ExecuteNonQuery();
-                }
-                _conexion.Close();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al realizar la accion a DB: " + ex.Message);
-            }
-        }
-
-        public void GuardarClienteEEE(ClaseCliente cliente) // Método para guardar o actualizar un usuario
-        {
-            string ComandoSQL = @"
-        IF EXISTS (SELECT 1 FROM Usuarios WHERE Identificacion = @Identificacion)
-        BEGIN
-            UPDATE Clientes
-            SET Nombre = @Nombre,
-                Direccion = @Direccion,
-                Estado_Civil = @Estado_Civil,
-                Telefono = @Telefono,
-                Fecha_Nacimiento = @Fecha_Nacimiento,
-                Correo = @Correo,
-                Genero = @Genero,
-                Fecha_Registro = @Fecha_Registro,
-                ID_Provincia = @ID_Provincia,
-                ID_Canton = @ID_Canton,
-                ID_Distrito = @ID_Distrito
-            WHERE Identificacion = @Identificacion
-        END
-        ELSE
-        BEGIN
-            INSERT INTO Usuarios (Identificacion, Nombre, Direccion, Estado_Civil, Telefono, Fecha_Nacimiento, Correo,
-                                  Genero, Fecha_Registro, ID_Provincia, ID_Canton, Email)
-            VALUES (@Identificacion, @Nombre, @Direccion, @Estado_Civil, @Telefono, @Fecha_Nacimiento, @Correo,
-                    @Genero, @Fecha_Registro, @ID_Provincia, @ID_Canton, @ID_Distrito)
-        END";
-            ActualizarDB(ComandoSQL,
-                new SqlParameter("@Identificacion", cliente.Identificacion),
-                new SqlParameter("@Nombre", cliente.Nombre),
-                new SqlParameter("@Direccion", cliente.Direccion),
-                new SqlParameter("@Estado_Civil", cliente.EstadoCivil),
-                new SqlParameter("@Telefono", cliente.Telefono),
-                new SqlParameter("@Fecha_Nacimiento", cliente.Fecha_Nacimiento),
-                new SqlParameter("@Correo", cliente.Correo),
-                new SqlParameter("@Genero", cliente.Genero),
-                new SqlParameter("@Fecha_Registro", cliente.FechaRegistro),
-                new SqlParameter("@ID_Provincia", cliente.ID_Provincia),
-                new SqlParameter("@ID_Canton", cliente.ID_Canton),
-                new SqlParameter("@ID_Distrito", cliente.ID_Distrito)
-                );
-        }
-
-        public void GuardarCliente(ClaseCliente cliente) // Método para guardar o actualizar un usuario
-        {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("sp_Cliente", _conexion);
+                SqlCommand cmd = new SqlCommand("sp_Empleado", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Identificacion", cliente.Identificacion);
-                cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
-                cmd.Parameters.AddWithValue("@Direccion", cliente.Direccion);
-                cmd.Parameters.AddWithValue("@Estado_Civil", cliente.EstadoCivil);
-                cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
-                cmd.Parameters.AddWithValue("@Fecha_Nacimiento", cliente.Fecha_Nacimiento);
-                cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
-                cmd.Parameters.AddWithValue("@Genero", cliente.Genero);
-                cmd.Parameters.AddWithValue("@Fecha_Registro", cliente.FechaRegistro);
-                cmd.Parameters.AddWithValue("@ID_Distrito", cliente.ID_Distrito);
+                cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
+                cmd.Parameters.AddWithValue("@Nombre", obj.Nombre);
+                cmd.Parameters.AddWithValue("@Direccion", obj.Direccion);
+                cmd.Parameters.AddWithValue("@Estado_Civil", obj.EstadoCivil);
+                cmd.Parameters.AddWithValue("@Telefono", obj.Telefono);
+                cmd.Parameters.AddWithValue("@Fecha_Nacimiento", obj.Fecha_Nacimiento);
+                cmd.Parameters.AddWithValue("@Correo", obj.Correo);
+                cmd.Parameters.AddWithValue("@Genero", obj.Genero);
+                cmd.Parameters.AddWithValue("@Fecha_Registro", obj.FechaRegistro);
+                cmd.Parameters.AddWithValue("@ID_Distrito", obj.ID_Distrito);
+                cmd.Parameters.AddWithValue("@Activo", obj.Activo);
+                cmd.Parameters.AddWithValue("@Salario", obj.Salario);
 
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
             {
-                throw new Exception("Error al guardar el cliente: " + ex.Message);
+                throw new Exception("Error al guardar el empleado en DB: " + ex.Message);
             }
-
-            #endregion
-
         }
+
+        public void ModificarCliente(ClaseCliente obj) // para guardar o actualizar un usuario
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_Cliente", _conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
+                cmd.Parameters.AddWithValue("@Nombre", obj.Nombre);
+                cmd.Parameters.AddWithValue("@Direccion", obj.Direccion);
+                cmd.Parameters.AddWithValue("@Estado_Civil", obj.EstadoCivil);
+                cmd.Parameters.AddWithValue("@Telefono", obj.Telefono);
+                cmd.Parameters.AddWithValue("@Fecha_Nacimiento", obj.Fecha_Nacimiento);
+                cmd.Parameters.AddWithValue("@Correo", obj.Correo);
+                cmd.Parameters.AddWithValue("@Genero", obj.Genero);
+                cmd.Parameters.AddWithValue("@Fecha_Registro", obj.FechaRegistro);
+                cmd.Parameters.AddWithValue("@ID_Distrito", obj.ID_Distrito);
+                cmd.Parameters.AddWithValue("@Activo", obj.Activo);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al guardar el cliente en DB: " + ex.Message);
+            }
+        }
+
+        public void ActualizarMembresia(ClaseActualizarMembresia obj) // para actualizar una membresia
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_ActualizarMembresia", _conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
+                cmd.Parameters.AddWithValue("@Id_T_Membresia", obj.Id_T_Membresia);
+                cmd.Parameters.AddWithValue("@Frecuencia_Pago", obj.Frecuencia_Pago);
+                cmd.Parameters.AddWithValue("@Fecha_Contrato", obj.Fecha_Contrato);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al actualizar la membresia en DB: " + ex.Message);
+            }
+        }
+
+        public void ActualizarPagoMembresia(ClasePagoMembresia obj) // para realizar el pago de membresia
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_PagoMembresia", _conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
+                cmd.Parameters.AddWithValue("@Descripcion", obj.Descripcion);
+                cmd.Parameters.AddWithValue("@Fecha_Ultmo_Pago", obj.Fecha_ultmo_Pago);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al pagar la membresia en DB: " + ex.Message);
+            }
+        }
+
+        public void ModificarProveedores(ClaseProveedor obj) // para modificar los proveedores
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_Proveedor", _conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Cedula_proveedor", obj.Cedula_proveedor);
+                cmd.Parameters.AddWithValue("@NombreProveedor", obj.NombreProveedor);
+                cmd.Parameters.AddWithValue("@Correo", obj.Correo);
+                cmd.Parameters.AddWithValue("@Telefono", obj.Telefono);
+                cmd.Parameters.AddWithValue("@Direccion", obj.Direccion);
+                cmd.Parameters.AddWithValue("@FechaRegistro", obj.FechaRegistro);
+                cmd.Parameters.AddWithValue("@Activo", obj.Activo);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al actualizar la membresia en DB: " + ex.Message);
+            }
+        }
+
+        public void ModificarProductos(ClaseProducto obj) // para modificar los productos
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_Productos", _conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Codigo_Producto", obj.Codigo_Producto);
+                cmd.Parameters.AddWithValue("@Nombre_Producto", obj.Nombre_Producto);
+                cmd.Parameters.AddWithValue("@Categoria", obj.Categoria);
+                cmd.Parameters.AddWithValue("@Precio", obj.Precio);
+                cmd.Parameters.AddWithValue("@PrecioProveedoor", obj.PrecioProveedoor);
+                cmd.Parameters.AddWithValue("@Stock", obj.Stock);
+                cmd.Parameters.AddWithValue("@FechaRegistro", obj.FechaRegistro);
+                cmd.Parameters.AddWithValue("@Activo", obj.Activo);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al modificar el producto en DB: " + ex.Message);
+            }
+        }
+
+        public void RegistrarCompraProveedor(ClaseCompraProveedor obj) // Para registrar una compra a un proveedor
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_CompraProveedor", _conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Cedula_Proveedor", obj.CedulaProveedor);
+                cmd.Parameters.AddWithValue("@Codigo_Producto", obj.CodigoProducto);
+                cmd.Parameters.AddWithValue("@Descripcion", obj.Descripcion);
+                cmd.Parameters.AddWithValue("@CantidadComprada", obj.CantidadComprada);
+                cmd.Parameters.AddWithValue("@Total", obj.Total);
+                cmd.Parameters.AddWithValue("@FechaCompra", obj.FechaCompra);
+                cmd.Parameters.AddWithValue("@Activo", obj.Activo);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al actualizar la membresia en DB: " + ex.Message);
+            }
+        }
+
+        public void RegistrarVenta(ClaseRegistrarVenta obj) // para registrar una venta
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_Venta", _conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
+                cmd.Parameters.AddWithValue("@Cantidad", obj.Cantidad);
+                cmd.Parameters.AddWithValue("@PuntosUsados", obj.PuntosUsados);
+                cmd.Parameters.AddWithValue("@FechaVenta", obj.FechaVenta);
+                cmd.Parameters.AddWithValue("@Id_Producto", obj.Id_Producto);
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al actualizar la membresia en DB: " + ex.Message);
+            }
+        }
+
+
+        /////////////////////////////////////////////*************************///////////////////////////
+        
+        //////Funciones extras
+        ///
+        public void ActualizarSecionUser(String user, string contrasena) // para actualizar el usuario y contraseña de un empleado
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_ActualizarUsuarioContrasena", _conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID_Usuario", user);
+                cmd.Parameters.AddWithValue("@@NuevaContraseña", contrasena);
+
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al actualizar la membresia en DB: " + ex.Message);
+            }
+        }
+
+        #endregion Metodos
     }
 }

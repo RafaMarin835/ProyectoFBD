@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class ClaseProveedor
+    public class ClaseProveedor
     {
         string _cedula_proveedor;
         string _nombreProveedor;
@@ -23,6 +23,7 @@ namespace Entidades
         public string Direccion { get => _direccion; set => _direccion = value; }
         public DateTime FechaRegistro { get => _fechaRegistro; set => _fechaRegistro = value; }
         public string Cedula_proveedor { get => _cedula_proveedor; set => _cedula_proveedor = value; }
+        public int Activo { get => _activo; set => _activo = value; }
 
         public void esValido()
         {
@@ -50,6 +51,8 @@ namespace Entidades
             {
                 throw new Exception("La cédula del proveedor no puede estar vacía.");
             }
+            if (_activo != 0 && _activo != 1)
+                throw new Exception("El estado activo del proveedor debe ser 0 (inactivo) o 1 (activo).");
         }
 
     }

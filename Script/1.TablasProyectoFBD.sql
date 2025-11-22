@@ -167,7 +167,6 @@ Go
 CREATE TABLE Pago_Membresias (
   ID_Pago_M INT PRIMARY KEY IDENTITY(1,1),
   ID_Membresia int not null,
-  Monto decimal not null,
   Descripcion varchar(200),
   Fecha_Ultimo_Pago date not null,
   FOREIGN KEY (ID_Membresia) REFERENCES Membresias(ID_Membresia)

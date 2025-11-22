@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class ClaseProducto
+    public class ClaseProducto
     {
         string _codigo_Producto;
         string _nombre_Producto;

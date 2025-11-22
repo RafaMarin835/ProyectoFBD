@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class ClaseRegistrarVenta
+    public class ClaseRegistrarVenta
     {
-        string _id_Cliente;
+        string _identificacion;
         int _cantidad;
         int _puntosUsados;
         DateTime _fechaventa;
         int _id_Producto;
 
 
-        public string Id_Clientes { get => _id_Cliente; set => _id_Cliente = value; }
+        public string Identificacion { get => _identificacion; set => _identificacion = value; }
         public int Cantidad { get => _cantidad; set => _cantidad = value; }
         public int PuntosUsados { get => _puntosUsados; set => _puntosUsados = value; }
         public DateTime FechaVenta { get => _fechaventa; set => _fechaventa = value; }
@@ -24,8 +24,8 @@ namespace Entidades
 
         public void esValido()
         {
-            if (string.IsNullOrEmpty(_id_Cliente))
-                throw new Exception("El ID del cliente no puede estar vacío.");
+            if (string.IsNullOrEmpty(_identificacion))
+                throw new Exception("la identificacion del cliente no puede estar vacío.");
             if (_cantidad <= 0)
                 throw new Exception("La cantidad debe ser mayor que cero.");
             if (_puntosUsados < 0)
