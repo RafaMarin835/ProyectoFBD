@@ -52,3 +52,10 @@ C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\D
 C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.Productos.resources
 C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.Proveedor.resources
 C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.RegistrarVenta.resources
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.ActualizarMembresia.resources
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.CompraProveedor.resources
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.Empleados.resources
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.PagoMembresia.resources
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.Productos.resources
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.Proveedor.resources
+C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.RegistrarVenta.resources

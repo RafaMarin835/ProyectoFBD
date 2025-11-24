@@ -85,6 +85,7 @@ namespace CapaDatos // De momento se ingnora
         {
             try
             {
+                EstablecerConexion();
                 SqlCommand cmd = new SqlCommand("sp_Empleado", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
@@ -112,6 +113,7 @@ namespace CapaDatos // De momento se ingnora
         {
             try
             {
+                EstablecerConexion();
                 SqlCommand cmd = new SqlCommand("sp_Cliente", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
@@ -138,6 +140,7 @@ namespace CapaDatos // De momento se ingnora
         {
             try
             {
+                EstablecerConexion();
                 SqlCommand cmd = new SqlCommand("sp_ActualizarMembresia", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
@@ -157,6 +160,7 @@ namespace CapaDatos // De momento se ingnora
         {
             try
             {
+                EstablecerConexion();
                 SqlCommand cmd = new SqlCommand("sp_PagoMembresia", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
@@ -175,6 +179,7 @@ namespace CapaDatos // De momento se ingnora
         {
             try
             {
+                EstablecerConexion();
                 SqlCommand cmd = new SqlCommand("sp_Proveedor", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Cedula_proveedor", obj.Cedula_proveedor);
@@ -197,6 +202,7 @@ namespace CapaDatos // De momento se ingnora
         {
             try
             {
+                EstablecerConexion();
                 SqlCommand cmd = new SqlCommand("sp_Productos", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Codigo_Producto", obj.Codigo_Producto);
@@ -220,6 +226,7 @@ namespace CapaDatos // De momento se ingnora
         {
             try
             {
+                EstablecerConexion();
                 SqlCommand cmd = new SqlCommand("sp_CompraProveedor", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Cedula_Proveedor", obj.CedulaProveedor);
@@ -242,6 +249,7 @@ namespace CapaDatos // De momento se ingnora
         {
             try
             {
+                EstablecerConexion();
                 SqlCommand cmd = new SqlCommand("sp_Venta", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
@@ -267,6 +275,7 @@ namespace CapaDatos // De momento se ingnora
         {
             try
             {
+                EstablecerConexion();
                 SqlCommand cmd = new SqlCommand("sp_ActualizarUsuarioContrasena", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ID_Usuario", user);

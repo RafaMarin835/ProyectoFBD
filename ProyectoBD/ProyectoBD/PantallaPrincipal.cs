@@ -60,7 +60,7 @@ namespace ProyectoBD
 
         private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Proveedores proveedores = new Proveedores();
+            Proveedor proveedores = new Proveedor();
             proveedores.Show();
             this.Hide();
         }
