@@ -15,9 +15,9 @@ namespace CapaDatos // De momento se ingnora
 
         SqlConnection _conexion;
 
-        //Cambia segun el servidor que se esta trabajando
-        String _cadenaConexion = "Data Source = SEBASTIAN; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
-
+        //Cambia segun el servidor que se esta trabajando (solo comenta el que no usas)
+        //String _cadenaConexion = "Data Source = SEBASTIAN; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
+        String _cadenaConexion = "Data Source = (localdb)\\MSSQLLocalDB; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
 
         //Metodos
         #region Metodos
