@@ -41,7 +41,9 @@ namespace ProyectoBD
 
         private void productoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Productos productos = new Productos();
+            productos.Show();
+            this.Hide();
         }
 
         private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -54,6 +56,41 @@ namespace ProyectoBD
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Proveedores proveedores = new Proveedores();
+            proveedores.Show();
+            this.Hide();
+        }
+
+        private void registroVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistrarVenta registrarVenta = new RegistrarVenta();
+            registrarVenta.Show();
+            this.Hide();
+        }
+
+        private void pagoMembresiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PagoMembresia pagoMembresia = new PagoMembresia();  
+            pagoMembresia.Show();
+            this.Hide();
+        }
+
+        private void actualizarMembresiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ActualizarMembresia actualizarMembresia = new ActualizarMembresia();
+            actualizarMembresia.Show();
+            this.Hide();
+        }
+
+        private void compraProveedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CompraProveedor compraProveedor = new CompraProveedor();
+            compraProveedor.Show();
+            this.Hide();
         }
     }
 }

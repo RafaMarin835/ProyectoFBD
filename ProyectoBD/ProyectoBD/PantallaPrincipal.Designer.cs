@@ -110,30 +110,35 @@
             this.proveedorToolStripMenuItem.Name = "proveedorToolStripMenuItem";
             this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.proveedorToolStripMenuItem.Text = "Proveedor";
+            this.proveedorToolStripMenuItem.Click += new System.EventHandler(this.proveedorToolStripMenuItem_Click);
             // 
             // registroVentaToolStripMenuItem
             // 
             this.registroVentaToolStripMenuItem.Name = "registroVentaToolStripMenuItem";
             this.registroVentaToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.registroVentaToolStripMenuItem.Text = "Registro Venta";
+            this.registroVentaToolStripMenuItem.Click += new System.EventHandler(this.registroVentaToolStripMenuItem_Click);
             // 
             // pagoMembresiaToolStripMenuItem
             // 
             this.pagoMembresiaToolStripMenuItem.Name = "pagoMembresiaToolStripMenuItem";
             this.pagoMembresiaToolStripMenuItem.Size = new System.Drawing.Size(108, 20);
             this.pagoMembresiaToolStripMenuItem.Text = "Pago Membresia";
+            this.pagoMembresiaToolStripMenuItem.Click += new System.EventHandler(this.pagoMembresiaToolStripMenuItem_Click);
             // 
             // actualizarMembresiaToolStripMenuItem
             // 
             this.actualizarMembresiaToolStripMenuItem.Name = "actualizarMembresiaToolStripMenuItem";
             this.actualizarMembresiaToolStripMenuItem.Size = new System.Drawing.Size(133, 20);
             this.actualizarMembresiaToolStripMenuItem.Text = "Actualizar Membresia";
+            this.actualizarMembresiaToolStripMenuItem.Click += new System.EventHandler(this.actualizarMembresiaToolStripMenuItem_Click);
             // 
             // compraProveedToolStripMenuItem
             // 
             this.compraProveedToolStripMenuItem.Name = "compraProveedToolStripMenuItem";
             this.compraProveedToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
             this.compraProveedToolStripMenuItem.Text = "Compra Proveedor";
+            this.compraProveedToolStripMenuItem.Click += new System.EventHandler(this.compraProveedToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 

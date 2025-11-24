@@ -16,7 +16,7 @@ namespace CapaDatos // De momento se ingnora
         SqlConnection _conexion;
 
         //Cambia segun el servidor que se esta trabajando
-        String _cadenaConexion = "Data Source=SEBASTIAN;Integrated Security = True; Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name = SQL Server Management Studio; Command Timeout = 30";
+        String _cadenaConexion = "Data Source = SEBASTIAN; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
 
 
         //Metodos
