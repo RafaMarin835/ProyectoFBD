@@ -4,3 +4,9 @@ C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\bin\Debug\Enti
 C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\bin\Debug\Entidades.pdb
 C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.dll
 C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.pdb
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\bin\Debug\Entidades.dll
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\bin\Debug\Entidades.pdb
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.dll
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.pdb

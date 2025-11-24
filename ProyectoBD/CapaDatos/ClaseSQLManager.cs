@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
-using Entidades;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CapaDatos // De momento se ingnora
 {
@@ -15,7 +16,7 @@ namespace CapaDatos // De momento se ingnora
         SqlConnection _conexion;
 
         //Cambia segun el servidor que se esta trabajando
-        String _cadenaConexion = "Data Source = (localdb)\\MSSQLLocalDB; " + "Integrated Security=SSPI; " + "Initial Catalog=ElQuiosco";
+        String _cadenaConexion = "Data Source=SEBASTIAN;Integrated Security = True; Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Application Name = SQL Server Management Studio; Command Timeout = 30";
 
 
         //Metodos

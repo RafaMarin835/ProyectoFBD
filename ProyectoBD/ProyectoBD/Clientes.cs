@@ -48,15 +48,47 @@ namespace ProyectoBD
             {
                 obj_EntidadClientes.Identificacion = txtIdentificacion.Text;
                 obj_EntidadClientes.Nombre = txtNombre.Text;
-                //aca es continuar con lo mismo para los otros campos
+                obj_EntidadClientes.EstadoCivil = txtEstadoCivil.Text;
+                obj_EntidadClientes.Telefono = txtTelefono.Text;
+                obj_EntidadClientes.Fecha_Nacimiento = DateTime.Parse(txtFechaNacimiento.Text);
+                obj_EntidadClientes.Correo = txtCorreo.Text;
+                obj_EntidadClientes.Genero = txtGenero.Text;
+                obj_EntidadClientes.Direccion = txtDireccion.Text;
+                obj_EntidadClientes.FechaRegistro = DateTime.Now;
+                obj_EntidadClientes.ID_Distrito = txtDistrito.Text;
 
+                if (ListBoxActivo.Text == "Activo")
+                {
+                    obj_EntidadClientes.Activo = 1;
+                }
+                else
+                { 
+                    obj_EntidadClientes.Activo = 0;
+                }
 
-                obj_Clientes.AgregarModificarCliente(obj_EntidadClientes);
+                obj_Clientes.ModificarCliente(obj_EntidadClientes);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+            pantallaPrincipal.Show();
+            this.Close();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

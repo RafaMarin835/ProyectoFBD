@@ -38,5 +38,22 @@ namespace ProyectoBD
             clientes.Show();
             this.Hide();
         }
+
+        private void productoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void empleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Empleados empleados = new Empleados();
+            empleados.Show();
+            this.Hide();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
