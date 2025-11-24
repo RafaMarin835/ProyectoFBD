@@ -8,28 +8,32 @@ namespace Entidades
 {
     public class ClaseCompraProveedor
     {
-        int _cedula_Proveedor;
-        int _codigo_Producto;
+        String _cedula_Proveedor;
+        String _codigo_Producto;
         string _descripcion;
         int _cantidadComprada;
-        float _total;
+        float _precioUnidadProveedor;
         DateTime _fechaCompra;
         int _activo;
 
-        public int CedulaProveedor { get => _cedula_Proveedor; set => _cedula_Proveedor = value; }
-        public int CodigoProducto { get => _codigo_Producto; set => _codigo_Producto = value; }
+        public String CedulaProveedor { get => _cedula_Proveedor; set => _cedula_Proveedor = value; }
+        public String CodigoProducto { get => _codigo_Producto; set => _codigo_Producto = value; }
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
         public int CantidadComprada { get => _cantidadComprada; set => _cantidadComprada = value; }
-        public float Total { get => _total; set => _total = value; }
+        public float PrecioUnidadProveedor { get => _precioUnidadProveedor; set => _precioUnidadProveedor = value; }
         public DateTime FechaCompra { get => _fechaCompra; set => _fechaCompra = value; }
         public int Activo { get => _activo; set => _activo = value; }
 
         public void esValido()
         {
-            if (_cedula_Proveedor <= 0)
-                throw new Exception("La cédula del proveedor debe ser un número positivo.");
-            if (_codigo_Producto <= 0)
-                throw new Exception("El código del producto debe ser un número positivo.");
+            if (string.IsNullOrEmpty(_cedula_Proveedor))
+            {
+                throw new Exception("La cédula del proveedor no puede estar vacía.");
+            }
+            if (string.IsNullOrEmpty(_codigo_Producto))
+            {
+                throw new Exception("El código del producto no puede estar vacío.");
+            }
             if (string.IsNullOrEmpty(_descripcion))
             {
                 throw new Exception("La descripción no puede estar vacía.");
@@ -38,7 +42,7 @@ namespace Entidades
             {
                 throw new Exception("La cantidad comprada debe ser mayor que cero.");
             }
-            if (_total <= 0)
+            if (_precioUnidadProveedor <= 0)
             {
                 throw new Exception("El total debe ser mayor que cero.");
             }

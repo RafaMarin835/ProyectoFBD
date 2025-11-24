@@ -183,11 +183,11 @@ namespace CapaDatos // De momento se ingnora
                 SqlCommand cmd = new SqlCommand("sp_Proveedor", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Cedula_proveedor", obj.Cedula_proveedor);
-                cmd.Parameters.AddWithValue("@NombreProveedor", obj.NombreProveedor);
+                cmd.Parameters.AddWithValue("@Nombre_Proveedor", obj.NombreProveedor);
                 cmd.Parameters.AddWithValue("@Correo", obj.Correo);
                 cmd.Parameters.AddWithValue("@Telefono", obj.Telefono);
                 cmd.Parameters.AddWithValue("@Direccion", obj.Direccion);
-                cmd.Parameters.AddWithValue("@FechaRegistro", obj.FechaRegistro);
+                cmd.Parameters.AddWithValue("@Fecha_Registro", obj.FechaRegistro);
                 cmd.Parameters.AddWithValue("@Activo", obj.Activo);
 
                 cmd.ExecuteNonQuery();
@@ -211,7 +211,7 @@ namespace CapaDatos // De momento se ingnora
                 cmd.Parameters.AddWithValue("@Precio", obj.Precio);
                 cmd.Parameters.AddWithValue("@PrecioProveedoor", obj.PrecioProveedoor);
                 cmd.Parameters.AddWithValue("@Stock", obj.Stock);
-                cmd.Parameters.AddWithValue("@FechaRegistro", obj.FechaRegistro);
+                cmd.Parameters.AddWithValue("@Fecha_Registro", obj.FechaRegistro);
                 cmd.Parameters.AddWithValue("@Activo", obj.Activo);
 
                 cmd.ExecuteNonQuery();
@@ -232,9 +232,9 @@ namespace CapaDatos // De momento se ingnora
                 cmd.Parameters.AddWithValue("@Cedula_Proveedor", obj.CedulaProveedor);
                 cmd.Parameters.AddWithValue("@Codigo_Producto", obj.CodigoProducto);
                 cmd.Parameters.AddWithValue("@Descripcion", obj.Descripcion);
-                cmd.Parameters.AddWithValue("@CantidadComprada", obj.CantidadComprada);
-                cmd.Parameters.AddWithValue("@Total", obj.Total);
-                cmd.Parameters.AddWithValue("@FechaCompra", obj.FechaCompra);
+                cmd.Parameters.AddWithValue("@Cant_Comprada", obj.CantidadComprada);
+                cmd.Parameters.AddWithValue("@PrecioProveedorUd", obj.PrecioUnidadProveedor);
+                cmd.Parameters.AddWithValue("@Fecha_Compra", obj.FechaCompra);
                 cmd.Parameters.AddWithValue("@Activo", obj.Activo);
 
                 cmd.ExecuteNonQuery();
@@ -254,9 +254,9 @@ namespace CapaDatos // De momento se ingnora
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
                 cmd.Parameters.AddWithValue("@Cantidad", obj.Cantidad);
-                cmd.Parameters.AddWithValue("@PuntosUsados", obj.PuntosUsados);
-                cmd.Parameters.AddWithValue("@FechaVenta", obj.FechaVenta);
-                cmd.Parameters.AddWithValue("@Id_Producto", obj.Id_Producto);
+                cmd.Parameters.AddWithValue("@Puntos_Usados", obj.PuntosUsados);
+                cmd.Parameters.AddWithValue("@Fecha_Venta", obj.FechaVenta);
+                cmd.Parameters.AddWithValue("@ID_Producto", obj.Id_Producto);
 
                 cmd.ExecuteNonQuery();
             }
@@ -279,7 +279,7 @@ namespace CapaDatos // De momento se ingnora
                 SqlCommand cmd = new SqlCommand("sp_ActualizarUsuarioContrasena", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ID_Usuario", user);
-                cmd.Parameters.AddWithValue("@@NuevaContraseña", contrasena);
+                cmd.Parameters.AddWithValue("@NuevaContraseña", contrasena);
 
 
                 cmd.ExecuteNonQuery();

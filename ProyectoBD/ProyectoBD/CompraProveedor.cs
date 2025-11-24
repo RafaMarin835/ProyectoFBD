@@ -26,11 +26,11 @@ namespace ProyectoBD
         {
             try {
 
-                obj_CompraProveedor.CedulaProveedor = Convert.ToInt16 (txtIDProveedor.Text);
-                obj_CompraProveedor.CodigoProducto = Convert.ToInt16 (txtCodigoProducto.Text);
+                obj_CompraProveedor.CedulaProveedor = txtIDProveedor.Text;
+                obj_CompraProveedor.CodigoProducto = txtCodigoProducto.Text;
                 obj_CompraProveedor.Descripcion = txtDescripcion.Text;
-                obj_CompraProveedor.CantidadComprada = Convert.ToInt16 (txtCantComprada.Text);
-                obj_CompraProveedor.Total = float.Parse (txtTotal.Text);
+                obj_CompraProveedor.CantidadComprada = Convert.ToInt32 (txtCantComprada.Text);
+                obj_CompraProveedor.PrecioUnidadProveedor = float.Parse (txtPrecioUnidadProveedor.Text);
                 obj_CompraProveedor.FechaCompra = DateTime.Today;
                 if (ListBoxEstado.Text == "Activo") { 
                 

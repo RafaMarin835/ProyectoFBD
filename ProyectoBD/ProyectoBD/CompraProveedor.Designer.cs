@@ -42,7 +42,7 @@
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtCantComprada = new System.Windows.Forms.TextBox();
-            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtPrecioUnidadProveedor = new System.Windows.Forms.TextBox();
             this.ListBoxEstado = new System.Windows.Forms.ListBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -123,9 +123,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(50, 229);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 13);
+            this.label6.Size = new System.Drawing.Size(164, 13);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Total:";
+            this.label6.Text = "Precio por Unidad del Proveedor:";
             // 
             // label7
             // 
@@ -165,12 +165,12 @@
             this.txtCantComprada.Size = new System.Drawing.Size(100, 20);
             this.txtCantComprada.TabIndex = 11;
             // 
-            // txtTotal
+            // txtPrecioUnidadProveedor
             // 
-            this.txtTotal.Location = new System.Drawing.Point(91, 229);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(100, 20);
-            this.txtTotal.TabIndex = 12;
+            this.txtPrecioUnidadProveedor.Location = new System.Drawing.Point(220, 226);
+            this.txtPrecioUnidadProveedor.Name = "txtPrecioUnidadProveedor";
+            this.txtPrecioUnidadProveedor.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecioUnidadProveedor.TabIndex = 12;
             // 
             // ListBoxEstado
             // 
@@ -200,7 +200,7 @@
             this.ClientSize = new System.Drawing.Size(938, 793);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.ListBoxEstado);
-            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.txtPrecioUnidadProveedor);
             this.Controls.Add(this.txtCantComprada);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtCodigoProducto);
@@ -239,7 +239,7 @@
         private System.Windows.Forms.TextBox txtCodigoProducto;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtCantComprada;
-        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtPrecioUnidadProveedor;
         private System.Windows.Forms.ListBox ListBoxEstado;
         private System.Windows.Forms.Button btnAgregar;
     }

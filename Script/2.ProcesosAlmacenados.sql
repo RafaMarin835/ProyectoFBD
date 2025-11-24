@@ -218,20 +218,20 @@ END
 GO
 
   --***************************************Para registrar una compra a proveedor*********************
-CREATE PROCEDURE sp_CompraProveedor
+Alter PROCEDURE sp_CompraProveedor
   @Cedula_Proveedor varchar(100),
   @Codigo_Producto varchar(100),
   @Descripcion varchar(200) null,
   @Cant_Comprada int,
-  @Total decimal,
+  @PrecioProveedorUd decimal,
   @Fecha_Compra date,
   @Activo bit
 AS
 BEGIN
-    Declare @ID_Proveedor int, @ID_Producto int
+    Declare @ID_Proveedor int, @ID_Producto int, @PrecioUnitario decimal
 
     select @ID_Proveedor = ID_Proveedor from Proveedores where @Cedula_Proveedor = Cedula_Proveedor
-    select @ID_Producto = ID_Producto from Productos where @Codigo_Producto = Codigo_Producto
+    select @ID_Producto = ID_Producto, @PrecioUnitario = PrecioProveedor from Productos where @Codigo_Producto = Codigo_Producto
 
     if @ID_Proveedor is null
     begin
@@ -247,11 +247,11 @@ BEGIN
 
     --Insertar compra
     INSERT INTO CompraProveedores(ID_Proveedor , ID_Producto, Descripcion, Cant_Comprada, Total, Fecha_Compra, Activo)
-    VALUES (@ID_Proveedor, @ID_Producto, @Descripcion, @Cant_Comprada, @Total, @Fecha_Compra, @Activo)
+    VALUES (@ID_Proveedor, @ID_Producto, @Descripcion, @Cant_Comprada, (@PrecioProveedorUd * @Cant_Comprada), @Fecha_Compra, @Activo)
     
     --Actualizar stock
     UPDATE Productos
-    SET Stock = Stock + @Cant_Comprada
+    SET Stock = Stock + @Cant_Comprada, PrecioProveedor = @PrecioProveedorUd
     WHERE ID_Producto = @ID_Producto;
 END
 GO

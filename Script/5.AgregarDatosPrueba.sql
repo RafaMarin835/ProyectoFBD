@@ -71,16 +71,16 @@ exec sp_Productos '0010', 'Tomate', 'Fruta', 850, 750, 100, '2025-11-20', 1
 Go
 
 --Compra proveedores
-exec sp_CompraProveedor 1, 1, 'Compra mensual de galletas', 100, 80000, '2025-10-01', 1
-exec sp_CompraProveedor 1, 2, 'Refrescos para fin de semana', 150, 135000, '2025-10-05', 1
-exec sp_CompraProveedor 2, 3, 'Arroz y frijoles', 200, 220000, '2025-10-03', 1
-exec sp_CompraProveedor 3, 5, 'Jugo y agua', 180, 180000, '2025-10-04', 1
-exec sp_CompraProveedor 4, 7, 'Lácteos variados', 120, 150000, '2025-10-06', 1
-exec sp_CompraProveedor 5, 9, 'Verduras frescas', 90, 72000, '2025-10-07', 1
-exec sp_CompraProveedor 2, 3, 'Reabastecimiento arroz', 100, 120000, '2025-10-10', 1
-exec sp_CompraProveedor 3, 5, 'Jugo adicional', 50, 65000, '2025-10-12', 1
-exec sp_CompraProveedor 4, 8, 'Queso fresco', 60, 108000, '2025-10-15', 1
-exec sp_CompraProveedor 5, 10, 'zanahorias', 120, 96000, '2025-10-18', 1
+exec sp_CompraProveedor '111111111', '0001', 'Compra mensual de galletas', 100, 100, '2025-10-01', 1
+exec sp_CompraProveedor '111111111', '0002', 'Refrescos para fin de semana', 150, 100, '2025-10-05', 1
+exec sp_CompraProveedor '111111111', '0003', 'Arroz y frijoles', 200, 100, '2025-10-03', 1
+exec sp_CompraProveedor '111111111', '0004', 'Jugo y agua', 180, 100, '2025-10-04', 1
+exec sp_CompraProveedor '111111111', '0005', 'Lácteos variados', 120, 100, '2025-10-06', 1
+exec sp_CompraProveedor '111111111', '0006', 'Verduras frescas', 90, 100, '2025-10-07', 1
+exec sp_CompraProveedor '111111111', '0007', 'Reabastecimiento arroz', 100, 100, '2025-10-10', 1
+exec sp_CompraProveedor '111111111', '0008', 'Jugo adicional', 50, 110, '2025-10-12', 1
+exec sp_CompraProveedor '111111111', '0009', 'Queso fresco', 60, 120, '2025-10-15', 1
+exec sp_CompraProveedor '111111111', '0010', 'zanahorias', 120, 130, '2025-10-18', 1
 Go
 
 --Ventas
