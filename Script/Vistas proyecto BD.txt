@@ -1,0 +1,74 @@
+Consulta directa 
+	Ver todos los clientes registrados
+		ObtenerClientes()
+	Ver todos los empleados registrados
+		ObtenerEmpleados()
+	Ver todos los productos
+		ObtenerProductos()
+	Ver todos los proveedores
+		ObtenerProveedores()
+	
+
+De consulta desde procedimientos por ejemplo por identificacion
+	Buscar Cliente por identificación
+		BuscarClientePorIdentificacion(identificacion)
+	Buscar Empleado por identificación
+		BuscarEmpleadoPorIdentificacion(identificacion)
+	Buscar proveedor por Cedula de proveedor
+		BuscarProveedorPorCedulaProveedor(CedulaProveedor)
+	Buscar productos por Código
+		BuscarProductoPorCodigo(codigoProducto)
+	Ver todas las compras a proveedor especifico
+		ObtenerComprasPorProveedorEspecifico(cedulaProveedor)
+	Margen de ganancia para un producto especifico
+		ObtenerMargenGananciaProducto(codigoProducto)
+	Ver Historial de ventas para un cliente especifico
+		ObtenerVentasPorClienteEspecifico(Identificacion)
+	Ver cliente especifico y su ultimo pago de membresía
+		ObtenerClientePagoMembresia(Identificacion)
+
+
+Vistas************************
+
+Para clientes
+	--Ver clientes y su membresía
+		ObtenerClientesPorMembresia()
+	--Ver clientes y sus compras
+		ObtenerClientesPorCompras()
+	--Ver clientes y su ultimo pago de membresía
+		ObtenerClientesPorUltimoPagoMembresia()
+	--Ver clientes con pagos de membresía atrasados
+		ObtenerClientesConPagosAtrasados()
+
+Para empleados
+	--Ver todas las auditorias de los empleados
+		ObtenerAuditoriasEmpleados() ******Este realmente ahorita no importa pero si quiere le hace una venta simple por pura vara ya que no se si la usare o no
+
+
+Para compra de proveedor
+	--Ver todas las compras a los proveedores
+		ObtenerComprasPorProveedor()
+
+Para productos
+	--Margen de ganancia para todos los productos
+		ObtenerProductosConMargen()
+	--Ver productos con stock bajo (menos de 10)
+		ObtenerProductosStockBajo() 
+	--Ver la ganacia total de cada producto
+		ObtenerRentabilidadProductos()
+
+Para ventas
+	--Ver todos los registros de ventas
+		ObtenerVentasPorCliente()
+	--Ver ventas con detalle del margen de ganacia
+		ObtenerDetalleVentaConMargen()
+	--Ver resumen de ventas de clientes
+		ObtenerResumenVentasCliente()
+
+Pantalla de pago de membresia
+	--Ver todo el historial de pagos de membresía
+		ObtenerDetallePagoMembresia()
+
+
+	
+	

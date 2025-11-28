@@ -361,6 +361,63 @@ BEGIN
     -- enciendo de nuevo
     ALTER TABLE Clientes ENABLE TRIGGER trg_DesactivarCliente;
 END;
+Go
 
+  --***************************************Procedimientos para vizualizar datos************//////////////////////////////*********
 
---***************************************PDDDDDDDDDD*********************
+--***************************************Buscar por medio de un identificador*********************
+CREATE PROCEDURE sp_BuscarPorIdentificador
+  @Identificador varchar(100),
+  @Tabla varchar(100)
+AS
+BEGIN
+    if @Tabla = 'Cliente' --Buscar cliente por identificacion
+    Begin
+        Select * from Clientes
+        where @Identificador = Identificacion
+    end;
+
+    if @Tabla = 'Empleado' --Buscar empleado por identificacion
+    Begin
+        Select * from Empleados
+        where @Identificador = Identificacion
+    end;
+
+    if @Tabla = 'Proveedor' --Buscar por cedula del proveedor
+    Begin
+        Select * from Proveedores
+        where @Identificador = Cedula_Proveedor
+    end;
+
+    if @Tabla = 'Producto' --Buscar por codigo del producto
+    Begin
+        Select * from Productos
+        where @Identificador = Codigo_Producto
+    end;
+
+    if @Tabla = 'ComprasProveedor' --Buscar por cedula proveedor todas las compras relacionadas
+    Begin
+        Select * from vw_CompraxProveedores
+        where @Identificador = Cedula_Proveedor
+    end;
+
+    if @Tabla = 'GanaciaProducto' --Buscar por codigo de producto el margen de gancia
+    Begin
+        Select * from vw_ProductosConMargen
+        where @Identificador = Codigo_Producto
+    end;
+
+    if @Tabla = 'VentasCliente' --Ver Historial de ventas para un cliente especifico
+    Begin
+        Select * from vw_ClientesxCompras
+        where @Identificador = Identificacion
+    end;
+
+    if @Tabla = 'ClientePagoMembresia' --Ver cliente especifico y su ultimo pago de membresía
+    Begin
+        Select * from vw_ClientesxPagoMembresia
+        where @Identificador = Identificacion
+    end;
+
+end;
+GO

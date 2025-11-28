@@ -36,14 +36,15 @@ namespace CapaDatos // De momento se ingnora
             _conexion.Close();
         } //fin cerrar conexion
 
-        //Metodos para recibir comandos (recuperar datos, insertar, actualizar, eliminar)
+        //Metodos para recibir comandos (recuperar datos, insertar, actualizar, eliminar)*********************************************
 
-        private DataTable RecuperarTabla(String nombreTabla)
+        #region Funciones uso general //**************************///////////////////////////***********************************///////////////////////////
+        private DataTable RecuperarTablaVista(String nombre) //para recuperar una tabla completa o una vista
         {
             try
             {
                 EstablecerConexion();
-                var da = new SqlDataAdapter($"SELECT * FROM {nombreTabla}", _conexion);
+                var da = new SqlDataAdapter($"SELECT * FROM {nombre}", _conexion);
 
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -52,7 +53,7 @@ namespace CapaDatos // De momento se ingnora
             }
             catch (SqlException ex)
             {
-                throw new Exception("Error al recuperar la tabla " + nombreTabla, ex);
+                throw new Exception("Error al recuperar la tabla " + nombre, ex);
             }
             finally
             {
@@ -81,6 +82,80 @@ namespace CapaDatos // De momento se ingnora
             }
         } //fin obtener por comando
 
+        #endregion Funciones uso general
+
+        #region Recuperar datos por procedimientos almacenados o comandos //**************************///////////////////////////***********************************///////////////////////////
+        public DataTable RecuperarPorIdentificador(String identificador, int indiceTablaVista) // para recuperar procedimientos por identificador (clientes, empleados, etc)
+        {
+            List<string> tablasVista = new List<string>
+                {
+                "Cliente",
+                "Empleado",
+                "Proveerdor",
+                "Producto",
+                "ComprasProveedor",
+                "GanaciaProducto",
+                "VentasCliente",
+                "ClientePagoMembresia"
+            };
+            if (indiceTablaVista < 0 || indiceTablaVista >= tablasVista.Count)
+                throw new ArgumentException("El indice de la tabla o vista a consultar no es valido.");
+            string TablaVista = tablasVista[indiceTablaVista];
+
+            return Obtener_Por_Comando($"sp_BuscarPorIdentificador {identificador}, {TablaVista}");
+        }
+
+        public DataTable RecuperarTablaCompleta(int indiceTabla) // para recuperar tabla completa
+        {
+            List<string> tablas = new List<string>
+            {
+                "Clientes",
+                "Empleados",
+                "Proveedores",
+                "Productos"
+            };
+            if (indiceTabla < 0 || indiceTabla >= tablas.Count)
+                throw new ArgumentException("El indice de la tabla a consultar no es valido.");
+            string nombreTabla = tablas[indiceTabla];
+
+            return RecuperarTablaVista(nombreTabla);
+        }
+
+        public DataTable RecuperarVista(int indiceVista) // para recuperar vistas especificas por indice
+        {
+            // Lista de nombres de vistas actuales
+            List<string> vistas = new List<string>
+            {
+                "vw_ClientesxMembresia",
+                "vw_ClientesxCompras",
+                "vw_ClientesxPagoMembresia",
+                "vw_ClientesxPagoAtrasado",
+                "vw_EmpleadosAuditorias",
+                "vw_CompraxProveedores",
+                "vw_ProductosConMargen",
+                "vw_ProductosStockBajo",
+                "vw_RentabilidadProducto",
+                "vw_VentasClientesProducto",
+                "vw_DetalleVentaConMargen",
+                "vw_ResumenVentasCliente",
+                "vw_PagoMembresiaDetalle"
+            };
+
+            // Validar índice
+            if (indiceVista < 0 || indiceVista >= vistas.Count)
+                throw new ArgumentException("La vista buscada esta fuera del indice");
+
+            // Obtener el nombre de la vista según el índice
+            string nombreVista = vistas[indiceVista];
+
+            //recuperar y retornar la vista
+            return RecuperarTablaVista(nombreVista);
+        }
+
+        #endregion Recuperar datos por procedimientos almacenados
+
+
+        #region Modificar Registros //**************************///////////////////////////***********************************///////////////////////////
         public void ModificarEmpleado(ClaseEmpleado obj) // para modificar un empleado
         {
             try
@@ -289,6 +364,7 @@ namespace CapaDatos // De momento se ingnora
                 throw new Exception("Error al actualizar la membresia en DB: " + ex.Message);
             }
         }
+        #endregion Modificar Registros
 
         #endregion Metodos
     }

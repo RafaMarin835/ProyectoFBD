@@ -40,6 +40,7 @@
             this.actualizarMembresiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compraProveedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mientrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +78,8 @@
             this.pagoMembresiaToolStripMenuItem,
             this.actualizarMembresiaToolStripMenuItem,
             this.compraProveedToolStripMenuItem,
-            this.salirToolStripMenuItem});
+            this.salirToolStripMenuItem,
+            this.mientrasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1484, 24);
@@ -147,6 +149,13 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // mientrasToolStripMenuItem
+            // 
+            this.mientrasToolStripMenuItem.Name = "mientrasToolStripMenuItem";
+            this.mientrasToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.mientrasToolStripMenuItem.Text = "Mientras";
+            this.mientrasToolStripMenuItem.Click += new System.EventHandler(this.mientrasToolStripMenuItem_Click);
+            // 
             // PantallaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,6 +187,7 @@
         private System.Windows.Forms.ToolStripMenuItem actualizarMembresiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compraProveedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mientrasToolStripMenuItem;
     }
 }
 
