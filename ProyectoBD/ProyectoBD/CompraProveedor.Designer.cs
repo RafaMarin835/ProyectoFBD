@@ -45,7 +45,10 @@
             this.txtPrecioUnidadProveedor = new System.Windows.Forms.TextBox();
             this.ListBoxEstado = new System.Windows.Forms.ListBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.dgvCompraProveedor = new System.Windows.Forms.DataGridView();
+            this.btnComprasProveedor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompraProveedor)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -76,7 +79,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 49);
+            this.label1.Location = new System.Drawing.Point(15, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(214, 13);
             this.label1.TabIndex = 1;
@@ -85,7 +88,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 86);
+            this.label2.Location = new System.Drawing.Point(15, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 13);
             this.label2.TabIndex = 2;
@@ -94,7 +97,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(50, 116);
+            this.label3.Location = new System.Drawing.Point(15, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 13);
             this.label3.TabIndex = 3;
@@ -103,7 +106,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(50, 152);
+            this.label4.Location = new System.Drawing.Point(15, 159);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 13);
             this.label4.TabIndex = 4;
@@ -112,7 +115,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(50, 191);
+            this.label5.Location = new System.Drawing.Point(15, 198);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 13);
             this.label5.TabIndex = 5;
@@ -121,7 +124,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 229);
+            this.label6.Location = new System.Drawing.Point(15, 237);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(164, 13);
             this.label6.TabIndex = 6;
@@ -130,7 +133,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(50, 264);
+            this.label7.Location = new System.Drawing.Point(15, 276);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 7;
@@ -138,38 +141,38 @@
             // 
             // txtIDProveedor
             // 
-            this.txtIDProveedor.Location = new System.Drawing.Point(198, 86);
+            this.txtIDProveedor.Location = new System.Drawing.Point(18, 93);
             this.txtIDProveedor.Name = "txtIDProveedor";
-            this.txtIDProveedor.Size = new System.Drawing.Size(100, 20);
+            this.txtIDProveedor.Size = new System.Drawing.Size(135, 20);
             this.txtIDProveedor.TabIndex = 8;
             // 
             // txtCodigoProducto
             // 
-            this.txtCodigoProducto.Location = new System.Drawing.Point(161, 116);
+            this.txtCodigoProducto.Location = new System.Drawing.Point(18, 135);
             this.txtCodigoProducto.Name = "txtCodigoProducto";
-            this.txtCodigoProducto.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigoProducto.Size = new System.Drawing.Size(135, 20);
             this.txtCodigoProducto.TabIndex = 9;
             this.txtCodigoProducto.TextChanged += new System.EventHandler(this.txtCodigoProveedor_TextChanged);
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(187, 152);
+            this.txtDescripcion.Location = new System.Drawing.Point(18, 175);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(135, 20);
             this.txtDescripcion.TabIndex = 10;
             // 
             // txtCantComprada
             // 
-            this.txtCantComprada.Location = new System.Drawing.Point(159, 191);
+            this.txtCantComprada.Location = new System.Drawing.Point(18, 214);
             this.txtCantComprada.Name = "txtCantComprada";
-            this.txtCantComprada.Size = new System.Drawing.Size(100, 20);
+            this.txtCantComprada.Size = new System.Drawing.Size(135, 20);
             this.txtCantComprada.TabIndex = 11;
             // 
             // txtPrecioUnidadProveedor
             // 
-            this.txtPrecioUnidadProveedor.Location = new System.Drawing.Point(220, 226);
+            this.txtPrecioUnidadProveedor.Location = new System.Drawing.Point(18, 253);
             this.txtPrecioUnidadProveedor.Name = "txtPrecioUnidadProveedor";
-            this.txtPrecioUnidadProveedor.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecioUnidadProveedor.Size = new System.Drawing.Size(135, 20);
             this.txtPrecioUnidadProveedor.TabIndex = 12;
             // 
             // ListBoxEstado
@@ -178,26 +181,47 @@
             this.ListBoxEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.ListBoxEstado.Location = new System.Drawing.Point(100, 264);
+            this.ListBoxEstado.Location = new System.Drawing.Point(18, 292);
             this.ListBoxEstado.Name = "ListBoxEstado";
-            this.ListBoxEstado.Size = new System.Drawing.Size(129, 30);
+            this.ListBoxEstado.Size = new System.Drawing.Size(135, 30);
             this.ListBoxEstado.TabIndex = 13;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(53, 351);
+            this.btnAgregar.Location = new System.Drawing.Point(18, 341);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(176, 73);
+            this.btnAgregar.Size = new System.Drawing.Size(124, 47);
             this.btnAgregar.TabIndex = 14;
             this.btnAgregar.Text = "Registrar Compra";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // dgvCompraProveedor
+            // 
+            this.dgvCompraProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompraProveedor.Location = new System.Drawing.Point(277, 93);
+            this.dgvCompraProveedor.Name = "dgvCompraProveedor";
+            this.dgvCompraProveedor.Size = new System.Drawing.Size(422, 229);
+            this.dgvCompraProveedor.TabIndex = 15;
+            this.dgvCompraProveedor.Visible = false;
+            // 
+            // btnComprasProveedor
+            // 
+            this.btnComprasProveedor.Location = new System.Drawing.Point(148, 341);
+            this.btnComprasProveedor.Name = "btnComprasProveedor";
+            this.btnComprasProveedor.Size = new System.Drawing.Size(98, 47);
+            this.btnComprasProveedor.TabIndex = 16;
+            this.btnComprasProveedor.Text = "Ver compras de todos los proveedores";
+            this.btnComprasProveedor.UseVisualStyleBackColor = true;
+            this.btnComprasProveedor.Click += new System.EventHandler(this.btnComprasProveedor_Click);
             // 
             // CompraProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(938, 793);
+            this.Controls.Add(this.btnComprasProveedor);
+            this.Controls.Add(this.dgvCompraProveedor);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.ListBoxEstado);
             this.Controls.Add(this.txtPrecioUnidadProveedor);
@@ -218,6 +242,7 @@
             this.Text = "CompraProveedor";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCompraProveedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +267,7 @@
         private System.Windows.Forms.TextBox txtPrecioUnidadProveedor;
         private System.Windows.Forms.ListBox ListBoxEstado;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.DataGridView dgvCompraProveedor;
+        private System.Windows.Forms.Button btnComprasProveedor;
     }
 }

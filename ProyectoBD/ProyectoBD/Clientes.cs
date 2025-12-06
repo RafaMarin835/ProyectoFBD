@@ -20,6 +20,8 @@ namespace ProyectoBD
         public Clientes()
         {
             InitializeComponent();
+
+            dgvClientes.CellDoubleClick += dgvClientes_CellDoubleClick;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -89,6 +91,61 @@ namespace ProyectoBD
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+             ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+             dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
+             dgvClientes.Visible = true;
+        }
+
+        private void btnVerClientesYCompras_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorCompras();
+            dgvClientes.Visible = true;
+        }
+
+        private void btnClientesYMembresias_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorMembresia();
+            dgvClientes.Visible = true;
+        }
+
+        private void btnPagoAtrasado_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesConPagosAtrasados();
+            dgvClientes.Visible = true;
+        }
+
+        private void btnClientesPago_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorUltimoPagoMembresia();
+            dgvClientes.Visible = true;
+        }
+
+        private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvClientes.Rows[e.RowIndex];
+
+                txtIdentificacion.Text = fila.Cells["Identificacion"].Value?.ToString();
+                txtNombre.Text = fila.Cells["Nombre"].Value?.ToString();
+                txtEstadoCivil.Text = fila.Cells["Estado_Civil"].Value?.ToString();
+                txtTelefono.Text = fila.Cells["Telefono"].Value?.ToString();
+                txtFechaNacimiento.Text = fila.Cells["Fecha_Nacimiento"].Value?.ToString();
+                txtCorreo.Text = fila.Cells["Correo"].Value?.ToString();
+                txtGenero.Text = fila.Cells["Genero"].Value?.ToString();
+                txtDireccion.Text = fila.Cells["Direccion"].Value?.ToString();
+                txtDistrito.Text = fila.Cells["ID_Distrito"].Value?.ToString();
+
+                ListBoxActivo.Text = (fila.Cells["Activo"].Value.ToString() == "1") ? "Activo" : "Inactivo";
+            }
         }
     }
 }

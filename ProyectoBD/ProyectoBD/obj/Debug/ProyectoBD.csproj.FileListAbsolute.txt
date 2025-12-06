@@ -60,3 +60,4 @@ C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\Pro
 C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.Proveedor.resources
 C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.RegistrarVenta.resources
 C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.pruebasRafa.resources
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.pruebasRafa.resources

@@ -67,5 +67,12 @@ namespace ProyectoBD
         {
             this.Close();
         }
+
+        private void btnComprasProveedor_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_ClaseRecibirDatos = new ClaseRecibirDatos();
+            DataTable dtComprasProveedor = obj_ClaseRecibirDatos.ObtenerComprasPorProveedor();
+            dgvCompraProveedor.DataSource = dtComprasProveedor;
+        }
     }
 }
