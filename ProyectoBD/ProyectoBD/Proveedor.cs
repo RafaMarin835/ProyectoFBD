@@ -20,6 +20,8 @@ namespace ProyectoBD
         public Proveedor()
         {
             InitializeComponent();
+
+            dgvProveedor.CellDoubleClick += dgvProveedor_CellDoubleClick;
         }
 
         private void btnAgregarModificar_Click(object sender, EventArgs e)
@@ -59,6 +61,52 @@ namespace ProyectoBD
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnBuscarPorID_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+            dgvProveedor.DataSource = obj_recibirDatos.BuscarProveedorPorCedulaProveedor(txtIdentificacion.Text);
+            btnVerTodosProveedores.Visible = true;
+        }
+
+        private void Proveedor_Load(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+            dgvProveedor.DataSource = obj_recibirDatos.ObtenerProveedores();
+        }
+
+        private void btnVerTodosProveedores_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+            dgvProveedor.DataSource = obj_recibirDatos.ObtenerProveedores();
+        }
+
+        private void dgvProveedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Evitar clic en encabezado
+                if (e.RowIndex < 0) return;
+
+                DataGridViewRow fila = dgvProveedor.Rows[e.RowIndex];
+
+                txtIdentificacion.Text = fila.Cells["Cedula_proveedor"].Value.ToString();
+                txtNombre.Text = fila.Cells["Nombre_Proveedor"].Value.ToString();
+                txtCorreoElectronico.Text = fila.Cells["Correo"].Value.ToString();
+                txtTelefono.Text = fila.Cells["Telefono"].Value.ToString();
+                txtDireccion.Text = fila.Cells["Direccion"].Value.ToString();
+
+                int activo = Convert.ToInt32(fila.Cells["Activo"].Value);
+                if (activo == 1)
+                    ListBoxEstado.Text = "Activo";
+                else
+                    ListBoxEstado.Text = "Inactivo";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

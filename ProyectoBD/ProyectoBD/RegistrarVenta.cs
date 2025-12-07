@@ -52,5 +52,17 @@ namespace ProyectoBD
         {
             this.Close();
         }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void informacionDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InformacionDeVentas informacionDeVentas = new InformacionDeVentas();
+            informacionDeVentas.Show();
+            this.Close();
+        }
     }
 }

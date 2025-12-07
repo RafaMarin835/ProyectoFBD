@@ -20,6 +20,7 @@ namespace ProyectoBD
         public Empleados()
         {
             InitializeComponent();
+            dgvEmpleados.CellDoubleClick += dgvEmpleados_CellDoubleClick;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -76,6 +77,63 @@ namespace ProyectoBD
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Empleados_Load(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+            dgvEmpleados.DataSource = obj_RecibirDatos.ObtenerEmpleados();
+        }
+        private void dgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Evitar error si se hace doble clic en encabezado
+                if (e.RowIndex < 0) return;
+
+                DataGridViewRow fila = dgvEmpleados.Rows[e.RowIndex];
+
+                txtIdentificacion.Text = fila.Cells["Identificacion"].Value.ToString();
+                txtNombre.Text = fila.Cells["Nombre"].Value.ToString();
+                txtTelefono.Text = fila.Cells["Telefono"].Value.ToString();
+                txtCorreo.Text = fila.Cells["Correo"].Value.ToString();
+                txtSalario.Text = fila.Cells["Salario"].Value.ToString();
+                txtDireccion.Text = fila.Cells["Direccion"].Value.ToString();
+                txtEstadoCivil.Text = fila.Cells["Estado_Civil"].Value.ToString();
+                txtFechaNacimiento.Text = fila.Cells["Fecha_Nacimiento"].Value.ToString();
+                txtGenero.Text = fila.Cells["Genero"].Value.ToString();
+                txtDistrito.Text = fila.Cells["ID_Distrito"].Value.ToString();
+
+                int activo = Convert.ToInt32(fila.Cells["Activo"].Value);
+                if (activo == 1)
+                    ListBoxActivo.Text = "Activo";
+                else
+                    ListBoxActivo.Text = "Inactivo";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void informacionEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InformacionEmpleados informacionEmpleados = new InformacionEmpleados();
+            informacionEmpleados.Show();
+            this.Hide();
+        }
+
+        private void btnBuscarEmpleado_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+            dgvEmpleados.DataSource = obj_RecibirDatos.BuscarEmpleadoPorIdentificacion(txtIdentificacion.Text);
+            btnVerTodosLosEmpleados.Visible = true;
+        }
+
+        private void btnVerTodosLosEmpleados_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+            dgvEmpleados.DataSource = obj_RecibirDatos.ObtenerEmpleados();
         }
     }
 }

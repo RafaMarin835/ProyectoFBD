@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ProyectoBD
 {
-    public partial class PagoMembresia : Form
+    public partial class InformacionEmpleados : Form
     {
-        public PagoMembresia()
+        public InformacionEmpleados()
         {
             InitializeComponent();
         }
@@ -21,7 +22,14 @@ namespace ProyectoBD
         {
             PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
             pantallaPrincipal.Show();
-            this.Close();
+            this.Hide();
+        }
+
+        private void volverAEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Empleados empleados = new Empleados();
+            empleados.Show();
+            this.Hide();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -29,11 +37,10 @@ namespace ProyectoBD
             this.Close();
         }
 
-        private void informacionPagoDeMembresiaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void InformacionEmpleados_Load(object sender, EventArgs e)
         {
-            InformacionPagoMembresia informacionPagoMembresia = new InformacionPagoMembresia();
-            informacionPagoMembresia.Show();
-            this.Close();
+            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+            dgvAuditoriaEmpleado.DataSource = obj_RecibirDatos.ObtenerAuditoriasEmpleados();
         }
     }
 }

@@ -61,3 +61,9 @@ C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\Pro
 C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.RegistrarVenta.resources
 C:\Users\Rafael\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.pruebasRafa.resources
 C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.pruebasRafa.resources
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.HistorialDeCompras.resources
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.VerInformacion_de_los_clientes.resources
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.InformacionEmpleados.resources
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.InformacionProductos.resources
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.InformacionDeVentas.resources
+C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\ProyectoBD\obj\Debug\ProyectoBD.InformacionPagoMembresia.resources

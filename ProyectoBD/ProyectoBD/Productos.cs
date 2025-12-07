@@ -20,7 +20,9 @@ namespace ProyectoBD
         public Productos()
         {
             InitializeComponent();
+            dgvProductos.CellDoubleClick += dgvProductos_CellDoubleClick;
         }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -60,6 +62,60 @@ namespace ProyectoBD
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void Productos_Load(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+            dgvProductos.DataSource = obj_recibirDatos.ObtenerProductos();
+
+        }
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+            dgvProductos.DataSource = obj_recibirDatos.BuscarProductoPorCodigo(txtCodigoProducto.Text);
+        }
+
+        private void btnVerTodosLosProductos_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+            dgvProductos.DataSource = obj_recibirDatos.ObtenerProductos();
+        }
+
+        private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Evitar clic en encabezado
+                if (e.RowIndex < 0) return;
+
+                DataGridViewRow fila = dgvProductos.Rows[e.RowIndex];
+
+                txtCodigoProducto.Text = fila.Cells["Codigo_Producto"].Value.ToString();
+                txtNombreProducto.Text = fila.Cells["NombreProducto"].Value.ToString();
+                txtCategoria.Text = fila.Cells["Categoria"].Value.ToString();
+                txtPrecio.Text = fila.Cells["Precio"].Value.ToString();
+                txtPrecioProveedor.Text = fila.Cells["PrecioProveedor"].Value.ToString();
+                txtStock.Text = fila.Cells["Stock"].Value.ToString();
+
+                int activo = Convert.ToInt32(fila.Cells["Activo"].Value);
+                if (activo == 1)
+                    ListBoxEstado.Text = "Activo";
+                else
+                    ListBoxEstado.Text = "Inactivo";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void verInformacionSobreLosProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InformacionProductos informacionProductos = new InformacionProductos();
+            informacionProductos.Show();
             this.Close();
         }
     }

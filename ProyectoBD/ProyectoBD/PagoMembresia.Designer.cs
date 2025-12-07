@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuPrincipalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informacionPagoDeMembresiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +46,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 41);
+            this.label1.Location = new System.Drawing.Point(12, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(202, 13);
             this.label1.TabIndex = 0;
@@ -55,6 +56,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuPrincipalToolStripMenuItem,
+            this.informacionPagoDeMembresiaToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -69,6 +71,13 @@
             this.menuPrincipalToolStripMenuItem.Text = "Menu Principal";
             this.menuPrincipalToolStripMenuItem.Click += new System.EventHandler(this.menuPrincipalToolStripMenuItem_Click);
             // 
+            // informacionPagoDeMembresiaToolStripMenuItem
+            // 
+            this.informacionPagoDeMembresiaToolStripMenuItem.Name = "informacionPagoDeMembresiaToolStripMenuItem";
+            this.informacionPagoDeMembresiaToolStripMenuItem.Size = new System.Drawing.Size(192, 20);
+            this.informacionPagoDeMembresiaToolStripMenuItem.Text = "Informacion Pago de Membresia";
+            this.informacionPagoDeMembresiaToolStripMenuItem.Click += new System.EventHandler(this.informacionPagoDeMembresiaToolStripMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
@@ -79,16 +88,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 93);
+            this.label2.Location = new System.Drawing.Point(12, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.Size = new System.Drawing.Size(124, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Identificacion:";
+            this.label2.Text = "Identificacion del cliente:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 126);
+            this.label3.Location = new System.Drawing.Point(12, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 3;
@@ -97,7 +106,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 159);
+            this.label4.Location = new System.Drawing.Point(12, 150);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 13);
             this.label4.TabIndex = 4;
@@ -105,30 +114,30 @@
             // 
             // txtIdentificacion
             // 
-            this.txtIdentificacion.Location = new System.Drawing.Point(120, 93);
+            this.txtIdentificacion.Location = new System.Drawing.Point(15, 88);
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Size = new System.Drawing.Size(100, 20);
             this.txtIdentificacion.TabIndex = 5;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(120, 126);
+            this.txtDescripcion.Location = new System.Drawing.Point(15, 127);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
             this.txtDescripcion.TabIndex = 6;
             // 
             // txtFechaUltimoPago
             // 
-            this.txtFechaUltimoPago.Location = new System.Drawing.Point(147, 159);
+            this.txtFechaUltimoPago.Location = new System.Drawing.Point(12, 166);
             this.txtFechaUltimoPago.Name = "txtFechaUltimoPago";
             this.txtFechaUltimoPago.Size = new System.Drawing.Size(100, 20);
             this.txtFechaUltimoPago.TabIndex = 7;
             // 
             // btnPago
             // 
-            this.btnPago.Location = new System.Drawing.Point(46, 208);
+            this.btnPago.Location = new System.Drawing.Point(12, 192);
             this.btnPago.Name = "btnPago";
-            this.btnPago.Size = new System.Drawing.Size(144, 65);
+            this.btnPago.Size = new System.Drawing.Size(109, 54);
             this.btnPago.TabIndex = 8;
             this.btnPago.Text = "Agregar Pago";
             this.btnPago.UseVisualStyleBackColor = true;
@@ -170,5 +179,6 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtFechaUltimoPago;
         private System.Windows.Forms.Button btnPago;
+        private System.Windows.Forms.ToolStripMenuItem informacionPagoDeMembresiaToolStripMenuItem;
     }
 }

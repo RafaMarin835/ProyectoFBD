@@ -53,13 +53,12 @@
             this.ListBoxActivo = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuPrincipalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verInformacionDeLosClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnVerClientes = new System.Windows.Forms.Button();
+            this.btnBuscarPorID = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.btnVerClientesYCompras = new System.Windows.Forms.Button();
-            this.btnClientesYMembresias = new System.Windows.Forms.Button();
-            this.btnPagoAtrasado = new System.Windows.Forms.Button();
-            this.btnClientesPago = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnVerTodosLosClientes = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
@@ -263,6 +262,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuPrincipalToolStripMenuItem,
+            this.verInformacionDeLosClientesToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -277,6 +277,13 @@
             this.menuPrincipalToolStripMenuItem.Text = "Menu Principal";
             this.menuPrincipalToolStripMenuItem.Click += new System.EventHandler(this.menuPrincipalToolStripMenuItem_Click);
             // 
+            // verInformacionDeLosClientesToolStripMenuItem
+            // 
+            this.verInformacionDeLosClientesToolStripMenuItem.Name = "verInformacionDeLosClientesToolStripMenuItem";
+            this.verInformacionDeLosClientesToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.verInformacionDeLosClientesToolStripMenuItem.Text = "Ver informacion";
+            this.verInformacionDeLosClientesToolStripMenuItem.Click += new System.EventHandler(this.verInformacionDeLosClientesToolStripMenuItem_Click);
+            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
@@ -284,76 +291,53 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // btnVerClientes
+            // btnBuscarPorID
             // 
-            this.btnVerClientes.Location = new System.Drawing.Point(156, 494);
-            this.btnVerClientes.Name = "btnVerClientes";
-            this.btnVerClientes.Size = new System.Drawing.Size(121, 46);
-            this.btnVerClientes.TabIndex = 36;
-            this.btnVerClientes.Text = "Ver clientes";
-            this.btnVerClientes.UseVisualStyleBackColor = true;
-            this.btnVerClientes.Click += new System.EventHandler(this.button1_Click);
+            this.btnBuscarPorID.Location = new System.Drawing.Point(15, 557);
+            this.btnBuscarPorID.Name = "btnBuscarPorID";
+            this.btnBuscarPorID.Size = new System.Drawing.Size(121, 46);
+            this.btnBuscarPorID.TabIndex = 36;
+            this.btnBuscarPorID.Text = "Buscar cliente por ID";
+            this.btnBuscarPorID.UseVisualStyleBackColor = true;
+            this.btnBuscarPorID.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvClientes
             // 
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(293, 35);
+            this.dgvClientes.Location = new System.Drawing.Point(294, 27);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.Size = new System.Drawing.Size(1125, 611);
             this.dgvClientes.TabIndex = 37;
-            this.dgvClientes.Visible = false;
             // 
-            // btnVerClientesYCompras
+            // btnEliminar
             // 
-            this.btnVerClientesYCompras.Location = new System.Drawing.Point(15, 546);
-            this.btnVerClientesYCompras.Name = "btnVerClientesYCompras";
-            this.btnVerClientesYCompras.Size = new System.Drawing.Size(124, 46);
-            this.btnVerClientesYCompras.TabIndex = 38;
-            this.btnVerClientesYCompras.Text = "Ver clientes y sus compras";
-            this.btnVerClientesYCompras.UseVisualStyleBackColor = true;
-            this.btnVerClientesYCompras.Click += new System.EventHandler(this.btnVerClientesYCompras_Click);
+            this.btnEliminar.Location = new System.Drawing.Point(15, 614);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(121, 52);
+            this.btnEliminar.TabIndex = 38;
+            this.btnEliminar.Text = "Eliminar cliente";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // btnClientesYMembresias
+            // btnVerTodosLosClientes
             // 
-            this.btnClientesYMembresias.Location = new System.Drawing.Point(156, 547);
-            this.btnClientesYMembresias.Name = "btnClientesYMembresias";
-            this.btnClientesYMembresias.Size = new System.Drawing.Size(121, 45);
-            this.btnClientesYMembresias.TabIndex = 39;
-            this.btnClientesYMembresias.Text = "Ver clientes y sus membresias";
-            this.btnClientesYMembresias.UseVisualStyleBackColor = true;
-            this.btnClientesYMembresias.Click += new System.EventHandler(this.btnClientesYMembresias_Click);
-            // 
-            // btnPagoAtrasado
-            // 
-            this.btnPagoAtrasado.Location = new System.Drawing.Point(15, 598);
-            this.btnPagoAtrasado.Name = "btnPagoAtrasado";
-            this.btnPagoAtrasado.Size = new System.Drawing.Size(124, 39);
-            this.btnPagoAtrasado.TabIndex = 40;
-            this.btnPagoAtrasado.Text = "Ver clientes con pago atrasado";
-            this.btnPagoAtrasado.UseVisualStyleBackColor = true;
-            this.btnPagoAtrasado.Click += new System.EventHandler(this.btnPagoAtrasado_Click);
-            // 
-            // btnClientesPago
-            // 
-            this.btnClientesPago.Location = new System.Drawing.Point(156, 598);
-            this.btnClientesPago.Name = "btnClientesPago";
-            this.btnClientesPago.Size = new System.Drawing.Size(121, 39);
-            this.btnClientesPago.TabIndex = 41;
-            this.btnClientesPago.Text = "Ver clientes y su ultimo pago\r\n";
-            this.btnClientesPago.UseVisualStyleBackColor = true;
-            this.btnClientesPago.Click += new System.EventHandler(this.btnClientesPago_Click);
+            this.btnVerTodosLosClientes.Location = new System.Drawing.Point(155, 557);
+            this.btnVerTodosLosClientes.Name = "btnVerTodosLosClientes";
+            this.btnVerTodosLosClientes.Size = new System.Drawing.Size(103, 46);
+            this.btnVerTodosLosClientes.TabIndex = 39;
+            this.btnVerTodosLosClientes.Text = "Ver todos los clientes";
+            this.btnVerTodosLosClientes.UseVisualStyleBackColor = true;
+            this.btnVerTodosLosClientes.Visible = false;
+            this.btnVerTodosLosClientes.Click += new System.EventHandler(this.btnVerTodosLosClientes_Click);
             // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 761);
-            this.Controls.Add(this.btnClientesPago);
-            this.Controls.Add(this.btnPagoAtrasado);
-            this.Controls.Add(this.btnClientesYMembresias);
-            this.Controls.Add(this.btnVerClientesYCompras);
+            this.Controls.Add(this.btnVerTodosLosClientes);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvClientes);
-            this.Controls.Add(this.btnVerClientes);
+            this.Controls.Add(this.btnBuscarPorID);
             this.Controls.Add(this.ListBoxActivo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnAgregarModificar);
@@ -381,6 +365,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Clientes";
             this.Text = "Clientes";
+            this.Load += new System.EventHandler(this.Clientes_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
@@ -417,11 +402,10 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuPrincipalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.Button btnVerClientes;
+        private System.Windows.Forms.Button btnBuscarPorID;
         private System.Windows.Forms.DataGridView dgvClientes;
-        private System.Windows.Forms.Button btnVerClientesYCompras;
-        private System.Windows.Forms.Button btnClientesYMembresias;
-        private System.Windows.Forms.Button btnPagoAtrasado;
-        private System.Windows.Forms.Button btnClientesPago;
+        private System.Windows.Forms.ToolStripMenuItem verInformacionDeLosClientesToolStripMenuItem;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnVerTodosLosClientes;
     }
 }

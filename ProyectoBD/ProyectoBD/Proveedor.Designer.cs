@@ -45,13 +45,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuPrincipalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvProveedor = new System.Windows.Forms.DataGridView();
+            this.btnBuscarPorID = new System.Windows.Forms.Button();
+            this.btnVerTodosProveedores = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(81, 30);
+            this.label1.Location = new System.Drawing.Point(12, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 13);
             this.label1.TabIndex = 0;
@@ -60,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(84, 83);
+            this.label2.Location = new System.Drawing.Point(12, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 1;
@@ -69,7 +73,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(87, 121);
+            this.label3.Location = new System.Drawing.Point(12, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 2;
@@ -78,7 +82,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(90, 161);
+            this.label4.Location = new System.Drawing.Point(12, 144);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 3;
@@ -87,7 +91,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(87, 198);
+            this.label5.Location = new System.Drawing.Point(12, 183);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 4;
@@ -96,7 +100,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(84, 240);
+            this.label6.Location = new System.Drawing.Point(12, 222);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 5;
@@ -105,7 +109,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(90, 287);
+            this.label7.Location = new System.Drawing.Point(12, 261);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 6;
@@ -113,42 +117,42 @@
             // 
             // txtIdentificacion
             // 
-            this.txtIdentificacion.Location = new System.Drawing.Point(164, 83);
+            this.txtIdentificacion.Location = new System.Drawing.Point(12, 82);
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Size = new System.Drawing.Size(100, 20);
             this.txtIdentificacion.TabIndex = 7;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(164, 121);
+            this.txtNombre.Location = new System.Drawing.Point(12, 121);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 8;
             // 
             // txtCorreoElectronico
             // 
-            this.txtCorreoElectronico.Location = new System.Drawing.Point(164, 161);
+            this.txtCorreoElectronico.Location = new System.Drawing.Point(12, 160);
             this.txtCorreoElectronico.Name = "txtCorreoElectronico";
             this.txtCorreoElectronico.Size = new System.Drawing.Size(100, 20);
             this.txtCorreoElectronico.TabIndex = 9;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(164, 198);
+            this.txtTelefono.Location = new System.Drawing.Point(12, 199);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(100, 20);
             this.txtTelefono.TabIndex = 10;
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(164, 240);
+            this.txtDireccion.Location = new System.Drawing.Point(15, 238);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(100, 20);
             this.txtDireccion.TabIndex = 11;
             // 
             // btnAgregarModificar
             // 
-            this.btnAgregarModificar.Location = new System.Drawing.Point(112, 348);
+            this.btnAgregarModificar.Location = new System.Drawing.Point(12, 326);
             this.btnAgregarModificar.Name = "btnAgregarModificar";
             this.btnAgregarModificar.Size = new System.Drawing.Size(124, 72);
             this.btnAgregarModificar.TabIndex = 13;
@@ -162,7 +166,7 @@
             this.ListBoxEstado.Items.AddRange(new object[] {
             "Activo",
             "Inactivo"});
-            this.ListBoxEstado.Location = new System.Drawing.Point(164, 287);
+            this.ListBoxEstado.Location = new System.Drawing.Point(15, 277);
             this.ListBoxEstado.Name = "ListBoxEstado";
             this.ListBoxEstado.Size = new System.Drawing.Size(150, 43);
             this.ListBoxEstado.TabIndex = 14;
@@ -192,11 +196,43 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // dgvProveedor
+            // 
+            this.dgvProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProveedor.Location = new System.Drawing.Point(283, 66);
+            this.dgvProveedor.Name = "dgvProveedor";
+            this.dgvProveedor.Size = new System.Drawing.Size(505, 332);
+            this.dgvProveedor.TabIndex = 16;
+            // 
+            // btnBuscarPorID
+            // 
+            this.btnBuscarPorID.Location = new System.Drawing.Point(142, 326);
+            this.btnBuscarPorID.Name = "btnBuscarPorID";
+            this.btnBuscarPorID.Size = new System.Drawing.Size(124, 72);
+            this.btnBuscarPorID.TabIndex = 17;
+            this.btnBuscarPorID.Text = "Buscar Proveedor por ID";
+            this.btnBuscarPorID.UseVisualStyleBackColor = true;
+            this.btnBuscarPorID.Click += new System.EventHandler(this.btnBuscarPorID_Click);
+            // 
+            // btnVerTodosProveedores
+            // 
+            this.btnVerTodosProveedores.Location = new System.Drawing.Point(15, 404);
+            this.btnVerTodosProveedores.Name = "btnVerTodosProveedores";
+            this.btnVerTodosProveedores.Size = new System.Drawing.Size(121, 53);
+            this.btnVerTodosProveedores.TabIndex = 18;
+            this.btnVerTodosProveedores.Text = "Ver todos los proveedores";
+            this.btnVerTodosProveedores.UseVisualStyleBackColor = true;
+            this.btnVerTodosProveedores.Visible = false;
+            this.btnVerTodosProveedores.Click += new System.EventHandler(this.btnVerTodosProveedores_Click);
+            // 
             // Proveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 808);
+            this.Controls.Add(this.btnVerTodosProveedores);
+            this.Controls.Add(this.btnBuscarPorID);
+            this.Controls.Add(this.dgvProveedor);
             this.Controls.Add(this.ListBoxEstado);
             this.Controls.Add(this.btnAgregarModificar);
             this.Controls.Add(this.txtDireccion);
@@ -215,8 +251,10 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Proveedor";
             this.Text = "Proveedor";
+            this.Load += new System.EventHandler(this.Proveedor_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +279,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuPrincipalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgvProveedor;
+        private System.Windows.Forms.Button btnBuscarPorID;
+        private System.Windows.Forms.Button btnVerTodosProveedores;
     }
 }

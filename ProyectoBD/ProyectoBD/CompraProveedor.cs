@@ -70,9 +70,14 @@ namespace ProyectoBD
 
         private void btnComprasProveedor_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_ClaseRecibirDatos = new ClaseRecibirDatos();
-            DataTable dtComprasProveedor = obj_ClaseRecibirDatos.ObtenerComprasPorProveedor();
-            dgvCompraProveedor.DataSource = dtComprasProveedor;
+          
+        }
+
+        private void historialDeComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HistorialDeCompras historialDeCompras = new HistorialDeCompras();
+            historialDeCompras.Show();
+            this.Hide();
         }
     }
 }

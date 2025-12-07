@@ -95,9 +95,9 @@ namespace ProyectoBD
 
         private void button1_Click(object sender, EventArgs e)
         {
-             ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-             dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
-             dgvClientes.Visible = true;
+            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+            dgvClientes.DataSource = obj_RecibirDatos.BuscarClientePorIdentificacion(txtIdentificacion.Text);
+            btnVerTodosLosClientes.Visible = true;
         }
 
         private void btnVerClientesYCompras_Click(object sender, EventArgs e)
@@ -146,6 +146,27 @@ namespace ProyectoBD
 
                 ListBoxActivo.Text = (fila.Cells["Activo"].Value.ToString() == "1") ? "Activo" : "Inactivo";
             }
+        }
+
+        private void verInformacionDeLosClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerInformacion_de_los_clientes verInformacion = new VerInformacion_de_los_clientes();
+            verInformacion.Show();
+            this.Hide();
+        }
+
+        private void Clientes_Load(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
+            
+        }
+
+        private void btnVerTodosLosClientes_Click(object sender, EventArgs e)
+        {
+            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
+
         }
     }
 }

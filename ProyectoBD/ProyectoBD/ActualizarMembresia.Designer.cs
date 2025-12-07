@@ -47,7 +47,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 29);
+            this.label1.Location = new System.Drawing.Point(273, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 13);
             this.label1.TabIndex = 0;
@@ -56,16 +56,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 67);
+            this.label2.Location = new System.Drawing.Point(298, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.Size = new System.Drawing.Size(124, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Identificacion:";
+            this.label2.Text = "Identificacion del cliente:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 109);
+            this.label3.Location = new System.Drawing.Point(312, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 13);
             this.label3.TabIndex = 2;
@@ -74,7 +74,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 152);
+            this.label4.Location = new System.Drawing.Point(312, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 13);
             this.label4.TabIndex = 3;
@@ -83,7 +83,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(41, 193);
+            this.label5.Location = new System.Drawing.Point(314, 189);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 13);
             this.label5.TabIndex = 4;
@@ -91,37 +91,37 @@
             // 
             // txtIdentificacion
             // 
-            this.txtIdentificacion.Location = new System.Drawing.Point(120, 67);
+            this.txtIdentificacion.Location = new System.Drawing.Point(301, 80);
             this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(100, 20);
+            this.txtIdentificacion.Size = new System.Drawing.Size(121, 20);
             this.txtIdentificacion.TabIndex = 5;
             // 
             // txtTipoMembresia
             // 
-            this.txtTipoMembresia.Location = new System.Drawing.Point(144, 101);
+            this.txtTipoMembresia.Location = new System.Drawing.Point(301, 119);
             this.txtTipoMembresia.Name = "txtTipoMembresia";
-            this.txtTipoMembresia.Size = new System.Drawing.Size(100, 20);
+            this.txtTipoMembresia.Size = new System.Drawing.Size(121, 20);
             this.txtTipoMembresia.TabIndex = 6;
             // 
             // txtFrecuenciaPago
             // 
-            this.txtFrecuenciaPago.Location = new System.Drawing.Point(150, 152);
+            this.txtFrecuenciaPago.Location = new System.Drawing.Point(301, 158);
             this.txtFrecuenciaPago.Name = "txtFrecuenciaPago";
-            this.txtFrecuenciaPago.Size = new System.Drawing.Size(100, 20);
+            this.txtFrecuenciaPago.Size = new System.Drawing.Size(121, 20);
             this.txtFrecuenciaPago.TabIndex = 7;
             // 
             // txtFechaContrato
             // 
-            this.txtFechaContrato.Location = new System.Drawing.Point(150, 186);
+            this.txtFechaContrato.Location = new System.Drawing.Point(301, 205);
             this.txtFechaContrato.Name = "txtFechaContrato";
-            this.txtFechaContrato.Size = new System.Drawing.Size(100, 20);
+            this.txtFechaContrato.Size = new System.Drawing.Size(121, 20);
             this.txtFechaContrato.TabIndex = 8;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(41, 237);
+            this.button1.Location = new System.Drawing.Point(305, 241);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 55);
+            this.button1.Size = new System.Drawing.Size(117, 43);
             this.button1.TabIndex = 9;
             this.button1.Text = "Actualizar Membresia";
             this.button1.UseVisualStyleBackColor = true;
@@ -134,7 +134,7 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(767, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -156,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(767, 372);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtFechaContrato);
             this.Controls.Add(this.txtFrecuenciaPago);
