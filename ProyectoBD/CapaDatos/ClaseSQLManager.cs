@@ -16,8 +16,8 @@ namespace CapaDatos // De momento se ingnora
         SqlConnection _conexion;
 
         //Cambia segun el servidor que se esta trabajando (solo comenta el que no usas)
-        String _cadenaConexion = "Data Source = SEBASTIAN; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
-        //String _cadenaConexion = "Data Source = (localdb)\\MSSQLLocalDB; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
+        //String _cadenaConexion = "Data Source = SEBASTIAN; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
+        String _cadenaConexion = "Data Source = (localdb)\\MSSQLLocalDB; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
 
         //Metodos
         #region Metodos
@@ -91,7 +91,7 @@ namespace CapaDatos // De momento se ingnora
                 {
                 "Cliente",
                 "Empleado",
-                "Proveerdor",
+                "Proveedor",
                 "Producto",
                 "ComprasProveedor",
                 "GanaciaProducto",
@@ -102,7 +102,12 @@ namespace CapaDatos // De momento se ingnora
                 throw new ArgumentException("El indice de la tabla o vista a consultar no es valido.");
             string TablaVista = tablasVista[indiceTablaVista];
 
-            return Obtener_Por_Comando($"sp_BuscarPorIdentificador {identificador}, {TablaVista}");
+            return Obtener_Por_Comando($"sp_BuscarPorIdentificador '{identificador}', {TablaVista}");
+        }
+
+        public DataTable RecuperarMargenProductoEspecifico(string codigoProducto) // para recuperar margen de un producto especifico
+        {
+            return Obtener_Por_Comando($"sp_MargenGananciaProductoEspecifico '{codigoProducto}'");
         }
 
         public DataTable RecuperarTablaCompleta(int indiceTabla) // para recuperar tabla completa

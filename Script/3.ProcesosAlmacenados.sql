@@ -421,3 +421,15 @@ BEGIN
 
 end;
 GO
+
+--***************************************Buscar por medio de un identificador*********************
+create procedure sp_MargenGananciaProductoEspecifico
+    @CodigoProducto varchar(100)
+as
+begin
+    SELECT P.ID_Producto, Codigo_Producto, NombreProducto, Categoria,
+			PrecioProveedor, Precio,(Precio - PrecioProveedor) AS Ganancia, Stock, P.Activo
+	FROM Productos P
+    where @CodigoProducto = P.Codigo_Producto
+end
+go

@@ -91,7 +91,7 @@ namespace CapaNegocios
 
         #endregion
 
-        #region Productos
+        #region Productos //**************************///////////////////////////***********************************///////////////////////////
 
         public DataTable ObtenerProductos() //Ver todos los productos
         {
@@ -105,7 +105,7 @@ namespace CapaNegocios
 
         public DataTable ObtenerMargenGananciaProducto(string codigoProducto) //Margen de ganancia para un producto especifico
         {
-            return datosService.RecuperarPorIdentificador(codigoProducto, 5); // índice 5 = GanaciaProducto
+            return datosService.RecuperarMargenProductoEspecifico(codigoProducto);
         }
 
         public DataTable ObtenerProductosConMargen() //Margen de ganancia para todos los productos
@@ -158,7 +158,7 @@ namespace CapaNegocios
 
         public DataTable ObtenerClientePagoMembresia(string Identificacion) //Ver cliente especifico y su ultimo pago de membresía
         {
-            return datosService.RecuperarPorIdentificador(Identificacion, 6); // índice 6 = ClientePagoMembresia
+            return datosService.RecuperarPorIdentificador(Identificacion, 7); // índice 6 = ClientePagoMembresia
         }
 
         #endregion
