@@ -110,18 +110,6 @@ BEGIN
 END;
 GO
 
----********************************Al eliminar un cliente solo se desactiva
-CREATE TRIGGER trg_DesactivarCliente
-ON Clientes
-INSTEAD OF DELETE
-AS
-BEGIN
-  UPDATE Clientes
-  SET Activo = 0
-  WHERE ID_Cliente IN (SELECT ID_Cliente FROM deleted);
-END;
-GO
-
 ---********************************Confirma que el cliente tenga los puntos esperados
 CREATE TRIGGER trg_ValidarPuntosVenta
 ON Ventas

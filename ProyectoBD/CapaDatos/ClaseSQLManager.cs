@@ -16,8 +16,8 @@ namespace CapaDatos // De momento se ingnora
         SqlConnection _conexion;
 
         //Cambia segun el servidor que se esta trabajando (solo comenta el que no usas)
-        String _cadenaConexion = "Data Source = SEBASTIAN; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
-        //String _cadenaConexion = "Data Source = (localdb)\\MSSQLLocalDB; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
+        //String _cadenaConexion = "Data Source = SEBASTIAN; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
+        String _cadenaConexion = "Data Source = (localdb)\\MSSQLLocalDB; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
 
         //Metodos
         #region Metodos
@@ -159,6 +159,69 @@ namespace CapaDatos // De momento se ingnora
 
         #endregion Recuperar datos por procedimientos almacenados
 
+        #region eliminar/desactivar/reactivar Registros //**************************///////////////////////////***********************************///////////////////////////
+        public void EliminarDesactivarRegistro(string identificador, int indicetabla, bool eliminar = false) //el identificador del registro a eliminar o desactivar, el indice de la tabla y si se elimina (true) o desactiva
+        {
+            try
+            {
+                EstablecerConexion();
+
+                using (SqlCommand cmd = new SqlCommand("sp_EliminarDesactivarRegistro", _conexion))
+                {
+                    //--índice de la tabla(0 = Clientes, 1 = Empleados, 2 = Proveedores, 3 = Productos)
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Tabla", indicetabla);
+                    cmd.Parameters.AddWithValue("@Identificador", identificador);
+                    cmd.Parameters.AddWithValue("@Eliminar", eliminar);
+
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    if (filasAfectadas == 0)
+                        throw new Exception("No se encontró el registro con el identificador proporcionado.");
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al ejecutar el procedimiento: " + ex.Message);
+            }
+            finally
+            {
+                if (_conexion != null && _conexion.State == ConnectionState.Open)
+                    _conexion.Close();
+            }
+        }
+
+        public void ReactivarRegistro(string identificador, int indicetabla)
+        {// -- índice de la tabla (0=Clientes, 1=Empleados, 2=Proveedores, 3=Productos)
+            try
+            {
+                EstablecerConexion();
+
+                using (SqlCommand cmd = new SqlCommand("sp_ReactivarRegistro", _conexion))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Tabla", indicetabla);
+                    cmd.Parameters.AddWithValue("@Identificador", identificador);
+
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    if (filasAfectadas == 0)
+                        throw new Exception("No se encontró el registro con el identificador proporcionado.");
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error al ejecutar el procedimiento: " + ex.Message);
+            }
+            finally
+            {
+                if (_conexion != null && _conexion.State == ConnectionState.Open)
+                    _conexion.Close();
+            }
+        }
+
+
+        #endregion eliminar/desactivar Registros
 
         #region Modificar Registros //**************************///////////////////////////***********************************///////////////////////////
         public void ModificarEmpleado(ClaseEmpleado obj) // para modificar un empleado

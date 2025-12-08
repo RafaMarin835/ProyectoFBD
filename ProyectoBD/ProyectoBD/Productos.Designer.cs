@@ -51,6 +51,8 @@
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.btnVerTodosLosProductos = new System.Windows.Forms.Button();
+            this.btnDesactivarProducto = new System.Windows.Forms.Button();
+            this.btnReactivarProducto = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
@@ -261,7 +263,7 @@
             // btnVerTodosLosProductos
             // 
             this.btnVerTodosLosProductos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerTodosLosProductos.Location = new System.Drawing.Point(73, 470);
+            this.btnVerTodosLosProductos.Location = new System.Drawing.Point(10, 470);
             this.btnVerTodosLosProductos.Name = "btnVerTodosLosProductos";
             this.btnVerTodosLosProductos.Size = new System.Drawing.Size(117, 58);
             this.btnVerTodosLosProductos.TabIndex = 20;
@@ -269,12 +271,36 @@
             this.btnVerTodosLosProductos.UseVisualStyleBackColor = true;
             this.btnVerTodosLosProductos.Click += new System.EventHandler(this.btnVerTodosLosProductos_Click);
             // 
+            // btnDesactivarProducto
+            // 
+            this.btnDesactivarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesactivarProducto.Location = new System.Drawing.Point(137, 470);
+            this.btnDesactivarProducto.Name = "btnDesactivarProducto";
+            this.btnDesactivarProducto.Size = new System.Drawing.Size(117, 58);
+            this.btnDesactivarProducto.TabIndex = 21;
+            this.btnDesactivarProducto.Text = "Desactivar producto";
+            this.btnDesactivarProducto.UseVisualStyleBackColor = true;
+            this.btnDesactivarProducto.Click += new System.EventHandler(this.btnDesactivarProducto_Click);
+            // 
+            // btnReactivarProducto
+            // 
+            this.btnReactivarProducto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReactivarProducto.Location = new System.Drawing.Point(10, 534);
+            this.btnReactivarProducto.Name = "btnReactivarProducto";
+            this.btnReactivarProducto.Size = new System.Drawing.Size(117, 58);
+            this.btnReactivarProducto.TabIndex = 22;
+            this.btnReactivarProducto.Text = "Reactivar producto";
+            this.btnReactivarProducto.UseVisualStyleBackColor = true;
+            this.btnReactivarProducto.Click += new System.EventHandler(this.btnReactivarProducto_Click);
+            // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1442, 803);
+            this.Controls.Add(this.btnReactivarProducto);
+            this.Controls.Add(this.btnDesactivarProducto);
             this.Controls.Add(this.btnVerTodosLosProductos);
             this.Controls.Add(this.btnBuscarProducto);
             this.Controls.Add(this.dgvProductos);
@@ -332,5 +358,7 @@
         private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.Button btnVerTodosLosProductos;
         private System.Windows.Forms.ToolStripMenuItem verInformacionSobreLosProductosToolStripMenuItem;
+        private System.Windows.Forms.Button btnDesactivarProducto;
+        private System.Windows.Forms.Button btnReactivarProducto;
     }
 }

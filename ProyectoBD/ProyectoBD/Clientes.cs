@@ -64,7 +64,7 @@ namespace ProyectoBD
                     obj_EntidadClientes.Activo = 1;
                 }
                 else
-                { 
+                {
                     obj_EntidadClientes.Activo = 0;
                 }
 
@@ -78,7 +78,7 @@ namespace ProyectoBD
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
@@ -97,7 +97,7 @@ namespace ProyectoBD
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 this.Close();
             }
@@ -180,7 +180,8 @@ namespace ProyectoBD
 
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            try {
+            try
+            {
                 if (e.RowIndex >= 0)
                 {
                     DataGridViewRow fila = dgvClientes.Rows[e.RowIndex];
@@ -207,7 +208,8 @@ namespace ProyectoBD
 
         private void verInformacionDeLosClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try { 
+            try
+            {
                 VerInformacion_de_los_clientes verInformacion = new VerInformacion_de_los_clientes();
                 verInformacion.Show();
                 this.Hide();
@@ -216,7 +218,7 @@ namespace ProyectoBD
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-         
+
         }
 
         private void Clientes_Load(object sender, EventArgs e)
@@ -245,6 +247,18 @@ namespace ProyectoBD
                 MessageBox.Show("Error: " + ex.Message);
 
             }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ClaseEnviarDatos obj_DesactivarCliente = new ClaseEnviarDatos();
+            obj_DesactivarCliente.DesactivarCliente(txtIdentificacion.Text);
+        }
+
+        private void btnReactivarCliente_Click(object sender, EventArgs e)
+        {
+            ClaseEnviarDatos claseEnviarDatos = new ClaseEnviarDatos();
+            claseEnviarDatos.ReactivarCliente(txtIdentificacion.Text);
         }
     }
 }

@@ -57,7 +57,7 @@ namespace ProyectoBD
 
                 obj_EnviarDatos.ModificarEmpleado(obj_Empleado);
 
-               
+
 
 
             }
@@ -174,5 +174,32 @@ namespace ProyectoBD
         {
 
         }
+
+        private void btn_DesactivarEmpleado_Click(object sender, EventArgs e)
+        {
+            ClaseEnviarDatos obj_EnviarDatos = new ClaseEnviarDatos();
+            try
+            {
+                obj_EnviarDatos.DesactivarEmpleado(txtIdentificacion.Text);
+                MessageBox.Show("Empleado desactivado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al desactivar el empleado: " + ex.Message);
+            }
+        }
+
+        private void btnReactivarEmpleado_Click(object sender, EventArgs e)
+        {
+            ClaseEnviarDatos obj_EnviarDatos = new ClaseEnviarDatos();
+            try
+            {
+                obj_EnviarDatos.ReactivarEmpleado(txtIdentificacion.Text);
+                MessageBox.Show("Empleado reactivado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al reactivar el empleado: " + ex.Message);
+            }
     }
 }

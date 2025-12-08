@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace ProyectoBD
 {
-    
+
     public partial class Productos : Form
     {
         ClaseProducto obj_producto = new ClaseProducto();
@@ -22,12 +22,12 @@ namespace ProyectoBD
             InitializeComponent();
             dgvProductos.CellDoubleClick += dgvProductos_CellDoubleClick;
         }
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
-            {   
+            {
                 obj_producto.Codigo_Producto = txtCodigoProducto.Text;
                 obj_producto.Nombre_Producto = txtNombreProducto.Text;
                 obj_producto.Categoria = txtCategoria.Text;
@@ -157,6 +157,34 @@ namespace ProyectoBD
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnDesactivarProducto_Click(object sender, EventArgs e)
+        {
+            ClaseEnviarDatos obj_enviarDatos = new ClaseEnviarDatos();
+            try
+            {
+                obj_enviarDatos.DesactivarProducto(txtCodigoProducto.Text);
+                MessageBox.Show("Producto desactivado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void btnReactivarProducto_Click(object sender, EventArgs e)
+        {
+            ClaseEnviarDatos obj_enviarDatos = new ClaseEnviarDatos();
+            try
+            {
+                obj_enviarDatos.ReactivarProducto(txtCodigoProducto.Text);
+                MessageBox.Show("Producto reactivado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

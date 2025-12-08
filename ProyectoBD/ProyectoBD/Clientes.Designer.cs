@@ -59,6 +59,7 @@
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVerTodosLosClientes = new System.Windows.Forms.Button();
+            this.btnReactivarCliente = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
@@ -335,8 +336,9 @@
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(121, 52);
             this.btnEliminar.TabIndex = 38;
-            this.btnEliminar.Text = "Eliminar cliente";
+            this.btnEliminar.Text = "Desactivar cliente";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnVerTodosLosClientes
             // 
@@ -350,12 +352,24 @@
             this.btnVerTodosLosClientes.Visible = false;
             this.btnVerTodosLosClientes.Click += new System.EventHandler(this.btnVerTodosLosClientes_Click);
             // 
+            // btnReactivarCliente
+            // 
+            this.btnReactivarCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReactivarCliente.Location = new System.Drawing.Point(145, 597);
+            this.btnReactivarCliente.Name = "btnReactivarCliente";
+            this.btnReactivarCliente.Size = new System.Drawing.Size(121, 52);
+            this.btnReactivarCliente.TabIndex = 40;
+            this.btnReactivarCliente.Text = "Reactivar cliente";
+            this.btnReactivarCliente.UseVisualStyleBackColor = true;
+            this.btnReactivarCliente.Click += new System.EventHandler(this.btnReactivarCliente_Click);
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1484, 761);
+            this.Controls.Add(this.btnReactivarCliente);
             this.Controls.Add(this.btnVerTodosLosClientes);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvClientes);
@@ -429,5 +443,6 @@
         private System.Windows.Forms.ToolStripMenuItem verInformacionDeLosClientesToolStripMenuItem;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnVerTodosLosClientes;
+        private System.Windows.Forms.Button btnReactivarCliente;
     }
 }

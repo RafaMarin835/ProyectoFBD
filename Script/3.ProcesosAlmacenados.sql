@@ -218,7 +218,7 @@ END
 GO
 
   --***************************************Para registrar una compra a proveedor*********************
-Alter PROCEDURE sp_CompraProveedor
+Create PROCEDURE sp_CompraProveedor
   @Cedula_Proveedor varchar(100),
   @Codigo_Producto varchar(100),
   @Descripcion varchar(200) null,
@@ -350,18 +350,78 @@ BEGIN
 END;
 GO
 
---***************************************Se usauria para eliminar un cliente del todo y saltarse el trigger que no lo permite*********************
-CREATE PROCEDURE sp_eliminarClienteForzado
-  @ID_Cliente INT
+--***************************************Para eliminar o desactivar cleintes, empleado, proveedores y productos*********************
+CREATE PROCEDURE sp_EliminarDesactivarRegistro
+    @Tabla INT,              -- índice de la tabla (0=Clientes, 1=Empleados, 2=Proveedores, 3=Productos)
+    @Identificador NVARCHAR(100),
+    @Eliminar BIT
 AS
 BEGIN
-    -- apago trigger
-    ALTER TABLE Clientes DISABLE TRIGGER trg_DesactivarCliente;
-    DELETE FROM Clientes WHERE ID_Cliente = @ID_Cliente; --elimino
-    -- enciendo de nuevo
-    ALTER TABLE Clientes ENABLE TRIGGER trg_DesactivarCliente;
-END;
-Go
+
+    -- Clientes
+    IF @Tabla = 0
+    BEGIN
+        IF @Eliminar = 1
+            DELETE FROM Clientes WHERE Identificacion = @Identificador;
+        ELSE
+            UPDATE Clientes SET Activo = 0 WHERE Identificacion = @Identificador;
+    END
+
+    -- Empleados
+    ELSE IF @Tabla = 1
+    BEGIN
+        IF @Eliminar = 1
+            DELETE FROM Empleados WHERE Identificacion = @Identificador;
+        ELSE
+            UPDATE Empleados SET Activo = 0 WHERE Identificacion = @Identificador;
+    END
+
+    -- Proveedores
+    ELSE IF @Tabla = 2
+    BEGIN
+        IF @Eliminar = 1
+            DELETE FROM Proveedores WHERE Cedula_Proveedor = @Identificador;
+        ELSE
+            UPDATE Proveedores SET Activo = 0 WHERE Cedula_Proveedor = @Identificador;
+    END
+
+    -- Productos
+    ELSE IF @Tabla = 3
+    BEGIN
+        IF @Eliminar = 1
+            DELETE FROM Productos WHERE Codigo_Producto = @Identificador;
+        ELSE
+            UPDATE Productos SET Activo = 0 WHERE Codigo_Producto = @Identificador;
+    END
+END
+GO
+
+--***************************************Para reactivar cleintes, empleado, proveedores y productos*********************
+CREATE PROCEDURE sp_ReactivarRegistro
+    @Tabla INT,              -- índice de la tabla (0=Clientes, 1=Empleados, 2=Proveedores, 3=Productos)
+    @Identificador NVARCHAR(100)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Clientes
+    IF @Tabla = 0
+        UPDATE Clientes SET Activo = 1 WHERE Identificacion = @Identificador;
+
+    -- Empleados
+    ELSE IF @Tabla = 1
+        UPDATE Empleados SET Activo = 1 WHERE Identificacion = @Identificador;
+
+    -- Proveedores
+    ELSE IF @Tabla = 2
+        UPDATE Proveedores SET Activo = 1 WHERE Cedula_Proveedor = @Identificador;
+
+    -- Productos
+    ELSE IF @Tabla = 3
+        UPDATE Productos SET Activo = 1 WHERE Codigo_Producto = @Identificador;
+END
+GO
+
 
   --***************************************Procedimientos para vizualizar datos************//////////////////////////////*********
 

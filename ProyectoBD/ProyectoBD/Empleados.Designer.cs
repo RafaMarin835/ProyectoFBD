@@ -59,6 +59,8 @@
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.btnBuscarEmpleado = new System.Windows.Forms.Button();
             this.btnVerTodosLosEmpleados = new System.Windows.Forms.Button();
+            this.btn_DesactivarEmpleado = new System.Windows.Forms.Button();
+            this.btnReactivarEmpleado = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -339,7 +341,7 @@
             // btnVerTodosLosEmpleados
             // 
             this.btnVerTodosLosEmpleados.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerTodosLosEmpleados.Location = new System.Drawing.Point(102, 577);
+            this.btnVerTodosLosEmpleados.Location = new System.Drawing.Point(22, 578);
             this.btnVerTodosLosEmpleados.Name = "btnVerTodosLosEmpleados";
             this.btnVerTodosLosEmpleados.Size = new System.Drawing.Size(104, 46);
             this.btnVerTodosLosEmpleados.TabIndex = 29;
@@ -348,12 +350,38 @@
             this.btnVerTodosLosEmpleados.Visible = false;
             this.btnVerTodosLosEmpleados.Click += new System.EventHandler(this.btnVerTodosLosEmpleados_Click);
             // 
+            // btn_DesactivarEmpleado
+            // 
+            this.btn_DesactivarEmpleado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DesactivarEmpleado.Location = new System.Drawing.Point(159, 578);
+            this.btn_DesactivarEmpleado.Name = "btn_DesactivarEmpleado";
+            this.btn_DesactivarEmpleado.Size = new System.Drawing.Size(104, 46);
+            this.btn_DesactivarEmpleado.TabIndex = 30;
+            this.btn_DesactivarEmpleado.Text = "Desactivar empleado";
+            this.btn_DesactivarEmpleado.UseVisualStyleBackColor = true;
+            this.btn_DesactivarEmpleado.Visible = false;
+            this.btn_DesactivarEmpleado.Click += new System.EventHandler(this.btn_DesactivarEmpleado_Click);
+            // 
+            // btnReactivarEmpleado
+            // 
+            this.btnReactivarEmpleado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReactivarEmpleado.Location = new System.Drawing.Point(270, 578);
+            this.btnReactivarEmpleado.Name = "btnReactivarEmpleado";
+            this.btnReactivarEmpleado.Size = new System.Drawing.Size(104, 46);
+            this.btnReactivarEmpleado.TabIndex = 31;
+            this.btnReactivarEmpleado.Text = "Reactivar empleado";
+            this.btnReactivarEmpleado.UseVisualStyleBackColor = true;
+            this.btnReactivarEmpleado.Visible = false;
+            this.btnReactivarEmpleado.Click += new System.EventHandler(this.btnReactivarEmpleado_Click);
+            // 
             // Empleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1117, 636);
+            this.Controls.Add(this.btnReactivarEmpleado);
+            this.Controls.Add(this.btn_DesactivarEmpleado);
             this.Controls.Add(this.btnVerTodosLosEmpleados);
             this.Controls.Add(this.btnBuscarEmpleado);
             this.Controls.Add(this.dgvEmpleados);
@@ -427,5 +455,7 @@
         private System.Windows.Forms.ToolStripMenuItem informacionEmpleadosToolStripMenuItem;
         private System.Windows.Forms.Button btnBuscarEmpleado;
         private System.Windows.Forms.Button btnVerTodosLosEmpleados;
+        private System.Windows.Forms.Button btn_DesactivarEmpleado;
+        private System.Windows.Forms.Button btnReactivarEmpleado;
     }
 }
