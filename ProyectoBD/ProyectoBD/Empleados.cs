@@ -69,9 +69,16 @@ namespace ProyectoBD
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
-            this.Close();
+            try
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,8 +88,15 @@ namespace ProyectoBD
 
         private void Empleados_Load(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvEmpleados.DataSource = obj_RecibirDatos.ObtenerEmpleados();
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvEmpleados.DataSource = obj_RecibirDatos.ObtenerEmpleados();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
         private void dgvEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -118,22 +132,47 @@ namespace ProyectoBD
 
         private void informacionEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InformacionEmpleados informacionEmpleados = new InformacionEmpleados();
-            informacionEmpleados.Show();
-            this.Hide();
+            try
+            {
+                InformacionEmpleados informacionEmpleados = new InformacionEmpleados();
+                informacionEmpleados.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
-
         private void btnBuscarEmpleado_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvEmpleados.DataSource = obj_RecibirDatos.BuscarEmpleadoPorIdentificacion(txtIdentificacion.Text);
-            btnVerTodosLosEmpleados.Visible = true;
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvEmpleados.DataSource = obj_RecibirDatos.BuscarEmpleadoPorIdentificacion(txtIdentificacion.Text);
+                btnVerTodosLosEmpleados.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnVerTodosLosEmpleados_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvEmpleados.DataSource = obj_RecibirDatos.ObtenerEmpleados();
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvEmpleados.DataSource = obj_RecibirDatos.ObtenerEmpleados();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

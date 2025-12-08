@@ -20,27 +20,55 @@ namespace ProyectoBD
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
-            this.Hide();
+            try
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void volverAComprasProveedorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CompraProveedor compraProveedor = new CompraProveedor();
-            compraProveedor.Show();
-            this.Hide();
+            try
+            {
+                CompraProveedor compraProveedor = new CompraProveedor();
+                compraProveedor.Show();
+                this.Hide();
+            }   
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void HistorialDeCompras_Load(object sender, EventArgs e)
         {
-            ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
-            dgvHistorialProveedores.DataSource = recibirDatos.ObtenerComprasPorProveedor();
+            try
+            {
+                ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
+                dgvHistorialProveedores.DataSource = recibirDatos.ObtenerComprasPorProveedor();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgvHistorialProveedores_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -50,8 +78,15 @@ namespace ProyectoBD
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
-            dgvHistorialProveedores.DataSource = recibirDatos.ObtenerComprasPorProveedorEspecifico(txtIDProveedor.Text);
+            try
+            {
+                ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
+                dgvHistorialProveedores.DataSource = recibirDatos.ObtenerComprasPorProveedorEspecifico(txtIDProveedor.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

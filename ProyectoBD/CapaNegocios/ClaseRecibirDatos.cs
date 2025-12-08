@@ -134,7 +134,7 @@ namespace CapaNegocios
 
         public DataTable ObtenerVentasPorClienteEspecifico(string Identificacion) //Ver Historial de ventas para un cliente especifico
         {
-            return datosService.RecuperarPorIdentificador(Identificacion, 6); // índice 6 = VentasCliente
+            return datosService.RecuperarPorIdentificador(Identificacion, 6); // índice 7 = VentasCliente
         }
 
         public DataTable ObtenerDetalleVentaConMargen() //Ver ventas con detalle del margen de ganacia
@@ -158,7 +158,7 @@ namespace CapaNegocios
 
         public DataTable ObtenerClientePagoMembresia(string Identificacion) //Ver cliente especifico y su ultimo pago de membresía
         {
-            return datosService.RecuperarPorIdentificador(Identificacion, 7); // índice 7 = ClientePagoMembresia
+            return datosService.RecuperarPorIdentificador(Identificacion, 7); // índice 6 = ClientePagoMembresia
         }
 
         #endregion

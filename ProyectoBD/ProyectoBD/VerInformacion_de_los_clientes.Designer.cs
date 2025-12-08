@@ -45,9 +45,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(243, 41);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(173, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(242, 13);
+            this.label1.Size = new System.Drawing.Size(440, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Apartado de visualizacion de datos de los clientes";
             // 
@@ -59,28 +60,31 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(813, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(813, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuPrincipalToolStripMenuItem
             // 
+            this.menuPrincipalToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuPrincipalToolStripMenuItem.Name = "menuPrincipalToolStripMenuItem";
-            this.menuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.menuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(106, 21);
             this.menuPrincipalToolStripMenuItem.Text = "Menu Principal";
             this.menuPrincipalToolStripMenuItem.Click += new System.EventHandler(this.menuPrincipalToolStripMenuItem_Click);
             // 
             // volverAClientesToolStripMenuItem
             // 
+            this.volverAClientesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.volverAClientesToolStripMenuItem.Name = "volverAClientesToolStripMenuItem";
-            this.volverAClientesToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.volverAClientesToolStripMenuItem.Size = new System.Drawing.Size(114, 21);
             this.volverAClientesToolStripMenuItem.Text = "Volver a clientes";
             this.volverAClientesToolStripMenuItem.Click += new System.EventHandler(this.volverAClientesToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
+            this.salirToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(45, 21);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -89,14 +93,16 @@
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Location = new System.Drawing.Point(12, 66);
             this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.ReadOnly = true;
             this.dgvClientes.Size = new System.Drawing.Size(789, 309);
             this.dgvClientes.TabIndex = 2;
             // 
             // btnClientesCompras
             // 
-            this.btnClientesCompras.Location = new System.Drawing.Point(192, 381);
+            this.btnClientesCompras.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientesCompras.Location = new System.Drawing.Point(148, 394);
             this.btnClientesCompras.Name = "btnClientesCompras";
-            this.btnClientesCompras.Size = new System.Drawing.Size(92, 36);
+            this.btnClientesCompras.Size = new System.Drawing.Size(117, 48);
             this.btnClientesCompras.TabIndex = 3;
             this.btnClientesCompras.Text = "Ver clientes y sus compras";
             this.btnClientesCompras.UseVisualStyleBackColor = true;
@@ -104,9 +110,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(290, 381);
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(271, 395);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 36);
+            this.button2.Size = new System.Drawing.Size(121, 47);
             this.button2.TabIndex = 4;
             this.button2.Text = "Ver Clientes y sus membresias";
             this.button2.UseVisualStyleBackColor = true;
@@ -114,9 +121,10 @@
             // 
             // btnClientesPagoAtrasado
             // 
-            this.btnClientesPagoAtrasado.Location = new System.Drawing.Point(398, 381);
+            this.btnClientesPagoAtrasado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientesPagoAtrasado.Location = new System.Drawing.Point(398, 395);
             this.btnClientesPagoAtrasado.Name = "btnClientesPagoAtrasado";
-            this.btnClientesPagoAtrasado.Size = new System.Drawing.Size(97, 36);
+            this.btnClientesPagoAtrasado.Size = new System.Drawing.Size(111, 47);
             this.btnClientesPagoAtrasado.TabIndex = 5;
             this.btnClientesPagoAtrasado.Text = "Clientes con pago atrasado";
             this.btnClientesPagoAtrasado.UseVisualStyleBackColor = true;
@@ -124,9 +132,10 @@
             // 
             // BtnUltimoPago
             // 
-            this.BtnUltimoPago.Location = new System.Drawing.Point(501, 381);
+            this.BtnUltimoPago.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUltimoPago.Location = new System.Drawing.Point(515, 395);
             this.BtnUltimoPago.Name = "BtnUltimoPago";
-            this.BtnUltimoPago.Size = new System.Drawing.Size(111, 36);
+            this.BtnUltimoPago.Size = new System.Drawing.Size(147, 47);
             this.BtnUltimoPago.TabIndex = 6;
             this.BtnUltimoPago.Text = "Cliente y su ultimo pago de membresia";
             this.BtnUltimoPago.UseVisualStyleBackColor = true;
@@ -136,6 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(813, 467);
             this.Controls.Add(this.BtnUltimoPago);
             this.Controls.Add(this.btnClientesPagoAtrasado);

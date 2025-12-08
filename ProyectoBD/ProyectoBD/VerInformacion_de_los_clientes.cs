@@ -20,16 +20,30 @@ namespace ProyectoBD
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
-            this.Hide();
+            try
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void volverAClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Clientes clientes = new Clientes();
-            clientes.Show();
-            this.Hide();
+            try
+            {
+                Clientes clientes = new Clientes();
+                clientes.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,36 +53,71 @@ namespace ProyectoBD
 
         private void VerInformacion_de_los_clientes_Load(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnClientesCompras_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorCompras();
-            dgvClientes.Visible = true;
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorCompras();
+                dgvClientes.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorMembresia();
-            dgvClientes.Visible = true;
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorMembresia();
+                dgvClientes.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnClientesPagoAtrasado_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesConPagosAtrasados();
-            dgvClientes.Visible = true;
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesConPagosAtrasados();
+                dgvClientes.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void BtnUltimoPago_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorUltimoPagoMembresia();
-            dgvClientes.Visible = true;
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorUltimoPagoMembresia();
+                dgvClientes.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

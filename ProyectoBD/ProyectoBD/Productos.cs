@@ -55,9 +55,16 @@ namespace ProyectoBD
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
-            this.Close();
+            try
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,21 +74,42 @@ namespace ProyectoBD
 
         private void Productos_Load(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
-            dgvProductos.DataSource = obj_recibirDatos.ObtenerProductos();
+            try
+            {
+                ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+                dgvProductos.DataSource = obj_recibirDatos.ObtenerProductos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
 
         }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
-            dgvProductos.DataSource = obj_recibirDatos.BuscarProductoPorCodigo(txtCodigoProducto.Text);
+            try
+            {
+                ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+                dgvProductos.DataSource = obj_recibirDatos.BuscarProductoPorCodigo(txtCodigoProducto.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnVerTodosLosProductos_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
-            dgvProductos.DataSource = obj_recibirDatos.ObtenerProductos();
+            try
+            {
+                ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+                dgvProductos.DataSource = obj_recibirDatos.ObtenerProductos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -114,9 +142,21 @@ namespace ProyectoBD
 
         private void verInformacionSobreLosProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InformacionProductos informacionProductos = new InformacionProductos();
-            informacionProductos.Show();
-            this.Close();
+            try
+            {
+                InformacionProductos informacionProductos = new InformacionProductos();
+                informacionProductos.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

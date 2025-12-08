@@ -53,9 +53,16 @@ namespace ProyectoBD
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
-            this.Close();
+            try
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,21 +72,42 @@ namespace ProyectoBD
 
         private void btnBuscarPorID_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
-            dgvProveedor.DataSource = obj_recibirDatos.BuscarProveedorPorCedulaProveedor(txtIdentificacion.Text);
-            btnVerTodosProveedores.Visible = true;
+            try
+            {
+                ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+                dgvProveedor.DataSource = obj_recibirDatos.BuscarProveedorPorCedulaProveedor(txtIdentificacion.Text);
+                btnVerTodosProveedores.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void Proveedor_Load(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
-            dgvProveedor.DataSource = obj_recibirDatos.ObtenerProveedores();
+            try
+            {
+                ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+                dgvProveedor.DataSource = obj_recibirDatos.ObtenerProveedores();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnVerTodosProveedores_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
-            dgvProveedor.DataSource = obj_recibirDatos.ObtenerProveedores();
+            try
+            {
+                ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+                dgvProveedor.DataSource = obj_recibirDatos.ObtenerProveedores();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void dgvProveedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -107,6 +135,11 @@ namespace ProyectoBD
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

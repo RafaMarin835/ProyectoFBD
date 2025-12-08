@@ -43,9 +43,16 @@ namespace ProyectoBD
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
-            this.Close();
+            try
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,9 +67,21 @@ namespace ProyectoBD
 
         private void informacionDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InformacionDeVentas informacionDeVentas = new InformacionDeVentas();
-            informacionDeVentas.Show();
-            this.Close();
+            try
+            {
+                InformacionDeVentas informacionDeVentas = new InformacionDeVentas();
+                informacionDeVentas.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void txtIDProducto_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

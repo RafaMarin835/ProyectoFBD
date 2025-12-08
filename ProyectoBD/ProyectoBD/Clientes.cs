@@ -83,90 +83,168 @@ namespace ProyectoBD
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
-            this.Close();
+            try
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            try 
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
             this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.BuscarClientePorIdentificacion(txtIdentificacion.Text);
-            btnVerTodosLosClientes.Visible = true;
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.BuscarClientePorIdentificacion(txtIdentificacion.Text);
+                btnVerTodosLosClientes.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnVerClientesYCompras_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorCompras();
-            dgvClientes.Visible = true;
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorCompras();
+                dgvClientes.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnClientesYMembresias_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorMembresia();
-            dgvClientes.Visible = true;
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorMembresia();
+                dgvClientes.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnPagoAtrasado_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesConPagosAtrasados();
-            dgvClientes.Visible = true;
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesConPagosAtrasados();
+                dgvClientes.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnClientesPago_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorUltimoPagoMembresia();
-            dgvClientes.Visible = true;
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorUltimoPagoMembresia();
+                dgvClientes.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow fila = dgvClientes.Rows[e.RowIndex];
+            try {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow fila = dgvClientes.Rows[e.RowIndex];
 
-                txtIdentificacion.Text = fila.Cells["Identificacion"].Value?.ToString();
-                txtNombre.Text = fila.Cells["Nombre"].Value?.ToString();
-                txtEstadoCivil.Text = fila.Cells["Estado_Civil"].Value?.ToString();
-                txtTelefono.Text = fila.Cells["Telefono"].Value?.ToString();
-                txtFechaNacimiento.Text = fila.Cells["Fecha_Nacimiento"].Value?.ToString();
-                txtCorreo.Text = fila.Cells["Correo"].Value?.ToString();
-                txtGenero.Text = fila.Cells["Genero"].Value?.ToString();
-                txtDireccion.Text = fila.Cells["Direccion"].Value?.ToString();
-                txtDistrito.Text = fila.Cells["ID_Distrito"].Value?.ToString();
+                    txtIdentificacion.Text = fila.Cells["Identificacion"].Value?.ToString();
+                    txtNombre.Text = fila.Cells["Nombre"].Value?.ToString();
+                    txtEstadoCivil.Text = fila.Cells["Estado_Civil"].Value?.ToString();
+                    txtTelefono.Text = fila.Cells["Telefono"].Value?.ToString();
+                    txtFechaNacimiento.Text = fila.Cells["Fecha_Nacimiento"].Value?.ToString();
+                    txtCorreo.Text = fila.Cells["Correo"].Value?.ToString();
+                    txtGenero.Text = fila.Cells["Genero"].Value?.ToString();
+                    txtDireccion.Text = fila.Cells["Direccion"].Value?.ToString();
+                    txtDistrito.Text = fila.Cells["ID_Distrito"].Value?.ToString();
 
-                ListBoxActivo.Text = (fila.Cells["Activo"].Value.ToString() == "1") ? "Activo" : "Inactivo";
+                    ListBoxActivo.Text = (fila.Cells["Activo"].Value.ToString() == "1") ? "Activo" : "Inactivo";
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
         }
 
         private void verInformacionDeLosClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VerInformacion_de_los_clientes verInformacion = new VerInformacion_de_los_clientes();
-            verInformacion.Show();
-            this.Hide();
+            try { 
+                VerInformacion_de_los_clientes verInformacion = new VerInformacion_de_los_clientes();
+                verInformacion.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+         
         }
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
-            
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+
+            }
         }
 
         private void btnVerTodosLosClientes_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
 
+            }
         }
     }
 }

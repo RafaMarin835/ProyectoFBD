@@ -20,16 +20,30 @@ namespace ProyectoBD
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
-            this.Close();
+            try
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void volverAProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Productos productos = new Productos();
-            productos.Show();
-            this.Close();
+            try
+            {
+                Productos productos = new Productos();
+                productos.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,32 +53,67 @@ namespace ProyectoBD
 
         private void InformacionProductos_Load(object sender, EventArgs e)
         {
-            ClaseRecibirDatos recibirDatos= new ClaseRecibirDatos();
-            dgvProductos.DataSource = recibirDatos.ObtenerProductos();
+            try
+            {
+                ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
+                dgvProductos.DataSource = recibirDatos.ObtenerProductos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
-            dgvProductos.DataSource = recibirDatos.ObtenerProductosStockBajo();
+            try
+            {
+                ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
+                dgvProductos.DataSource = recibirDatos.ObtenerProductosStockBajo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnGanaciaTotal_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
-            dgvProductos.DataSource = recibirDatos.ObtenerRentabilidadProductos();
+            try
+            {
+                ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
+                dgvProductos.DataSource = recibirDatos.ObtenerRentabilidadProductos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnMargenGanacia_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
-            dgvProductos.DataSource = recibirDatos.ObtenerProductosConMargen();
+            try
+            {
+                ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
+                dgvProductos.DataSource = recibirDatos.ObtenerProductosConMargen();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnMargenGanancia_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
-            dgvProductos.DataSource = recibirDatos.ObtenerMargenGananciaProducto(txtCodigoProducto.Text);
+            try
+            {
+                ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
+                dgvProductos.DataSource = recibirDatos.ObtenerMargenGananciaProducto(txtCodigoProducto.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

@@ -10,3 +10,15 @@ C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\obj\De
 C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.dll
 C:\Users\infor\OneDrive\Documents\GitHub\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.pdb
+C:\Users\infor\source\repos\RafaMarin835\ProyectoFBD\ProyectoBD\Entidades\bin\Debug\Entidades.dll
+C:\Users\infor\source\repos\RafaMarin835\ProyectoFBD\ProyectoBD\Entidades\bin\Debug\Entidades.pdb
+C:\Users\infor\source\repos\RafaMarin835\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\infor\source\repos\RafaMarin835\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\infor\source\repos\RafaMarin835\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.dll
+C:\Users\infor\source\repos\RafaMarin835\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Rafael\Downloads\ProyectoFBD\ProyectoFBD\ProyectoBD\Entidades\bin\Debug\Entidades.dll
+C:\Users\Rafael\Downloads\ProyectoFBD\ProyectoFBD\ProyectoBD\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Rafael\Downloads\ProyectoFBD\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+C:\Users\Rafael\Downloads\ProyectoFBD\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Rafael\Downloads\ProyectoFBD\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.dll
+C:\Users\Rafael\Downloads\ProyectoFBD\ProyectoFBD\ProyectoBD\Entidades\obj\Debug\Entidades.pdb

@@ -39,26 +39,54 @@ namespace ProyectoBD
 
         private void btnIDCliente_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
-            dgvVentas.DataSource = recibirDatos.ObtenerVentasPorClienteEspecifico(txtIDCliente.Text);
+            try
+            {
+                ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
+                dgvVentas.DataSource = recibirDatos.ObtenerVentasPorClienteEspecifico(txtIDCliente.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnVentaCliente_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
-            dgvVentas.DataSource = recibirDatos.ObtenerVentasPorCliente();
+            try
+            {
+                ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
+                dgvVentas.DataSource = recibirDatos.ObtenerVentasPorCliente();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnDetalleVentaMargen_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
-            dgvVentas.DataSource = recibirDatos.ObtenerDetalleVentaConMargen();
+            try
+            {
+                ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
+                dgvVentas.DataSource = recibirDatos.ObtenerDetalleVentaConMargen();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
-            dgvVentas.DataSource = recibirDatos.ObtenerResumenVentasCliente();
+            try
+            {
+                ClaseRecibirDatos recibirDatos = new ClaseRecibirDatos();
+                dgvVentas.DataSource = recibirDatos.ObtenerResumenVentasCliente();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

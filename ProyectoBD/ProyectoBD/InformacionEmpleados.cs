@@ -20,16 +20,30 @@ namespace ProyectoBD
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
-            this.Hide();
+            try
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void volverAEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Empleados empleados = new Empleados();
-            empleados.Show();
-            this.Hide();
+            try
+            {
+                Empleados empleados = new Empleados();
+                empleados.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,8 +53,15 @@ namespace ProyectoBD
 
         private void InformacionEmpleados_Load(object sender, EventArgs e)
         {
-            ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
-            dgvAuditoriaEmpleado.DataSource = obj_RecibirDatos.ObtenerAuditoriasEmpleados();
+            try
+            {
+                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
+                dgvAuditoriaEmpleado.DataSource = obj_RecibirDatos.ObtenerAuditoriasEmpleados();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

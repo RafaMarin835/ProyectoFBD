@@ -20,16 +20,30 @@ namespace ProyectoBD
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
-            this.Hide();
+            try
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir la pantalla principal: " + ex.Message);
+            }
         }
 
         private void volverAPagoDeMembresiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PagoMembresia pagoMembresia = new PagoMembresia();
-            pagoMembresia.Show();
-            this.Hide();
+            try
+            {
+                PagoMembresia pagoMembresia = new PagoMembresia();
+                pagoMembresia.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al volver al pago de membresía: " + ex.Message);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,14 +53,28 @@ namespace ProyectoBD
 
         private void btnIDCliente_Click(object sender, EventArgs e)
         {
-            ClaseRecibirDatos claseRecibirDatos = new ClaseRecibirDatos();
-            dgvPagoMembresia.DataSource = claseRecibirDatos.ObtenerClientePagoMembresia(txtIDCliente.Text);
+            try
+            {
+                ClaseRecibirDatos claseRecibirDatos = new ClaseRecibirDatos();
+                dgvPagoMembresia.DataSource = claseRecibirDatos.ObtenerClientePagoMembresia(txtIDCliente.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar el cliente: " + ex.Message);
+            }
         }
 
         private void InformacionPagoMembresia_Load(object sender, EventArgs e)
         {
-            ClaseRecibirDatos claseRecibirDatos = new ClaseRecibirDatos();
-            dgvPagoMembresia.DataSource = claseRecibirDatos.ObtenerDetallePagoMembresia();
+            try
+            {
+                ClaseRecibirDatos claseRecibirDatos = new ClaseRecibirDatos();
+                dgvPagoMembresia.DataSource = claseRecibirDatos.ObtenerDetallePagoMembresia();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la información de pagos de membresía: " + ex.Message);
+            }
         }
     }
 }

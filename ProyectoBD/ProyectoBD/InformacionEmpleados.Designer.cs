@@ -46,37 +46,41 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuPrincipalToolStripMenuItem
             // 
+            this.menuPrincipalToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuPrincipalToolStripMenuItem.Name = "menuPrincipalToolStripMenuItem";
-            this.menuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.menuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(106, 21);
             this.menuPrincipalToolStripMenuItem.Text = "Menu Principal";
             this.menuPrincipalToolStripMenuItem.Click += new System.EventHandler(this.menuPrincipalToolStripMenuItem_Click);
             // 
             // volverAEmpleadosToolStripMenuItem
             // 
+            this.volverAEmpleadosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.volverAEmpleadosToolStripMenuItem.Name = "volverAEmpleadosToolStripMenuItem";
-            this.volverAEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(121, 20);
+            this.volverAEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(136, 21);
             this.volverAEmpleadosToolStripMenuItem.Text = "Volver a empleados";
             this.volverAEmpleadosToolStripMenuItem.Click += new System.EventHandler(this.volverAEmpleadosToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
+            this.salirToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(45, 21);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(262, 33);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(200, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 13);
+            this.label1.Size = new System.Drawing.Size(324, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "INFORMACION DE LOS EMPLEADOS";
             // 
@@ -85,6 +89,7 @@
             this.dgvAuditoriaEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAuditoriaEmpleado.Location = new System.Drawing.Point(106, 65);
             this.dgvAuditoriaEmpleado.Name = "dgvAuditoriaEmpleado";
+            this.dgvAuditoriaEmpleado.ReadOnly = true;
             this.dgvAuditoriaEmpleado.Size = new System.Drawing.Size(539, 305);
             this.dgvAuditoriaEmpleado.TabIndex = 2;
             // 
@@ -92,6 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvAuditoriaEmpleado);
             this.Controls.Add(this.label1);

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaNegocios;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,9 +21,16 @@ namespace ProyectoBD
 
         private void menuPrincipalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
-            pantallaPrincipal.Show();
-            this.Close();
+            try
+            {
+                PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
+                pantallaPrincipal.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir la pantalla principal: " + ex.Message);
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,9 +40,38 @@ namespace ProyectoBD
 
         private void informacionPagoDeMembresiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InformacionPagoMembresia informacionPagoMembresia = new InformacionPagoMembresia();
-            informacionPagoMembresia.Show();
-            this.Close();
+            try
+            {
+                InformacionPagoMembresia informacionPagoMembresia = new InformacionPagoMembresia();
+                informacionPagoMembresia.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir la información de pago de membresía: " + ex.Message);
+            }
+        }
+
+        private void btnPago_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClasePagoMembresia pagoMembresia = new ClasePagoMembresia();
+                pagoMembresia.Identificacion = txtIdentificacion.Text;
+                pagoMembresia.Descripcion = txtDescripcion.Text;
+                pagoMembresia.Fecha_ultmo_Pago = Convert.ToDateTime(txtFechaUltimoPago.Text);
+
+                ClaseEnviarDatos claseEnviarDatos = new ClaseEnviarDatos();
+
+
+                claseEnviarDatos.PagarMembresia(pagoMembresia);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar el pago de membresía: " + ex.Message);
+
+            }
         }
     }
 }
