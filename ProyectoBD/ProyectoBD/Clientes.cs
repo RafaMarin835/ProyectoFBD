@@ -67,6 +67,7 @@ namespace ProyectoBD
                     obj_EntidadClientes.Activo = 0;
 
                 obj_Clientes.ModificarCliente(obj_EntidadClientes);
+                dgvClientes.Refresh();
             }
             catch (Exception ex)
             {

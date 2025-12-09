@@ -126,12 +126,6 @@
     <Compile Include="Proveedor.Designer.cs">
       <DependentUpon>Proveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="pruebasRafa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="pruebasRafa.Designer.cs">
-      <DependentUpon>pruebasRafa.cs</DependentUpon>
-    </Compile>
     <Compile Include="RegistrarVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,9 +185,6 @@
     </Compile>
     <EmbeddedResource Include="Proveedor.resx">
       <DependentUpon>Proveedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="pruebasRafa.resx">
-      <DependentUpon>pruebasRafa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarVenta.resx">
       <DependentUpon>RegistrarVenta.cs</DependentUpon>

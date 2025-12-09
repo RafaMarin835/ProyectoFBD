@@ -34,3 +34,12 @@ C:\Users\Rafael\Downloads\ProyectoFBD\ProyectoFBD\ProyectoBD\CapaDatos\obj\Debug
 C:\Users\Rafael\Downloads\ProyectoFBD\ProyectoFBD\ProyectoBD\CapaDatos\obj\Debug\CapaDatos.csproj.Up2Date
 C:\Users\Rafael\Downloads\ProyectoFBD\ProyectoFBD\ProyectoBD\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\Rafael\Downloads\ProyectoFBD\ProyectoFBD\ProyectoBD\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\pelad\OneDrive\Documentos\GitHub\ProyectoFBD\ProyectoBD\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\pelad\OneDrive\Documentos\GitHub\ProyectoFBD\ProyectoBD\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\pelad\OneDrive\Documentos\GitHub\ProyectoFBD\ProyectoBD\CapaDatos\bin\Debug\Entidades.dll
+C:\Users\pelad\OneDrive\Documentos\GitHub\ProyectoFBD\ProyectoBD\CapaDatos\bin\Debug\Entidades.pdb
+C:\Users\pelad\OneDrive\Documentos\GitHub\ProyectoFBD\ProyectoBD\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\pelad\OneDrive\Documentos\GitHub\ProyectoFBD\ProyectoBD\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\pelad\OneDrive\Documentos\GitHub\ProyectoFBD\ProyectoBD\CapaDatos\obj\Debug\CapaDatos.csproj.Up2Date
+C:\Users\pelad\OneDrive\Documentos\GitHub\ProyectoFBD\ProyectoBD\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\pelad\OneDrive\Documentos\GitHub\ProyectoFBD\ProyectoBD\CapaDatos\obj\Debug\CapaDatos.pdb

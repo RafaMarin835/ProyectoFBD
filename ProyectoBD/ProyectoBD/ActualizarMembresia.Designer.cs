@@ -48,9 +48,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(229, 34);
+            this.label1.Location = new System.Drawing.Point(305, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(276, 17);
+            this.label1.Size = new System.Drawing.Size(356, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "APARTADO DE ACTUALIZAR MEMBRESIA";
             // 
@@ -58,9 +59,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(283, 60);
+            this.label2.Location = new System.Drawing.Point(377, 74);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 17);
+            this.label2.Size = new System.Drawing.Size(199, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Identificacion del cliente:";
             // 
@@ -68,19 +70,21 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(297, 103);
+            this.label3.Location = new System.Drawing.Point(257, 124);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 17);
+            this.label3.Size = new System.Drawing.Size(453, 23);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Tipo de membresia:";
+            this.label3.Text = "Tipo de membresia: (1.Miembro 2.Basica 3.Premium 4.VIP)";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(297, 146);
+            this.label4.Location = new System.Drawing.Point(396, 180);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 17);
+            this.label4.Size = new System.Drawing.Size(163, 23);
             this.label4.TabIndex = 3;
             this.label4.Text = "Frecuencia de pago:";
             // 
@@ -88,46 +92,52 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(302, 185);
+            this.label5.Location = new System.Drawing.Point(403, 228);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 17);
+            this.label5.Size = new System.Drawing.Size(152, 23);
             this.label5.TabIndex = 4;
             this.label5.Text = "Fecha de contrato:";
             // 
             // txtIdentificacion
             // 
-            this.txtIdentificacion.Location = new System.Drawing.Point(301, 80);
+            this.txtIdentificacion.Location = new System.Drawing.Point(401, 98);
+            this.txtIdentificacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(121, 20);
+            this.txtIdentificacion.Size = new System.Drawing.Size(160, 22);
             this.txtIdentificacion.TabIndex = 5;
             // 
             // txtTipoMembresia
             // 
-            this.txtTipoMembresia.Location = new System.Drawing.Point(300, 123);
+            this.txtTipoMembresia.Location = new System.Drawing.Point(400, 151);
+            this.txtTipoMembresia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTipoMembresia.Name = "txtTipoMembresia";
-            this.txtTipoMembresia.Size = new System.Drawing.Size(121, 20);
+            this.txtTipoMembresia.Size = new System.Drawing.Size(160, 22);
             this.txtTipoMembresia.TabIndex = 6;
             // 
             // txtFrecuenciaPago
             // 
-            this.txtFrecuenciaPago.Location = new System.Drawing.Point(300, 166);
+            this.txtFrecuenciaPago.Location = new System.Drawing.Point(400, 204);
+            this.txtFrecuenciaPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFrecuenciaPago.Name = "txtFrecuenciaPago";
-            this.txtFrecuenciaPago.Size = new System.Drawing.Size(121, 20);
+            this.txtFrecuenciaPago.Size = new System.Drawing.Size(160, 22);
             this.txtFrecuenciaPago.TabIndex = 7;
             // 
             // txtFechaContrato
             // 
-            this.txtFechaContrato.Location = new System.Drawing.Point(301, 205);
+            this.txtFechaContrato.Location = new System.Drawing.Point(401, 252);
+            this.txtFechaContrato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFechaContrato.Name = "txtFechaContrato";
-            this.txtFechaContrato.Size = new System.Drawing.Size(121, 20);
+            this.txtFechaContrato.Size = new System.Drawing.Size(160, 22);
             this.txtFechaContrato.TabIndex = 8;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(286, 242);
+            this.button1.Location = new System.Drawing.Point(381, 298);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 43);
+            this.button1.Size = new System.Drawing.Size(199, 53);
             this.button1.TabIndex = 9;
             this.button1.Text = "Actualizar Membresia";
             this.button1.UseVisualStyleBackColor = true;
@@ -135,12 +145,13 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuPrincipalToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(767, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1023, 31);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -148,7 +159,7 @@
             // 
             this.menuPrincipalToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuPrincipalToolStripMenuItem.Name = "menuPrincipalToolStripMenuItem";
-            this.menuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(106, 21);
+            this.menuPrincipalToolStripMenuItem.Size = new System.Drawing.Size(138, 27);
             this.menuPrincipalToolStripMenuItem.Text = "Menu Principal";
             this.menuPrincipalToolStripMenuItem.Click += new System.EventHandler(this.menuPrincipalToolStripMenuItem_Click);
             // 
@@ -156,16 +167,16 @@
             // 
             this.salirToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(45, 21);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(56, 27);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // ActualizarMembresia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(767, 372);
+            this.ClientSize = new System.Drawing.Size(1023, 458);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtFechaContrato);
             this.Controls.Add(this.txtFrecuenciaPago);
@@ -178,6 +189,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ActualizarMembresia";
             this.Text = "ActualizarMembresia";
             this.menuStrip1.ResumeLayout(false);

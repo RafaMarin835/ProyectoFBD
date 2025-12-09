@@ -17,7 +17,8 @@ namespace CapaDatos // De momento se ingnora
 
         //Cambia segun el servidor que se esta trabajando (solo comenta el que no usas)
         //String _cadenaConexion = "Data Source = SEBASTIAN; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
-        String _cadenaConexion = "Data Source = (localdb)\\MSSQLLocalDB; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
+        //String _cadenaConexion = "Data Source = (localdb)\\MSSQLLocalDB; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
+        String _cadenaConexion = "Data Source = DESKTOP-N1JEQIM; " + "Integrated Security = SSPI;" + "Initial Catalog = ElQuiosco";
 
         //Metodos
         #region Metodos
@@ -344,7 +345,7 @@ namespace CapaDatos // De momento se ingnora
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Identificacion", obj.Identificacion);
                 cmd.Parameters.AddWithValue("@Descripcion", obj.Descripcion);
-                cmd.Parameters.AddWithValue("@Fecha_Ultmo_Pago", obj.Fecha_ultmo_Pago);
+                cmd.Parameters.AddWithValue("@Fecha_Ultimo_Pago", obj.Fecha_ultmo_Pago);
 
                 cmd.ExecuteNonQuery();
             }
@@ -385,10 +386,10 @@ namespace CapaDatos // De momento se ingnora
                 SqlCommand cmd = new SqlCommand("sp_Productos", _conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Codigo_Producto", obj.Codigo_Producto);
-                cmd.Parameters.AddWithValue("@Nombre_Producto", obj.Nombre_Producto);
+                cmd.Parameters.AddWithValue("@NombreProducto", obj.Nombre_Producto);
                 cmd.Parameters.AddWithValue("@Categoria", obj.Categoria);
                 cmd.Parameters.AddWithValue("@Precio", obj.Precio);
-                cmd.Parameters.AddWithValue("@PrecioProveedoor", obj.PrecioProveedoor);
+                cmd.Parameters.AddWithValue("@PrecioProveedor", obj.PrecioProveedoor);
                 cmd.Parameters.AddWithValue("@Stock", obj.Stock);
                 cmd.Parameters.AddWithValue("@Fecha_Registro", obj.FechaRegistro);
                 cmd.Parameters.AddWithValue("@Activo", obj.Activo);

@@ -57,6 +57,8 @@ namespace ProyectoBD
 
                 obj_EnviarDatos.ModificarEmpleado(obj_Empleado);
 
+                dgvEmpleados.Refresh();
+
 
 
 

@@ -93,10 +93,6 @@ namespace ProyectoBD
             this.Hide();
         }
 
-        private void mientrasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pruebasRafa pruebasRafa = new pruebasRafa();
-            pruebasRafa.Show();
-        }
+        
     }
 }
