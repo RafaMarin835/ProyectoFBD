@@ -13,15 +13,16 @@ CREATE PROCEDURE sp_Empleado
   @Fecha_Nacimiento DATE,
   @Genero VARCHAR(100),
   @Fecha_Registro DATE,
-  @ID_Distrito INT, 
+  @Distrito varchar(50), 
   @Activo bit
 AS
 BEGIN
-    Declare @ID_Canton AS Varchar(100) --para declarar variable Global
+    Declare @ID_Distrito as int, @ID_Canton AS int, @ID_Provincia as int --para declarar variable Global
+
+    set @ID_Distrito = (select ID_Distrito from Distrito where @Distrito = DESCRIPCION)
     set @ID_Canton = (select C.ID_Canton from CANTON C
                         join DISTRITO D on D.ID_CANTON = C.ID_Canton
                         where D.ID_Distrito = @ID_Distrito)
-    Declare @ID_Provincia AS Varchar(100) --para declarar variable Global
     set @ID_Provincia = (select P.ID_Provincia from PROVINCIAS P
                         join CANTON C on P.ID_Provincia = C.ID_PROVINCIA
                         where C.ID_Canton = @ID_Canton)
@@ -35,6 +36,7 @@ BEGIN
             Genero = @Genero, Fecha_Registro = @Fecha_Registro,
             ID_Provincia = @ID_Provincia, ID_Canton = @ID_Canton, ID_Distrito = @ID_Distrito, Activo = @Activo
         WHERE Identificacion = @Identificacion
+        exec sp_RegistrarAuditoria 'Actualizar un Empleado', @Fecha_Registro
     END
     ELSE
     BEGIN
@@ -42,6 +44,7 @@ BEGIN
                                 Fecha_Nacimiento, Genero, Fecha_Registro, ID_Provincia, ID_Canton, ID_Distrito, Activo)
         VALUES (@Identificacion, @Nombre, @Telefono, @Correo, @Salario, @Direccion, @Estado_Civil, @Fecha_Nacimiento, 
             @Genero, @Fecha_Registro, @ID_Provincia, @ID_Canton, @ID_Distrito, 1);
+        exec sp_RegistrarAuditoria 'Agregar un Empleado', @Fecha_Registro
     END
 END
 GO
@@ -70,12 +73,13 @@ CREATE PROCEDURE sp_Cliente
     @Correo VARCHAR(100),
     @Genero VARCHAR(10),
     @Fecha_Registro DATE,
-    @ID_Distrito INT,
+    @Distrito Varchar(50),
     @Activo bit
 AS
 BEGIN
-    Declare @ID_Canton AS Varchar(100), @ID_Provincia AS Varchar(100), @ultimoID as int, @t_membresia as int --para declarar variable Global
+    Declare @ID_Distrito as int, @ID_Canton AS int, @ID_Provincia AS int, @ultimoID as int, @t_membresia as int --para declarar variable Global
 
+    set @ID_Distrito = (select ID_Distrito from Distrito where @Distrito = DESCRIPCION)
     set @ID_Canton = (select C.ID_Canton from CANTON C
                         join DISTRITO D on D.ID_CANTON = C.ID_Canton
                         where D.ID_Distrito = @ID_Distrito)
@@ -324,16 +328,13 @@ END
 GO
 
   --***************************************Para registrar auditorias (historial)*********************
-CREATE PROCEDURE sp_RegistrarAuditoria
-  @Tabla VARCHAR(100),
-  @ID_Registro INT,
-  @Accion VARCHAR(200),
-  @ID_Empleado INT,
-  @Fecha DATE
+Create PROCEDURE sp_RegistrarAuditoria
+  @Accion VARCHAR(500),
+  @Fecha DATETIME
 AS
 BEGIN
-  INSERT INTO AuditoriaGeneral (Tabla, ID_Registro, Accion, ID_Empleado, Fecha)
-  VALUES (@Tabla, @ID_Registro, @Accion, @ID_Empleado, @Fecha);
+  INSERT INTO AuditoriaGeneral (Accion, Fecha)
+  VALUES (@Accion, @Fecha);
 END;
 GO
 
@@ -351,7 +352,7 @@ END;
 GO
 
 --***************************************Para eliminar o desactivar cleintes, empleado, proveedores y productos*********************
-CREATE PROCEDURE sp_EliminarDesactivarRegistro
+CREATE PROCEDURE sp_EliminarDesactivarRegistro --################### NO SE USA PERO LO DEJO
     @Tabla INT,              -- índice de la tabla (0=Clientes, 1=Empleados, 2=Proveedores, 3=Productos)
     @Identificador NVARCHAR(100),
     @Eliminar BIT
@@ -396,32 +397,6 @@ BEGIN
 END
 GO
 
---***************************************Para reactivar cleintes, empleado, proveedores y productos*********************
-CREATE PROCEDURE sp_ReactivarRegistro
-    @Tabla INT,              -- índice de la tabla (0=Clientes, 1=Empleados, 2=Proveedores, 3=Productos)
-    @Identificador NVARCHAR(100)
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    -- Clientes
-    IF @Tabla = 0
-        UPDATE Clientes SET Activo = 1 WHERE Identificacion = @Identificador;
-
-    -- Empleados
-    ELSE IF @Tabla = 1
-        UPDATE Empleados SET Activo = 1 WHERE Identificacion = @Identificador;
-
-    -- Proveedores
-    ELSE IF @Tabla = 2
-        UPDATE Proveedores SET Activo = 1 WHERE Cedula_Proveedor = @Identificador;
-
-    -- Productos
-    ELSE IF @Tabla = 3
-        UPDATE Productos SET Activo = 1 WHERE Codigo_Producto = @Identificador;
-END
-GO
-
 
   --***************************************Procedimientos para vizualizar datos************//////////////////////////////*********
 
@@ -433,7 +408,11 @@ AS
 BEGIN
     if @Tabla = 'Cliente' --Buscar cliente por identificacion
     Begin
-        Select * from Clientes
+        Select Identificacion, Nombre, Direccion, Estado_Civil, Telefono, Fecha_Nacimiento, Correo, Genero, 
+                Fecha_Registro, P.DESCRIPCION as Provincia, CT.DESCRIPCION as Cantón, D.DESCRIPCION as Distrito, C.Activo from Clientes C
+        join PROVINCIAS P on P.ID_Provincia = C.ID_Provincia
+        join CANTON CT on CT.ID_Canton = C.ID_Canton
+        join DISTRITO D on D.ID_Distrito = C.ID_Distrito
         where @Identificador = Identificacion
     end;
 

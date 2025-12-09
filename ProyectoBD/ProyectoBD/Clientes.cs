@@ -16,6 +16,7 @@ namespace ProyectoBD
     {
         ClaseCliente obj_EntidadClientes = new ClaseCliente();
         ClaseEnviarDatos obj_Clientes = new ClaseEnviarDatos();
+        ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
 
         public Clientes()
         {
@@ -57,16 +58,13 @@ namespace ProyectoBD
                 obj_EntidadClientes.Genero = txtGenero.Text;
                 obj_EntidadClientes.Direccion = txtDireccion.Text;
                 obj_EntidadClientes.FechaRegistro = DateTime.Now;
-                obj_EntidadClientes.ID_Distrito = txtDistrito.Text;
 
-                if (ListBoxActivo.Text == "Activo")
-                {
+                obj_EntidadClientes.Distrito = cbDistrito.SelectedItem.ToString();
+
+                if (cbEstado.Text == "Activo")
                     obj_EntidadClientes.Activo = 1;
-                }
                 else
-                {
                     obj_EntidadClientes.Activo = 0;
-                }
 
                 obj_Clientes.ModificarCliente(obj_EntidadClientes);
             }
@@ -112,7 +110,6 @@ namespace ProyectoBD
         {
             try
             {
-                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
                 dgvClientes.DataSource = obj_RecibirDatos.BuscarClientePorIdentificacion(txtIdentificacion.Text);
                 btnVerTodosLosClientes.Visible = true;
             }
@@ -126,7 +123,6 @@ namespace ProyectoBD
         {
             try
             {
-                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
                 dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorCompras();
                 dgvClientes.Visible = true;
             }
@@ -140,7 +136,6 @@ namespace ProyectoBD
         {
             try
             {
-                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
                 dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorMembresia();
                 dgvClientes.Visible = true;
             }
@@ -154,7 +149,6 @@ namespace ProyectoBD
         {
             try
             {
-                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
                 dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesConPagosAtrasados();
                 dgvClientes.Visible = true;
             }
@@ -168,7 +162,6 @@ namespace ProyectoBD
         {
             try
             {
-                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
                 dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientesPorUltimoPagoMembresia();
                 dgvClientes.Visible = true;
             }
@@ -194,9 +187,10 @@ namespace ProyectoBD
                     txtCorreo.Text = fila.Cells["Correo"].Value?.ToString();
                     txtGenero.Text = fila.Cells["Genero"].Value?.ToString();
                     txtDireccion.Text = fila.Cells["Direccion"].Value?.ToString();
-                    txtDistrito.Text = fila.Cells["ID_Distrito"].Value?.ToString();
-
-                    ListBoxActivo.Text = (fila.Cells["Activo"].Value.ToString() == "1") ? "Activo" : "Inactivo";
+                    cbProvincia.Text = fila.Cells["Provincia"].Value?.ToString();
+                    cbCanton.Text = fila.Cells["Cantón"].Value?.ToString();
+                    cbDistrito.Text = fila.Cells["Distrito"].Value?.ToString();
+                    cbEstado.Text = fila.Cells["Activo"].Value?.ToString();
                 }
             }
             catch (Exception ex)
@@ -225,8 +219,12 @@ namespace ProyectoBD
         {
             try
             {
-                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
                 dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
+
+
+                cbProvincia.DataSource = obj_RecibirDatos.ObtenerProvincias(); //recuperar las provincias
+                cbProvincia.SelectedIndex  = -1;
+
             }
             catch (Exception ex)
             {
@@ -239,7 +237,6 @@ namespace ProyectoBD
         {
             try
             {
-                ClaseRecibirDatos obj_RecibirDatos = new ClaseRecibirDatos();
                 dgvClientes.DataSource = obj_RecibirDatos.ObtenerClientes();
             }
             catch (Exception ex)
@@ -249,16 +246,27 @@ namespace ProyectoBD
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void lbCantón_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ClaseEnviarDatos obj_DesactivarCliente = new ClaseEnviarDatos();
-            obj_DesactivarCliente.DesactivarCliente(txtIdentificacion.Text);
+            
         }
 
-        private void btnReactivarCliente_Click(object sender, EventArgs e)
+        private void cbProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ClaseEnviarDatos claseEnviarDatos = new ClaseEnviarDatos();
-            claseEnviarDatos.ReactivarCliente(txtIdentificacion.Text);
+            if (cbProvincia.SelectedItem == null)
+                return;
+            string provinciaSeleccionada = cbProvincia.SelectedItem.ToString();
+            cbCanton.DataSource = obj_RecibirDatos.ObtenerCantones(provinciaSeleccionada);
+            cbCanton.SelectedIndex = -1;
+        }
+
+        private void cbCanton_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCanton.SelectedItem == null)
+                return;
+            string cantonSeleccionado = cbCanton.SelectedItem.ToString();
+            cbDistrito.DataSource = obj_RecibirDatos.ObtenerDistritos(cantonSeleccionado);
+            cbDistrito.SelectedIndex = -1;
         }
     }
 }

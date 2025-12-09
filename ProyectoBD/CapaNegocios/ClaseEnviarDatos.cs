@@ -74,53 +74,5 @@ namespace CapaNegocios
 
             claseSQL.ActualizarSecionUser(user, contrasena);
         }
-
-        public void DesactivarCliente(string Cedula) //recibe el id del cliente a eliminar
-        {
-            if (string.IsNullOrEmpty(Cedula))
-                throw new Exception("La cedula del cliente no es válido.");
-            claseSQL.EliminarDesactivarRegistro(Cedula, 0);
-        }
-        public void DesactivarEmpleado(string Cedula) //recibe el id del empleado a eliminar
-        {
-            if (string.IsNullOrEmpty(Cedula))
-                throw new Exception("La cedula del empleado no es válido.");
-            claseSQL.EliminarDesactivarRegistro(Cedula, 1);
-        }
-        public void DesactivarProveedor(string CedulaProveedor) //recibe el id del proveedor a eliminar
-        {
-            if (string.IsNullOrEmpty(CedulaProveedor))
-                throw new Exception("La cedula del proveedor no es válido.");
-            claseSQL.EliminarDesactivarRegistro(CedulaProveedor, 2);
-        }
-        public void DesactivarProducto(string Codigo) //recibe el id del producto a eliminar
-        {
-            if (string.IsNullOrEmpty(Codigo))
-                throw new Exception("El código del producto no es válido.");
-            claseSQL.EliminarDesactivarRegistro(Codigo, 3);
-        }
-        public void ReactivarCliente(string identificador) 
-        {
-            if (string.IsNullOrEmpty(identificador))
-                throw new Exception("El identificador no es válido.");
-            claseSQL.ReactivarRegistro(identificador, 0);
-        }
-        public void ReactivarEmpleado(string identificador)
-        {
-            if (string.IsNullOrEmpty(identificador))
-                throw new Exception("El identificador no es válido.");
-            claseSQL.ReactivarRegistro(identificador, 1);
-        }
-        public void ReactivarProveedor(string identificador)
-        {
-            if (string.IsNullOrEmpty(identificador))
-                throw new Exception("El identificador no es válido.");
-            claseSQL.ReactivarRegistro(identificador, 2);
-        }
-        public void ReactivarProducto(string identificador)
-        {
-            if (string.IsNullOrEmpty(identificador))
-                throw new Exception("El identificador no es válido.");
-            claseSQL.ReactivarRegistro(identificador, 3);
-        }
+    }
 }

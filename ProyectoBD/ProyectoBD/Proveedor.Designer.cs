@@ -48,8 +48,6 @@
             this.dgvProveedor = new System.Windows.Forms.DataGridView();
             this.btnBuscarPorID = new System.Windows.Forms.Button();
             this.btnVerTodosProveedores = new System.Windows.Forms.Button();
-            this.btnDesactivarProveedor = new System.Windows.Forms.Button();
-            this.btnReactivarProveedor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedor)).BeginInit();
             this.SuspendLayout();
@@ -243,38 +241,12 @@
             this.btnVerTodosProveedores.Visible = false;
             this.btnVerTodosProveedores.Click += new System.EventHandler(this.btnVerTodosProveedores_Click);
             // 
-            // btnDesactivarProveedor
-            // 
-            this.btnDesactivarProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesactivarProveedor.Location = new System.Drawing.Point(153, 404);
-            this.btnDesactivarProveedor.Name = "btnDesactivarProveedor";
-            this.btnDesactivarProveedor.Size = new System.Drawing.Size(121, 53);
-            this.btnDesactivarProveedor.TabIndex = 19;
-            this.btnDesactivarProveedor.Text = "Desactivar Proveedor";
-            this.btnDesactivarProveedor.UseVisualStyleBackColor = true;
-            this.btnDesactivarProveedor.Visible = false;
-            this.btnDesactivarProveedor.Click += new System.EventHandler(this.btnDesactivarProveedor_Click);
-            // 
-            // btnReactivarProveedor
-            // 
-            this.btnReactivarProveedor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReactivarProveedor.Location = new System.Drawing.Point(283, 404);
-            this.btnReactivarProveedor.Name = "btnReactivarProveedor";
-            this.btnReactivarProveedor.Size = new System.Drawing.Size(121, 53);
-            this.btnReactivarProveedor.TabIndex = 20;
-            this.btnReactivarProveedor.Text = "Reactivar Proveedor";
-            this.btnReactivarProveedor.UseVisualStyleBackColor = true;
-            this.btnReactivarProveedor.Visible = false;
-            this.btnReactivarProveedor.Click += new System.EventHandler(this.btnReactivarProveedor_Click);
-            // 
             // Proveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(847, 494);
-            this.Controls.Add(this.btnReactivarProveedor);
-            this.Controls.Add(this.btnDesactivarProveedor);
             this.Controls.Add(this.btnVerTodosProveedores);
             this.Controls.Add(this.btnBuscarPorID);
             this.Controls.Add(this.dgvProveedor);
@@ -327,7 +299,5 @@
         private System.Windows.Forms.DataGridView dgvProveedor;
         private System.Windows.Forms.Button btnBuscarPorID;
         private System.Windows.Forms.Button btnVerTodosProveedores;
-        private System.Windows.Forms.Button btnDesactivarProveedor;
-        private System.Windows.Forms.Button btnReactivarProveedor;
     }
 }

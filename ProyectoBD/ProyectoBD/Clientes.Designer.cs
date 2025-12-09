@@ -37,7 +37,6 @@
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtGenero = new System.Windows.Forms.TextBox();
             this.txtIdentificacion = new System.Windows.Forms.TextBox();
-            this.txtDistrito = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,16 +49,19 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnAgregarModificar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.ListBoxActivo = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuPrincipalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verInformacionDeLosClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnBuscarPorID = new System.Windows.Forms.Button();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVerTodosLosClientes = new System.Windows.Forms.Button();
-            this.btnReactivarCliente = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cbProvincia = new System.Windows.Forms.ComboBox();
+            this.cbCanton = new System.Windows.Forms.ComboBox();
+            this.cbDistrito = new System.Windows.Forms.ComboBox();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
@@ -134,13 +136,6 @@
             this.txtIdentificacion.Size = new System.Drawing.Size(129, 20);
             this.txtIdentificacion.TabIndex = 9;
             // 
-            // txtDistrito
-            // 
-            this.txtDistrito.Location = new System.Drawing.Point(15, 408);
-            this.txtDistrito.Name = "txtDistrito";
-            this.txtDistrito.Size = new System.Drawing.Size(127, 20);
-            this.txtDistrito.TabIndex = 12;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -155,7 +150,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(14, 143);
+            this.label4.Location = new System.Drawing.Point(14, 182);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 17);
             this.label4.TabIndex = 17;
@@ -165,7 +160,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 182);
+            this.label5.Location = new System.Drawing.Point(12, 143);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 17);
             this.label5.TabIndex = 18;
@@ -205,17 +200,17 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(12, 392);
+            this.label12.Location = new System.Drawing.Point(15, 436);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 17);
+            this.label12.Size = new System.Drawing.Size(60, 17);
             this.label12.TabIndex = 25;
-            this.label12.Text = "Distrito:";
+            this.label12.Text = "Provincia";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(15, 431);
+            this.label13.Location = new System.Drawing.Point(15, 392);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(51, 17);
             this.label13.TabIndex = 26;
@@ -243,7 +238,7 @@
             // btnAgregarModificar
             // 
             this.btnAgregarModificar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarModificar.Location = new System.Drawing.Point(17, 493);
+            this.btnAgregarModificar.Location = new System.Drawing.Point(15, 577);
             this.btnAgregarModificar.Name = "btnAgregarModificar";
             this.btnAgregarModificar.Size = new System.Drawing.Size(127, 46);
             this.btnAgregarModificar.TabIndex = 31;
@@ -258,20 +253,6 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(0, 13);
             this.label10.TabIndex = 33;
-            // 
-            // ListBoxActivo
-            // 
-            this.ListBoxActivo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ListBoxActivo.FormattingEnabled = true;
-            this.ListBoxActivo.ItemHeight = 17;
-            this.ListBoxActivo.Items.AddRange(new object[] {
-            "Activo ",
-            "Inactivo"});
-            this.ListBoxActivo.Location = new System.Drawing.Point(15, 451);
-            this.ListBoxActivo.Name = "ListBoxActivo";
-            this.ListBoxActivo.Size = new System.Drawing.Size(127, 21);
-            this.ListBoxActivo.TabIndex = 34;
-            this.ListBoxActivo.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -312,7 +293,7 @@
             // btnBuscarPorID
             // 
             this.btnBuscarPorID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarPorID.Location = new System.Drawing.Point(18, 545);
+            this.btnBuscarPorID.Location = new System.Drawing.Point(16, 629);
             this.btnBuscarPorID.Name = "btnBuscarPorID";
             this.btnBuscarPorID.Size = new System.Drawing.Size(121, 46);
             this.btnBuscarPorID.TabIndex = 36;
@@ -329,21 +310,10 @@
             this.dgvClientes.Size = new System.Drawing.Size(1125, 611);
             this.dgvClientes.TabIndex = 37;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(17, 597);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(121, 52);
-            this.btnEliminar.TabIndex = 38;
-            this.btnEliminar.Text = "Desactivar cliente";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // btnVerTodosLosClientes
             // 
             this.btnVerTodosLosClientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerTodosLosClientes.Location = new System.Drawing.Point(145, 545);
+            this.btnVerTodosLosClientes.Location = new System.Drawing.Point(143, 629);
             this.btnVerTodosLosClientes.Name = "btnVerTodosLosClientes";
             this.btnVerTodosLosClientes.Size = new System.Drawing.Size(116, 46);
             this.btnVerTodosLosClientes.TabIndex = 39;
@@ -352,16 +322,62 @@
             this.btnVerTodosLosClientes.Visible = false;
             this.btnVerTodosLosClientes.Click += new System.EventHandler(this.btnVerTodosLosClientes_Click);
             // 
-            // btnReactivarCliente
+            // label11
             // 
-            this.btnReactivarCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReactivarCliente.Location = new System.Drawing.Point(145, 597);
-            this.btnReactivarCliente.Name = "btnReactivarCliente";
-            this.btnReactivarCliente.Size = new System.Drawing.Size(121, 52);
-            this.btnReactivarCliente.TabIndex = 40;
-            this.btnReactivarCliente.Text = "Reactivar cliente";
-            this.btnReactivarCliente.UseVisualStyleBackColor = true;
-            this.btnReactivarCliente.Click += new System.EventHandler(this.btnReactivarCliente_Click);
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(15, 480);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 17);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "Cantón:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(15, 524);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 17);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "Distrito:";
+            // 
+            // cbProvincia
+            // 
+            this.cbProvincia.FormattingEnabled = true;
+            this.cbProvincia.Location = new System.Drawing.Point(15, 456);
+            this.cbProvincia.Name = "cbProvincia";
+            this.cbProvincia.Size = new System.Drawing.Size(121, 21);
+            this.cbProvincia.TabIndex = 45;
+            this.cbProvincia.SelectedIndexChanged += new System.EventHandler(this.cbProvincia_SelectedIndexChanged);
+            // 
+            // cbCanton
+            // 
+            this.cbCanton.FormattingEnabled = true;
+            this.cbCanton.Location = new System.Drawing.Point(15, 500);
+            this.cbCanton.Name = "cbCanton";
+            this.cbCanton.Size = new System.Drawing.Size(121, 21);
+            this.cbCanton.TabIndex = 46;
+            this.cbCanton.SelectedIndexChanged += new System.EventHandler(this.cbCanton_SelectedIndexChanged);
+            // 
+            // cbDistrito
+            // 
+            this.cbDistrito.FormattingEnabled = true;
+            this.cbDistrito.Location = new System.Drawing.Point(15, 544);
+            this.cbDistrito.Name = "cbDistrito";
+            this.cbDistrito.Size = new System.Drawing.Size(121, 21);
+            this.cbDistrito.TabIndex = 47;
+            // 
+            // cbEstado
+            // 
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.cbEstado.Location = new System.Drawing.Point(15, 412);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(121, 21);
+            this.cbEstado.TabIndex = 48;
             // 
             // Clientes
             // 
@@ -369,12 +385,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1484, 761);
-            this.Controls.Add(this.btnReactivarCliente);
+            this.Controls.Add(this.cbEstado);
+            this.Controls.Add(this.cbDistrito);
+            this.Controls.Add(this.cbCanton);
+            this.Controls.Add(this.cbProvincia);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.btnVerTodosLosClientes);
-            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.btnBuscarPorID);
-            this.Controls.Add(this.ListBoxActivo);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnAgregarModificar);
             this.Controls.Add(this.label6);
@@ -387,7 +406,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtDistrito);
             this.Controls.Add(this.txtIdentificacion);
             this.Controls.Add(this.txtGenero);
             this.Controls.Add(this.txtCorreo);
@@ -421,7 +439,6 @@
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.TextBox txtGenero;
         private System.Windows.Forms.TextBox txtIdentificacion;
-        private System.Windows.Forms.TextBox txtDistrito;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -434,15 +451,18 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAgregarModificar;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox ListBoxActivo;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuPrincipalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Button btnBuscarPorID;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.ToolStripMenuItem verInformacionDeLosClientesToolStripMenuItem;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnVerTodosLosClientes;
-        private System.Windows.Forms.Button btnReactivarCliente;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cbProvincia;
+        private System.Windows.Forms.ComboBox cbCanton;
+        private System.Windows.Forms.ComboBox cbDistrito;
+        private System.Windows.Forms.ComboBox cbEstado;
     }
 }

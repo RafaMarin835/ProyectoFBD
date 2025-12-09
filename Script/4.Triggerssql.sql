@@ -34,6 +34,24 @@ BEGIN
 END;
 GO
 
+---********************************Actualizar el estadado de Activo de los usuarios de ingreso de los empleados, si se descativa un empleado se desactiva el usuario
+CREATE TRIGGER trg_UpdateUsuarioEmpleado
+ON Empleados
+AFTER UPDATE
+AS
+BEGIN
+    -- Solo actuar si se modificó la columna Activo
+    IF UPDATE(Activo)
+    BEGIN
+        UPDATE u
+        SET u.Activo = e.Activo
+        FROM Usuarios u
+        INNER JOIN inserted e ON u.ID_Empleado = e.ID_Empleado;
+    END
+END;
+GO
+
+
 ---********************************Eliminar un usuario automaticamente al eliminar un empleado
 CREATE TRIGGER trg_DeleteUsuarioEmpleado
 ON Empleados
@@ -110,7 +128,7 @@ BEGIN
 END;
 GO
 
----********************************Confirma que el cliente tenga los puntos esperados
+---********************************Confirma que el cliente tenga los puntos esperados minimos
 CREATE TRIGGER trg_ValidarPuntosVenta
 ON Ventas
 AFTER INSERT
@@ -134,6 +152,25 @@ BEGIN
 END;
 
 
+---********************************################################Triggers para auditorias automaticas
+CREATE TRIGGER trg_AuditoriaClientesInsert --Para guabndo se inserta un cliente
+ON Clientes
+AFTER INSERT
+AS
+BEGIN
+    INSERT INTO AuditoriaGeneral (Accion, Fecha)
+    VALUES ('Se agregó un nuevo cliente', GETDATE());
+END;
+GO
+CREATE TRIGGER trg_AuditoriaClientesUpdate --Para cuando se actualiza un cliente
+ON Clientes
+AFTER UPDATE
+AS
+BEGIN
+    INSERT INTO AuditoriaGeneral (Accion, Fecha)
+    VALUES ('Se modificó un cliente', GETDATE());
+END;
+GO
 
 
 

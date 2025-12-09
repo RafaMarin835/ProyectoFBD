@@ -114,7 +114,7 @@ namespace CapaDatos // De momento se ingnora
         {
             List<string> tablas = new List<string>
             {
-                "Clientes",
+                "vw_TodosLosClientes",
                 "Empleados",
                 "Proveedores",
                 "Productos"
@@ -159,7 +159,72 @@ namespace CapaDatos // De momento se ingnora
 
         #endregion Recuperar datos por procedimientos almacenados
 
-        #region eliminar/desactivar/reactivar Registros //**************************///////////////////////////***********************************///////////////////////////
+        #region Recuperar provincias,c antones y dsitritos //**************************///////////////////////////***********************************///////////////////////////
+        public List<string> GetProvincias()
+        {
+            EstablecerConexion();
+            var provincias = new List<string>();
+            string query = "SELECT DESCRIPCION FROM PROVINCIAS WHERE ACTIVO = 1";
+
+            using (SqlCommand cmd = new SqlCommand(query, _conexion))
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    provincias.Add(reader.GetString(0));
+                }
+            }
+            return provincias;
+        }
+
+        public List<string> GetCantones(string provinciaDescripcion)
+        {
+            EstablecerConexion();
+            var cantones = new List<string>();
+            string query = @"SELECT C.DESCRIPCION 
+                         FROM CANTON C
+                         INNER JOIN PROVINCIAS P ON C.ID_PROVINCIA = P.ID_Provincia
+                         WHERE P.DESCRIPCION = @provincia AND C.ACTIVO = 1";
+
+            using (SqlCommand cmd = new SqlCommand(query, _conexion))
+            {
+                cmd.Parameters.AddWithValue("@provincia", provinciaDescripcion);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        cantones.Add(reader.GetString(0));
+                    }
+                }
+            }
+            return cantones;
+        }
+
+        public List<string> GetDistritos(string cantonDescripcion)
+        {
+            EstablecerConexion();
+            var distritos = new List<string>();
+            string query = @"SELECT D.DESCRIPCION 
+                         FROM DISTRITO D
+                         INNER JOIN CANTON C ON D.ID_CANTON = C.ID_Canton
+                         WHERE C.DESCRIPCION = @canton AND D.ACTIVO = 1";
+
+            using (SqlCommand cmd = new SqlCommand(query, _conexion))
+            {
+                cmd.Parameters.AddWithValue("@canton", cantonDescripcion);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        distritos.Add(reader.GetString(0));
+                    }
+                }
+            }
+            return distritos;
+        }
+
+        #endregion Recuperar provincias, cantones y distritos
+        #region eliminar/desactivar Registros //**************************///////////////////////////***********************************///////////////////////////
         public void EliminarDesactivarRegistro(string identificador, int indicetabla, bool eliminar = false) //el identificador del registro a eliminar o desactivar, el indice de la tabla y si se elimina (true) o desactiva
         {
             try
@@ -173,35 +238,6 @@ namespace CapaDatos // De momento se ingnora
                     cmd.Parameters.AddWithValue("@Tabla", indicetabla);
                     cmd.Parameters.AddWithValue("@Identificador", identificador);
                     cmd.Parameters.AddWithValue("@Eliminar", eliminar);
-
-                    int filasAfectadas = cmd.ExecuteNonQuery();
-
-                    if (filasAfectadas == 0)
-                        throw new Exception("No se encontró el registro con el identificador proporcionado.");
-                }
-            }
-            catch (SqlException ex)
-            {
-                throw new Exception("Error al ejecutar el procedimiento: " + ex.Message);
-            }
-            finally
-            {
-                if (_conexion != null && _conexion.State == ConnectionState.Open)
-                    _conexion.Close();
-            }
-        }
-
-        public void ReactivarRegistro(string identificador, int indicetabla)
-        {// -- índice de la tabla (0=Clientes, 1=Empleados, 2=Proveedores, 3=Productos)
-            try
-            {
-                EstablecerConexion();
-
-                using (SqlCommand cmd = new SqlCommand("sp_ReactivarRegistro", _conexion))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Tabla", indicetabla);
-                    cmd.Parameters.AddWithValue("@Identificador", identificador);
 
                     int filasAfectadas = cmd.ExecuteNonQuery();
 
@@ -240,7 +276,7 @@ namespace CapaDatos // De momento se ingnora
                 cmd.Parameters.AddWithValue("@Correo", obj.Correo);
                 cmd.Parameters.AddWithValue("@Genero", obj.Genero);
                 cmd.Parameters.AddWithValue("@Fecha_Registro", obj.FechaRegistro);
-                cmd.Parameters.AddWithValue("@ID_Distrito", obj.ID_Distrito);
+                cmd.Parameters.AddWithValue("@Distrito", obj.Distrito);
                 cmd.Parameters.AddWithValue("@Activo", obj.Activo);
                 cmd.Parameters.AddWithValue("@Salario", obj.Salario);
 
@@ -268,7 +304,7 @@ namespace CapaDatos // De momento se ingnora
                 cmd.Parameters.AddWithValue("@Correo", obj.Correo);
                 cmd.Parameters.AddWithValue("@Genero", obj.Genero);
                 cmd.Parameters.AddWithValue("@Fecha_Registro", obj.FechaRegistro);
-                cmd.Parameters.AddWithValue("@ID_Distrito", obj.ID_Distrito);
+                cmd.Parameters.AddWithValue("@Distrito", obj.Distrito);
                 cmd.Parameters.AddWithValue("@Activo", obj.Activo);
 
                 cmd.ExecuteNonQuery();

@@ -176,12 +176,7 @@ go
 
 --Tabla de auditoria, saber quien hizo alteraciones
 CREATE TABLE AuditoriaGeneral (
-  ID_Auditoria_G INT PRIMARY KEY IDENTITY(1,1),
-  Tabla varchar(100) not null,
-  ID_Registro int not null,
   Accion varchar(200),
-  ID_Empleado int not null,
   Fecha date not null,
-  FOREIGN KEY (ID_Empleado) REFERENCES Empleados(ID_Empleado)
 );
 go

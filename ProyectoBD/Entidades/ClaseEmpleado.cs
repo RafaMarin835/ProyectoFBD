@@ -19,7 +19,7 @@ namespace Entidades
         DateTime _fecha_Nacimiento;
         string _genero;
         DateTime _fechaRegistro;
-        string _id_Distrito;
+        string _distrito;
         int _activo;
 
         public string Nombre { get => _nombre; set => _nombre = value; }
@@ -32,7 +32,7 @@ namespace Entidades
         public string Genero { get => _genero; set => _genero = value; }
         public DateTime FechaRegistro { get => _fechaRegistro; set => _fechaRegistro = value; }
         public string Identificacion { get => _identificacion; set => _identificacion = value; }
-        public string ID_Distrito { get => _id_Distrito; set => _id_Distrito = value; }
+        public string Distrito { get => _distrito; set => _distrito = value; }
         public int Activo { get => _activo; set => _activo = value; }
 
         //Metodos 
@@ -56,7 +56,7 @@ namespace Entidades
                 throw new Exception("La fecha de registro no puede ser en el futuro.");
             if (string.IsNullOrWhiteSpace(Identificacion))
                 throw new Exception("La identificación no puede estar vacía.");
-            if (string.IsNullOrWhiteSpace(ID_Distrito))
+            if (string.IsNullOrWhiteSpace(Distrito))
                 throw new Exception("El distrito no puede estar vacío.");
             if (Activo != 1 && Activo != 0)
                 throw new Exception("El estado de activo debe ser verdadero (1) o falso (0).");

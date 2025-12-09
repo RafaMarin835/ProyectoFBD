@@ -7,6 +7,7 @@ Go
 	select C.Identificacion, C.Nombre, M.Fecha_Contrato, TM.Descripcion, C.Telefono, C.Correo, M.Total_Puntos, M.Activo as Activo_Membresia From Clientes C
 	join Membresias M on C.ID_Cliente = M.ID_Cliente
 	join Tipo_Membresias TM on M.ID_T_Membresia = TM.ID_T_Membresia
+	where C.Activo = 1
 	go
 
 	--Ver clientes y sus compras
@@ -22,6 +23,7 @@ Go
 	select Identificacion, Nombre, M.Activo as EstadoMembresia, Frecuencia_Pago, Descripcion, Fecha_Ultimo_Pago from Clientes C
 	join Membresias M on M.ID_Cliente = C.ID_Cliente
 	join Pago_Membresias PM on PM.ID_Membresia = M.ID_Membresia
+	where C.Activo = 1
 	go
 
 	----Ver clientes con pagos de membresía atrasados
@@ -32,12 +34,20 @@ Go
 	where DATEDIFf(DAY, Fecha_Ultimo_Pago, GETDATE()) > Frecuencia_Pago
 	go
 
+	--Ver todos los clientes pero con prinvincia, canton y distrito nombrado
+	Create view vw_TodosLosClientes as
+	Select Identificacion, Nombre, Direccion, Estado_Civil, Telefono, Fecha_Nacimiento, Correo, Genero, 
+                Fecha_Registro, P.DESCRIPCION as Provincia, CT.DESCRIPCION as Cantón, D.DESCRIPCION as Distrito, C.Activo from Clientes C
+        join PROVINCIAS P on P.ID_Provincia = C.ID_Provincia
+        join CANTON CT on CT.ID_Canton = C.ID_Canton
+        join DISTRITO D on D.ID_Distrito = C.ID_Distrito
+	go
+
 
 --Para empleados *********************************************************---------------------------------
 	--Ver todas las auditorias de los empleados 
-	Create VIEW vw_EmpleadosAuditorias AS
-	select Nombre, Correo, Telefono, AG.Accion, AG.Fecha, AG.Tabla, AG.ID_Registro from Empleados E
-	join AuditoriaGeneral AG on AG.ID_Empleado = E.ID_Empleado
+	Alter VIEW vw_EmpleadosAuditorias AS
+	select * from AuditoriaGeneral
 	go
 
 
@@ -56,6 +66,7 @@ Go
 	SELECT P.ID_Producto, Codigo_Producto, NombreProducto, Categoria,
 			PrecioProveedor, Precio,(Precio - PrecioProveedor) AS Ganancia, Stock, P.Activo
 	FROM Productos P
+	where P.Activo = 1
 	go
 
 	--Ver productos con stock bajo (menos de 10)
@@ -77,6 +88,7 @@ Go
 	FROM Detalle_Venta DV
 	JOIN Productos P ON DV.ID_Producto = P.ID_Producto
 	GROUP BY P.ID_Producto, P.NombreProducto;
+	Go
 
 
 --Para ventas *********************************************************---------------------------------
@@ -103,6 +115,7 @@ Go
 	FROM Clientes C
 	JOIN Ventas V ON C.ID_Cliente = V.ID_Cliente
 	GROUP BY C.Identificacion, C.Nombre;
+	Go
 
 --Pantalla de pago de membresia *********************************************************---------------------------------
 	--Ver todo el historial de pagos de membresía

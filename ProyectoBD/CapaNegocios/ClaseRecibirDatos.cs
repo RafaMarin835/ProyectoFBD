@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -163,6 +164,23 @@ namespace CapaNegocios
 
         #endregion
 
+        #region Provincia, cantones y distritos
+        public List<string> ObtenerProvincias()
+        {
+                return datosService.GetProvincias();
+        }
+
+        public List<string> ObtenerCantones(string provinciaDescripcion)
+        {
+                return datosService.GetCantones(provinciaDescripcion);
+        }
+
+        public List<string> ObtenerDistritos(string cantonDescripcion)
+        {
+                return datosService.GetDistritos(cantonDescripcion);
+        }
+
+        #endregion Provincias, cantones y distritos
 
     }
 }

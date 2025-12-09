@@ -158,33 +158,5 @@ namespace ProyectoBD
         {
 
         }
-
-        private void btnDesactivarProducto_Click(object sender, EventArgs e)
-        {
-            ClaseEnviarDatos obj_enviarDatos = new ClaseEnviarDatos();
-            try
-            {
-                obj_enviarDatos.DesactivarProducto(txtCodigoProducto.Text);
-                MessageBox.Show("Producto desactivado correctamente.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
-
-        private void btnReactivarProducto_Click(object sender, EventArgs e)
-        {
-            ClaseEnviarDatos obj_enviarDatos = new ClaseEnviarDatos();
-            try
-            {
-                obj_enviarDatos.ReactivarProducto(txtCodigoProducto.Text);
-                MessageBox.Show("Producto reactivado correctamente.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
     }
 }

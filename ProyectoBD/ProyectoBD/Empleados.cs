@@ -43,7 +43,7 @@ namespace ProyectoBD
                 obj_Empleado.Fecha_Nacimiento = DateTime.Parse(txtFechaNacimiento.Text);
                 obj_Empleado.Genero = txtGenero.Text;
                 obj_Empleado.FechaRegistro = DateTime.Now;
-                obj_Empleado.ID_Distrito = txtDistrito.Text;
+                obj_Empleado.Distrito = txtDistrito.Text;
 
                 if (ListBoxActivo.Text == "Activo")
                 {
@@ -174,32 +174,5 @@ namespace ProyectoBD
         {
 
         }
-
-        private void btn_DesactivarEmpleado_Click(object sender, EventArgs e)
-        {
-            ClaseEnviarDatos obj_EnviarDatos = new ClaseEnviarDatos();
-            try
-            {
-                obj_EnviarDatos.DesactivarEmpleado(txtIdentificacion.Text);
-                MessageBox.Show("Empleado desactivado correctamente.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al desactivar el empleado: " + ex.Message);
-            }
-        }
-
-        private void btnReactivarEmpleado_Click(object sender, EventArgs e)
-        {
-            ClaseEnviarDatos obj_EnviarDatos = new ClaseEnviarDatos();
-            try
-            {
-                obj_EnviarDatos.ReactivarEmpleado(txtIdentificacion.Text);
-                MessageBox.Show("Empleado reactivado correctamente.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al reactivar el empleado: " + ex.Message);
-            }
     }
 }

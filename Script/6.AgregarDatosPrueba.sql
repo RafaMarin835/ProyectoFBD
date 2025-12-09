@@ -8,27 +8,27 @@ INSERT INTO Tipo_Membresias (Descripcion, Costo_Mensual, CompraxPunto, Valor_Pun
 ('VIP', 15000, 100, 10, 1);
 
 -- CLIENTES
-exec sp_Cliente '111111111','Rafael Marin', 'Cartago', 'Soltero', '11111111', '2000-01-01', 'rm@example.com', 'Maculino', '2025-11-20', 133, 1
-exec sp_Cliente '112345678','Ana Gómez', 'Av. Central 123', 'Soltera', '8888-0001', '1990-05-12', 'ana@example.com', 'Femenino', '2025-11-20', 10, 1
-exec sp_Cliente '223456789','Luis Pérez', 'Calle 5, Escazú', 'Casado', '8888-0002', '1985-03-22', 'luis@example.com', 'Masculino', '2025-11-20', 4, 1
-exec sp_Cliente '334567890','María Rodríguez', 'Barrio El Molino', 'Soltera', '8888-0003', '1992-07-15', 'maria@example.com', 'Femenino', '2025-11-20', 11, 1
-exec sp_Cliente '445678901','Carlos Jiménez', 'San Pedro', 'Casado', '8888-0004', '1980-11-30', 'carlos@example.com', 'Masculino', '2025-11-20', 12, 1
-exec sp_Cliente '556789012','Laura Vargas', 'Heredia Centro', 'Soltera', '8888-0005', '1995-09-10', 'laura@example.com', 'Femenino', '2025-11-20', 13, 1
-exec sp_Cliente '667890123','Pedro Sánchez', 'Liberia', 'Casado', '8888-0006', '1988-01-05', 'pedro@example.com', 'Masculino', '2025-11-20',  15, 1
-exec sp_Cliente '778901234','Sofía Morales', 'Nicoya', 'Soltera', '8888-0007', '1993-04-18', 'sofia@example.com', 'Femenino', '2025-11-20',  16, 1
-exec sp_Cliente '189012345','Andrés Castro', 'Barranca', 'Casado', '8888-0008', '1987-06-25', 'andres@example.com', 'Masculino', '2025-11-20',  17, 1
-exec sp_Cliente '290123456','Daniela Rojas', 'Guápiles', 'Soltera', '8888-0009', '1991-12-01', 'daniela@example.com', 'Femenino', '2025-11-20',  20, 1
-exec sp_Cliente '401234567','Jorge Salas', 'Desamparados', 'Casado', '8888-0010', '1983-08-14', 'jorge@example.com', 'Masculino', '2025-11-20',  3, 1
-exec sp_Cliente '311223344','Natalia Ruiz', 'San Rafael', 'Soltera', '8888-0011', '1994-02-20', 'natalia@example.com', 'Femenino', '2025-11-20',  13, 1
-exec sp_Cliente '222334455','Esteban Mora', 'San Antonio', 'Casado', '8888-0012', '1986-07-07', 'esteban@example.com', 'Masculino', '2025-11-20',  5, 1
-exec sp_Cliente '133445566','Gabriela Soto', 'San Juan', 'Soltera', '8888-0013', '1997-03-30', 'gabriela@example.com', 'Femenino', '2025-11-20',  8, 1
-exec sp_Cliente '744556677','Ricardo León', 'San Isidro', 'Casado', '8888-0014', '1982-10-10', 'ricardo@example.com', 'Masculino', '2025-11-20',  9, 1
-exec sp_Cliente '655667788','Vanessa Chaves', 'Occidental', 'Soltera', '8888-0015', '1996-06-06', 'vanessa@example.com', 'Femenino', '2025-11-20',  10, 1
-exec sp_Cliente '566778899','Tomás Araya', 'Oriental', 'Casado', '8888-0016', '1989-09-09', 'tomas@example.com', 'Masculino', '2025-11-20',  11, 1
-exec sp_Cliente '477889900','Isabel Pineda', 'Santiago', 'Soltera', '8888-0017', '1990-01-01', 'isabel@example.com', 'Femenino', '2025-11-20',  12, 1
-exec sp_Cliente '388990011','Felipe Navarro', 'San Antonio', 'Casado', '8888-0018', '1984-04-04', 'felipe@example.com', 'Masculino', '2025-11-20',  14, 1
-exec sp_Cliente '299001122','Camila Ureña', 'Limón Centro', 'Soltera', '8888-0019', '1993-05-05', 'camila@example.com', 'Femenino', '2025-11-20',  19, 1
-exec sp_Cliente '110102233','Diego Méndez', 'Guápiles', 'Casado', '8888-0020', '1981-12-12', 'diego@example.com', 'Masculino', '2025-11-20',  20, 1
+exec sp_Cliente '111111111','Rafael Marin', 'Cartago', 'Soltero', '11111111', '2000-01-01', 'rm@example.com', 'Maculino', '2025-11-20', 'San Nicolás', 1
+exec sp_Cliente '112345678','Ana Gómez', 'Av. Central 123', 'Soltera', '8888-0001', '1990-05-12', 'ana@example.com', 'Femenino', '2025-11-20', 'Aguacaliente', 1
+exec sp_Cliente '223456789','Luis Pérez', 'Calle 5, Escazú', 'Casado', '8888-0002', '1985-03-22', 'luis@example.com', 'Masculino', '2025-11-20', 'Pitahaya', 1
+exec sp_Cliente '334567890','María Rodríguez', 'Barrio El Molino', 'Soltera', '8888-0003', '1992-07-15', 'maria@example.com', 'Femenino', '2025-11-20', 'Alajuela', 1
+exec sp_Cliente '445678901','Carlos Jiménez', 'San Pedro', 'Casado', '8888-0004', '1980-11-30', 'carlos@example.com', 'Masculino', '2025-11-20', 'Alajuela', 1
+exec sp_Cliente '556789012','Laura Vargas', 'Heredia Centro', 'Soltera', '8888-0005', '1995-09-10', 'laura@example.com', 'Femenino', '2025-11-20', 'Alajuela', 1
+exec sp_Cliente '667890123','Pedro Sánchez', 'Liberia', 'Casado', '8888-0006', '1988-01-05', 'pedro@example.com', 'Masculino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '778901234','Sofía Morales', 'Nicoya', 'Soltera', '8888-0007', '1993-04-18', 'sofia@example.com', 'Femenino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '189012345','Andrés Castro', 'Barranca', 'Casado', '8888-0008', '1987-06-25', 'andres@example.com', 'Masculino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '290123456','Daniela Rojas', 'Guápiles', 'Soltera', '8888-0009', '1991-12-01', 'daniela@example.com', 'Femenino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '401234567','Jorge Salas', 'Desamparados', 'Casado', '8888-0010', '1983-08-14', 'jorge@example.com', 'Masculino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '311223344','Natalia Ruiz', 'San Rafael', 'Soltera', '8888-0011', '1994-02-20', 'natalia@example.com', 'Femenino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '222334455','Esteban Mora', 'San Antonio', 'Casado', '8888-0012', '1986-07-07', 'esteban@example.com', 'Masculino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '133445566','Gabriela Soto', 'San Juan', 'Soltera', '8888-0013', '1997-03-30', 'gabriela@example.com', 'Femenino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '744556677','Ricardo León', 'San Isidro', 'Casado', '8888-0014', '1982-10-10', 'ricardo@example.com', 'Masculino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '655667788','Vanessa Chaves', 'Occidental', 'Soltera', '8888-0015', '1996-06-06', 'vanessa@example.com', 'Femenino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '566778899','Tomás Araya', 'Oriental', 'Casado', '8888-0016', '1989-09-09', 'tomas@example.com', 'Masculino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '477889900','Isabel Pineda', 'Santiago', 'Soltera', '8888-0017', '1990-01-01', 'isabel@example.com', 'Femenino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '388990011','Felipe Navarro', 'San Antonio', 'Casado', '8888-0018', '1984-04-04', 'felipe@example.com', 'Masculino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '299001122','Camila Ureña', 'Limón Centro', 'Soltera', '8888-0019', '1993-05-05', 'camila@example.com', 'Femenino', '2025-11-20',  'Alajuela', 1
+exec sp_Cliente '110102233','Diego Méndez', 'Guápiles', 'Casado', '8888-0020', '1981-12-12', 'diego@example.com', 'Masculino', '2025-11-20',  'Alajuela', 1
 Go
 
 --Actualizar algunas membresias
