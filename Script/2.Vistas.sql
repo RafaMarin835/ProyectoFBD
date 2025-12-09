@@ -46,7 +46,7 @@ Go
 
 --Para empleados *********************************************************---------------------------------
 	--Ver todas las auditorias de los empleados 
-	Alter VIEW vw_EmpleadosAuditorias AS
+	Create VIEW vw_EmpleadosAuditorias AS
 	select * from AuditoriaGeneral
 	go
 
