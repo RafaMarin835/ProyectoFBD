@@ -83,5 +83,15 @@ namespace ProyectoBD
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgvProductos.Visible = true;
+
+            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+            dgvProductos.DataSource = obj_recibirDatos.ObtenerProductos();
+
+
+        }
     }
 }

@@ -100,5 +100,15 @@ namespace ProyectoBD
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dgvProductos.Visible = true;
+
+            ClaseRecibirDatos obj_recibirDatos = new ClaseRecibirDatos();
+            dgvProductos.DataSource = obj_recibirDatos.ObtenerProductos();
+
+
+        }
     }
 }

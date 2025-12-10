@@ -81,12 +81,12 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(396, 180);
+            this.label4.Location = new System.Drawing.Point(318, 177);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 23);
+            this.label4.Size = new System.Drawing.Size(311, 23);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Frecuencia de pago:";
+            this.label4.Text = "Frecuencia de pago:  (Cantidad de dias)";
             // 
             // label5
             // 
@@ -102,7 +102,7 @@
             // txtIdentificacion
             // 
             this.txtIdentificacion.Location = new System.Drawing.Point(401, 98);
-            this.txtIdentificacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdentificacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Size = new System.Drawing.Size(160, 22);
             this.txtIdentificacion.TabIndex = 5;
@@ -110,7 +110,7 @@
             // txtTipoMembresia
             // 
             this.txtTipoMembresia.Location = new System.Drawing.Point(400, 151);
-            this.txtTipoMembresia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTipoMembresia.Margin = new System.Windows.Forms.Padding(4);
             this.txtTipoMembresia.Name = "txtTipoMembresia";
             this.txtTipoMembresia.Size = new System.Drawing.Size(160, 22);
             this.txtTipoMembresia.TabIndex = 6;
@@ -118,7 +118,7 @@
             // txtFrecuenciaPago
             // 
             this.txtFrecuenciaPago.Location = new System.Drawing.Point(400, 204);
-            this.txtFrecuenciaPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFrecuenciaPago.Margin = new System.Windows.Forms.Padding(4);
             this.txtFrecuenciaPago.Name = "txtFrecuenciaPago";
             this.txtFrecuenciaPago.Size = new System.Drawing.Size(160, 22);
             this.txtFrecuenciaPago.TabIndex = 7;
@@ -126,7 +126,7 @@
             // txtFechaContrato
             // 
             this.txtFechaContrato.Location = new System.Drawing.Point(401, 252);
-            this.txtFechaContrato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFechaContrato.Margin = new System.Windows.Forms.Padding(4);
             this.txtFechaContrato.Name = "txtFechaContrato";
             this.txtFechaContrato.Size = new System.Drawing.Size(160, 22);
             this.txtFechaContrato.TabIndex = 8;
@@ -135,7 +135,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(381, 298);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(199, 53);
             this.button1.TabIndex = 9;
@@ -189,7 +189,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ActualizarMembresia";
             this.Text = "ActualizarMembresia";
             this.menuStrip1.ResumeLayout(false);
